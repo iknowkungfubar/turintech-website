@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" meta name="description" content="Stop operational bottlenecks and revenue leaks. TurinTech Solutions specializes in private AI copilots, CRM automation, and managed technical operations..">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TurinTech | Full-Stack AI & Operations Consulting</title>
     <style>
         :root {
@@ -177,7 +177,7 @@
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
             gap: 2rem;
         }
 
@@ -229,7 +229,7 @@
 
         .method-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
             gap: 4rem;
         }
 
@@ -248,12 +248,63 @@
         .cta-box p { color: var(--text-muted); margin-bottom: 2.5rem; max-width: 600px; margin-left: auto; margin-right: auto; }
         .copyright { color: var(--border); font-size: 0.9rem; }
 
+        /* ================= RESPONSIVE DESIGN ================= */
         @media (max-width: 900px) {
-            h1 { font-size: 3rem; }
-            .hero { padding-top: 14rem; }
-            .header-title { display: none; /* Hide long title on small phones */ }
-            .logo { height: 160px; top: -30px; }
-            .nav-inner .btn { padding: 0.6rem 1.2rem; font-size: 0.85rem; }
+            /* Adjust typography */
+            h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.1rem; }
+            .header-title { display: none; }
+            
+            /* Responsive Header Stack */
+            .top-banner {
+                font-size: 0.75rem;
+                padding: 0.5rem;
+                height: auto;
+                line-height: 1.4;
+            }
+            header {
+                height: auto;
+                padding: 1.5rem 0;
+            }
+            .nav-inner {
+                flex-direction: column;
+                justify-content: center;
+                gap: 1.5rem;
+                height: auto;
+            }
+            .logo-link {
+                width: 100%;
+                justify-content: center;
+                height: auto;
+            }
+            .logo { 
+                position: relative;
+                top: 0;
+                height: 140px; 
+                filter: drop-shadow(0 4px 8px rgba(0,0,0,0.8));
+            }
+            .nav-actions {
+                justify-content: center;
+                flex-wrap: wrap;
+                width: 100%;
+            }
+            .nav-actions .btn { padding: 0.6rem 1.2rem; font-size: 0.9rem; }
+            
+            /* Fix Spacing */
+            .hero { padding-top: 17rem; padding-bottom: 4rem; }
+            .container { padding: 0 1.5rem; }
+            section { padding: 5rem 0; }
+            .service-card { padding: 2rem; }
+            .cta-box { padding: 3rem 1.5rem; }
+        }
+        
+        @media (max-width: 480px) {
+            h1 { font-size: 2rem; }
+            .logo { height: 120px; }
+            .hero { padding-top: 16rem; }
+            .nav-actions { flex-direction: column; gap: 0.8rem; width: 100%; }
+            .nav-actions .btn { width: 100%; text-align: center; }
+            .services-grid, .method-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
