@@ -20,7 +20,7 @@
     <meta name="twitter:title" content="TurinTech | Full-Stack AI & Operations Consulting">
     <meta name="twitter:description" content="Enterprise-grade AI consulting and technical operations. Private AI assistants, CRM automation, and managed infrastructure.">
     
-    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
     <style>
         :root {
             --bg-dark: #0a0a0a;
@@ -89,12 +89,13 @@
             display: flex;
             align-items: center;
         }
-        .header-left { justify-content: flex-start; }
-        .header-right { justify-content: flex-end; }
+        .header-left { justify-content: flex-start; min-width: 200px; }
+        .header-right { justify-content: flex-end; min-width: 200px; }
         
         .brand-logo {
             display: flex;
             justify-content: center;
+            flex: 0 0 auto;
         }
 
         .btn {
@@ -251,7 +252,7 @@
                 <a href="https://blog.turintechsolutions.com" target="_blank" rel="noopener noreferrer" class="btn outline-brand">Blog</a>
             </div>
             <a href="/" class="brand-logo">
-                <img src="favicon.png" alt="TurinTech Solutions Logo">
+                <img src="assets/TurinTechSolutionsLogo.png" alt="TurinTech Solutions Logo">
             </a>
             <div class="header-right">
                 <a href="#contact" class="btn primary">Schedule Consultation</a>
