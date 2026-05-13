@@ -3,7 +3,7 @@ export interface Props {
   webhookUrl?: string;
 }
 
-const { webhookUrl = 'https://n8n.yourdomain.com/webhook/contact' } = Astro.props;
+const { webhookUrl = 'http://localhost:5678/webhook/78cae259-95b8-4586-9033-5de69c53ca3f' } = Astro.props;
 ---
 
 <form class="contact-form" action={webhookUrl} method="POST" data-webhook={webhookUrl}>

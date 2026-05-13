@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+const _base = import.meta.env.BASE_URL;
+const base = _base.endsWith('/') ? _base : _base + '/';
 ---
 
 <Layout title="Sovereign AI Infrastructure — Private, Secure, Local-First" page="home">
@@ -18,8 +20,8 @@ import Layout from '../layouts/Layout.astro';
           your own hardware or private cloud. Your IP never leaves your control.
         </p>
         <div class="hero-actions">
-          <a href="/services/" class="btn btn-primary">Explore Services</a>
-          <a href="/about/" class="btn btn-secondary">About Us</a>
+          <a href={base + 'services/'} class="btn btn-primary">Explore Services</a>
+          <a href={base + 'about/'} class="btn btn-secondary">About Us</a>
         </div>
       </div>
     </div>
@@ -121,7 +123,7 @@ import Layout from '../layouts/Layout.astro';
         <p class="cta-text">
           Find out with a Sovereign AI & Data Audit. I'll show you exactly where your exposure is and how to fix it.
         </p>
-        <a href="/services/" class="btn btn-primary">Book an Audit</a>
+        <a href={base + 'services/'} class="btn btn-primary">Book an Audit</a>
       </div>
     </div>
   </section>
