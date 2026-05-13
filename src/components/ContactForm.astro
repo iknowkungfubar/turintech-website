@@ -6,7 +6,7 @@ export interface Props {
 const { webhookUrl = 'http://100.106.72.45:5678/webhook/78cae259-95b8-4586-9033-5de69c53ca3f' } = Astro.props;
 ---
 
-<form class="contact-form" action={webhookUrl} method="POST" data-webhook={webhookUrl}>
+<form class="contact-form" action={webhookUrl} method="POST" target="n8n-response">
   <div class="form-field">
     <label for="name" class="form-label">Name</label>
     <input type="text" id="name" name="name" class="form-input" required placeholder="Your full name" />
@@ -22,12 +22,14 @@ const { webhookUrl = 'http://100.106.72.45:5678/webhook/78cae259-95b8-4586-9033-
     <textarea id="message" name="message" class="form-input form-textarea" required placeholder="Tell us about your project..." rows="5"></textarea>
   </div>
 
-  <div class="cf-turnstile" data-sitekey="0x4AAAAAADOVEPPeIm7hkz__" data-callback="onTurnstileSuccess"></div>
+  <div class="cf-turnstile" data-sitekey="0x4AAAAAADOVEPPeIm7hkz__"></div>
 
   <button type="submit" class="btn btn-primary form-submit">Send Message</button>
 
   <p class="form-status" aria-live="polite"></p>
 </form>
+
+<iframe name="n8n-response" class="n8n-frame" onload="this.style.display='none'"></iframe>
 
 <script>
   (function () {
@@ -36,50 +38,34 @@ const { webhookUrl = 'http://100.106.72.45:5678/webhook/78cae259-95b8-4586-9033-
 
     const status = form.querySelector('.form-status');
     const submitBtn = form.querySelector('.form-submit');
-    const webhook = form.dataset.webhook;
+    const iframe = document.querySelector('.n8n-frame');
 
-    form.addEventListener('submit', async function (e) {
-      e.preventDefault();
-
-      // Basic client-side validation
-      const name = form.querySelector('#name').value.trim();
-      const email = form.querySelector('#email').value.trim();
-      const message = form.querySelector('#message').value.trim();
-
-      if (!name || !email || !message) {
-        status.textContent = 'Please fill in all fields.';
-        status.className = 'form-status form-status--error';
-        return;
-      }
-
+    form.addEventListener('submit', function () {
       submitBtn.disabled = true;
       submitBtn.textContent = 'Sending...';
       status.textContent = '';
+      status.className = 'form-status';
+    });
 
-      try {
-        const res = await fetch(webhook, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name, email, message, timestamp: new Date().toISOString() }),
-        });
-
-        if (!res.ok) throw new Error(`Server responded with ${res.status}`);
-
-        status.textContent = 'Thanks for reaching out. We\'ll get back to you soon.';
-        status.className = 'form-status form-status--success';
-        form.reset();
-      } catch (err) {
-        status.textContent = 'Something went wrong. Please try again or email us directly.';
-        status.className = 'form-status form-status--error';
-      } finally {
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Send Message';
-      }
+    iframe.addEventListener('load', function () {
+      if (!submitBtn.disabled) return;
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Message';
+      status.textContent = 'Thanks for reaching out. We\'ll get back to you soon.';
+      status.className = 'form-status form-status--success';
+      form.reset();
     });
   })();
 </script>
 
 <style>
+  .n8n-frame {
+    display: block;
+    width: 0;
+    height: 0;
+    border: none;
+  }
+
   .contact-form {
     max-width: 560px;
   }

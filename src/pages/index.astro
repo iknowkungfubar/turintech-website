@@ -101,13 +101,17 @@ const base = _base.endsWith('/') ? _base : _base + '/';
         </div>
         <div class="diff-visual" aria-hidden="true">
           <div class="diff-graphic">
-            <span class="diff-label diff-label--bad">Public AI</span>
-            <span class="diff-arrow diff-arrow--bad">&rarr;</span>
-            <span class="diff-label diff-label--bad">Data Leak</span>
-            <span class="diff-arrow diff-arrow--sep" style="margin: 0 0.5rem;">|</span>
-            <span class="diff-label diff-label--good">Sovereign AI</span>
-            <span class="diff-arrow diff-arrow--good">&rarr;</span>
-            <span class="diff-label diff-label--good">Protected</span>
+            <div class="diff-row diff-row--bad">
+              <span class="diff-label diff-label--bad">Public AI</span>
+              <span class="diff-arrow diff-arrow--bad">&rarr;</span>
+              <span class="diff-label diff-label--bad">Data Leak</span>
+            </div>
+            <div class="diff-row-divider"></div>
+            <div class="diff-row diff-row--good">
+              <span class="diff-label diff-label--good">Sovereign AI</span>
+              <span class="diff-arrow diff-arrow--good">&rarr;</span>
+              <span class="diff-label diff-label--good">Protected</span>
+            </div>
           </div>
         </div>
       </div>
@@ -242,14 +246,25 @@ const base = _base.endsWith('/') ? _base : _base + '/';
 
   .diff-graphic {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: var(--space-3);
-    padding: var(--space-8);
+    gap: var(--space-4);
+    padding: var(--space-6) var(--space-8);
     background: var(--color-bg);
     border: 1px solid var(--color-border);
     border-radius: 16px;
-    flex-wrap: wrap;
-    justify-content: center;
+  }
+
+  .diff-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .diff-row-divider {
+    width: 80%;
+    height: 1px;
+    background: var(--color-border);
   }
 
   .diff-label {
