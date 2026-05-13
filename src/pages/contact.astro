@@ -1,0 +1,103 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ContactForm from '../components/ContactForm.astro';
+---
+
+<Layout title="Contact" description="Get in touch with TurinTech Solutions. Tell us about your project." page="contact">
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <span class="section-label">Contact</span>
+      <h1>Let's <span class="text-accent">talk</span></h1>
+      <p class="page-header-sub">
+        Tell us about your project and we'll figure out the best way forward. No pressure, no jargon.
+      </p>
+    </div>
+  </section>
+
+  <!-- Form + Info -->
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid">
+        <div>
+          <ContactForm webhookUrl="https://n8n.yourdomain.com/webhook/contact" />
+        </div>
+        <aside class="contact-info">
+          <div class="contact-card">
+            <h3>Email</h3>
+            <p>
+              <a href="mailto:contact@turintechsolutions.com">contact@turintechsolutions.com</a>
+            </p>
+          </div>
+          <div class="contact-card">
+            <h3>Response time</h3>
+            <p>We typically respond within one business day.</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style is:global>
+  /* --- Page Header --- */
+  .page-header {
+    padding: var(--space-16) 0 var(--space-8);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .page-header h1 {
+    font-size: var(--text-4xl);
+    font-weight: 800;
+    margin-bottom: var(--space-4);
+  }
+
+  .page-header-sub {
+    font-size: var(--text-lg);
+    color: var(--color-text-secondary);
+    max-width: 560px;
+  }
+
+  /* --- Contact Layout --- */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: var(--space-16);
+    align-items: start;
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .contact-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: var(--space-6);
+  }
+
+  .contact-card h3 {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-text-tertiary);
+    margin-bottom: var(--space-2);
+  }
+
+  .contact-card p {
+    font-size: var(--text-base);
+    color: var(--color-text);
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+    }
+  }
+</style>

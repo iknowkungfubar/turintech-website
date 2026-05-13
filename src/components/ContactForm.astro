@@ -1,0 +1,149 @@
+---
+export interface Props {
+  webhookUrl?: string;
+}
+
+const { webhookUrl = 'https://n8n.yourdomain.com/webhook/contact' } = Astro.props;
+---
+
+<form class="contact-form" action={webhookUrl} method="POST" data-webhook={webhookUrl}>
+  <div class="form-field">
+    <label for="name" class="form-label">Name</label>
+    <input type="text" id="name" name="name" class="form-input" required placeholder="Your full name" />
+  </div>
+
+  <div class="form-field">
+    <label for="email" class="form-label">Email</label>
+    <input type="email" id="email" name="email" class="form-input" required placeholder="you@example.com" />
+  </div>
+
+  <div class="form-field">
+    <label for="message" class="form-label">Message</label>
+    <textarea id="message" name="message" class="form-input form-textarea" required placeholder="Tell us about your project..." rows="5"></textarea>
+  </div>
+
+  <div class="cf-turnstile" data-sitekey="0x4AAAAAADOVEPPeIm7hkz__" data-callback="onTurnstileSuccess"></div>
+
+  <button type="submit" class="btn btn-primary form-submit">Send Message</button>
+
+  <p class="form-status" aria-live="polite"></p>
+</form>
+
+<script>
+  (function () {
+    const form = document.querySelector('.contact-form');
+    if (!form) return;
+
+    const status = form.querySelector('.form-status');
+    const submitBtn = form.querySelector('.form-submit');
+    const webhook = form.dataset.webhook;
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      // Basic client-side validation
+      const name = form.querySelector('#name').value.trim();
+      const email = form.querySelector('#email').value.trim();
+      const message = form.querySelector('#message').value.trim();
+
+      if (!name || !email || !message) {
+        status.textContent = 'Please fill in all fields.';
+        status.className = 'form-status form-status--error';
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+      status.textContent = '';
+
+      try {
+        const res = await fetch(webhook, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, message, timestamp: new Date().toISOString() }),
+        });
+
+        if (!res.ok) throw new Error(`Server responded with ${res.status}`);
+
+        status.textContent = 'Thanks for reaching out. We\'ll get back to you soon.';
+        status.className = 'form-status form-status--success';
+        form.reset();
+      } catch (err) {
+        status.textContent = 'Something went wrong. Please try again or email us directly.';
+        status.className = 'form-status form-status--error';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Message';
+      }
+    });
+  })();
+</script>
+
+<style>
+  .contact-form {
+    max-width: 560px;
+  }
+
+  .form-field {
+    margin-bottom: var(--space-6);
+  }
+
+  .form-label {
+    display: block;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: var(--space-2);
+  }
+
+  .form-input {
+    width: 100%;
+    padding: var(--space-3) var(--space-4);
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    color: var(--color-text);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border-strong);
+    border-radius: 8px;
+    outline: none;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  }
+
+  .form-input:focus {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+  }
+
+  .form-input::placeholder {
+    color: var(--color-text-tertiary);
+  }
+
+  .form-textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .form-submit {
+    margin-top: var(--space-4);
+  }
+
+  .form-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  .form-status {
+    font-size: var(--text-sm);
+    margin-top: var(--space-4);
+    margin-bottom: 0;
+    min-height: 1.5em;
+  }
+
+  .form-status--success {
+    color: #16a34a;
+  }
+
+  .form-status--error {
+    color: #dc2626;
+  }
+</style>

@@ -1,0 +1,55 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="About — Elite Technical Architecture Without the Agency Bloat" description="Solo technical architect specializing in secure, local-first Sovereign AI infrastructure." page="about">
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <span class="section-label">About</span>
+      <h1>Elite Technical Architecture<br /><span class="text-accent">Without the Agency Bloat.</span></h1>
+    </div>
+  </section>
+
+  <!-- Body -->
+  <section class="section">
+    <div class="container">
+      <div class="about-content">
+        <p>
+          I am a solo technical architect specializing in secure, local-first infrastructure.
+          I don't run a massive agency, and I don't outsource my work. When you hire TurinTech
+          Solutions, you get direct access to a senior systems engineer who understands that
+          technology exists to protect and grow your business, not to chase the latest hype.
+          I build digital vaults for your data so you can leverage the power of AI without
+          giving away the keys to your company.
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style is:global>
+  /* --- Page Header --- */
+  .page-header {
+    padding: var(--space-16) 0 var(--space-8);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .page-header h1 {
+    font-size: var(--text-4xl);
+    font-weight: 800;
+    margin-bottom: var(--space-4);
+  }
+
+  /* --- Content --- */
+  .about-content {
+    max-width: 720px;
+  }
+
+  .about-content p {
+    font-size: var(--text-lg);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-6);
+  }
+</style>

@@ -1,0 +1,294 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+  page?: string;
+}
+
+const { title, description = 'AI and technical operations consulting for modern businesses.', page } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="TurinTech Solutions" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles/global.css" />
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+    <title>{title} — TurinTech Solutions</title>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="site-header">
+      <nav class="container nav-bar">
+        <a href="/" class="logo" aria-label="TurinTech Solutions home">
+          <img src="/images/logo.png" alt="TurinTech Solutions" class="logo-img" width="200" height="134" />
+        </a>
+        <div class="nav-links">
+          <a href="/" class:list={{ 'nav-link': true, active: page === 'home' }}>Home</a>
+          <a href="/about/" class:list={{ 'nav-link': true, active: page === 'about' }}>About</a>
+          <a href="/services/" class:list={{ 'nav-link': true, active: page === 'services' }}>Services</a>
+          <a href="/contact/" class:list={{ 'nav-link': true, active: page === 'contact' }}>Contact</a>
+        </div>
+        <div class="nav-cta-group">
+          <a href="https://blog.turintechsolutions.com" class="btn btn-blog nav-cta" target="_blank" rel="noopener noreferrer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Read My Blog
+          </a>
+          <a href="/services/" class="btn btn-primary nav-cta">Get in Touch</a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="footer-logo">
+              <img src="/images/logo.png" alt="TurinTech Solutions" class="footer-logo-img" width="120" height="80" />
+            </div>
+            <p class="footer-tagline">
+              AI and technical operations consulting. We design, build, and scale intelligent systems.
+            </p>
+          </div>
+          <div class="footer-links">
+            <div class="footer-col">
+              <h4 class="footer-heading">Pages</h4>
+              <a href="/">Home</a>
+              <a href="/about/">About</a>
+              <a href="/services/">Services</a>
+              <a href="/contact/">Contact</a>
+              <a href="https://blog.turintechsolutions.com" target="_blank" rel="noopener noreferrer">Blog</a>
+            </div>
+            <div class="footer-col">
+              <h4 class="footer-heading">Contact</h4>
+              <a href="mailto:contact@turintechsolutions.com">contact@turintechsolutions.com</a>
+            </div>
+          </div>
+        </div>
+        <hr class="divider" />
+        <p class="footer-copy">&copy; {new Date().getFullYear()} TurinTech Solutions. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  /* --- Site Header --- */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .nav-bar {
+    display: flex;
+    align-items: center;
+    height: var(--header-height);
+    gap: var(--space-8);
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    text-decoration: none;
+    margin-right: auto;
+    line-height: 0;
+  }
+
+  .logo-img {
+    height: 36px;
+    width: auto;
+    display: block;
+  }
+
+  .logo:hover {
+    opacity: 0.85;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+  }
+
+  .nav-link {
+    padding: var(--space-2) var(--space-4);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    border-radius: 6px;
+    transition: color var(--transition-fast), background var(--transition-fast);
+    text-decoration: none;
+  }
+
+  .nav-link:hover {
+    color: var(--color-text);
+    background: var(--color-surface);
+  }
+
+  .nav-link.active {
+    color: var(--color-text);
+    background: var(--color-surface);
+    font-weight: 600;
+  }
+
+  .nav-cta-group {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .nav-cta {
+    display: none;
+  }
+
+  .btn-blog {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    line-height: 1;
+    border: 2px solid var(--color-text);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    text-decoration: none;
+    background: transparent;
+    color: var(--color-text);
+  }
+
+  .btn-blog:hover {
+    background: var(--color-text);
+    color: var(--color-bg);
+  }
+
+  @media (min-width: 640px) {
+    .nav-cta {
+      display: inline-flex;
+    }
+
+    .btn-blog {
+      display: inline-flex;
+    }
+  }
+
+  @media (max-width: 639px) {
+    .nav-cta-group {
+      display: none;
+    }
+  }
+
+  /* --- Site Footer --- */
+  .site-footer {
+    border-top: 1px solid var(--color-border);
+    padding: var(--space-16) 0 var(--space-8);
+    background: var(--color-surface);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: var(--space-12);
+    margin-bottom: var(--space-12);
+  }
+
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-bottom: var(--space-3);
+    line-height: 0;
+  }
+
+  .footer-logo-img {
+    height: 48px;
+    width: auto;
+    display: block;
+  }
+
+  .footer-tagline {
+    font-size: var(--text-sm);
+    color: var(--color-text-tertiary);
+    max-width: 320px;
+    margin-bottom: 0;
+  }
+
+  .footer-links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-8);
+  }
+
+  .footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .footer-heading {
+    font-size: var(--text-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-text-tertiary);
+    margin-bottom: var(--space-1);
+  }
+
+  .footer-col a {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    text-decoration: none;
+  }
+
+  .footer-col a:hover {
+    color: var(--color-accent);
+  }
+
+  .footer-copy {
+    font-size: var(--text-xs);
+    color: var(--color-text-tertiary);
+    padding: var(--space-6) 0 0;
+    margin: 0;
+  }
+
+  @media (max-width: 640px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+    }
+
+    .footer-links {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>
