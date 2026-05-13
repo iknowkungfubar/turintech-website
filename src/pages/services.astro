@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+const _base = import.meta.env.BASE_URL;
+const base = _base.endsWith('/') ? _base : _base + '/';
 ---
 
 <Layout title="Services — Sovereign AI, Fractional CTO, Local AI Infrastructure" page="services">
@@ -137,7 +139,7 @@ import Layout from '../layouts/Layout.astro';
         <p class="cta-text">
           Send me a message and I'll help you figure it out. No sales pitch — just a conversation about what you need.
         </p>
-        <a href="/contact/" class="btn btn-primary">Get in Touch</a>
+        <a href={base + 'contact/'} class="btn btn-primary">Get in Touch</a>
       </div>
     </div>
   </section>
