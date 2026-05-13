@@ -9,6 +9,7 @@ const base = _base.endsWith('/') ? _base : _base + '/';
   <section class="hero">
     <div class="container">
       <div class="hero-content">
+        <img src={base + 'images/logo-hero.png'} alt="TurinTech Solutions" class="hero-logo" />
         <span class="section-label">Sovereign AI Infrastructure</span>
         <h1 class="hero-title">
           Your AI. Your Rules.<br />
@@ -155,6 +156,13 @@ const base = _base.endsWith('/') ? _base : _base + '/';
   .hero-content {
     position: relative;
     max-width: 720px;
+  }
+
+  .hero-logo {
+    display: block;
+    height: 400px;
+    width: auto;
+    margin-bottom: var(--space-8);
   }
 
   .hero-title {

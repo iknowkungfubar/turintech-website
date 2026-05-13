@@ -37,9 +37,9 @@ const base = _b.endsWith('/') ? _b : _b + '/';
     <!-- Header -->
     <header class="site-header">
       <nav class="container nav-bar">
-        <a href={base} class="logo" aria-label="TurinTech Solutions home">
-          <img src={base + 'images/logo.png'} alt="TurinTech Solutions" class="logo-img" width="200" height="134" />
-        </a>
+         <a href={base} class="logo" aria-label="TurinTech Solutions home">
+           <img src={base + 'images/logo.png'} alt="TurinTech Solutions" class="header-logo" />
+         </a>
         <div class="nav-links">
           <a href={base} class:list={{ 'nav-link': true, active: page === 'home' }}>Home</a>
           <a href={base + 'about/'} class:list={{ 'nav-link': true, active: page === 'about' }}>About</a>
@@ -51,7 +51,7 @@ const base = _b.endsWith('/') ? _b : _b + '/';
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
             Read My Blog
           </a>
-          <a href={base + 'services/'} class="btn btn-primary nav-cta">Get in Touch</a>
+           <a href={base + 'contact/'} class="btn btn-primary nav-cta">Get in Touch</a>
         </div>
       </nav>
     </header>
@@ -67,7 +67,7 @@ const base = _b.endsWith('/') ? _b : _b + '/';
         <div class="footer-grid">
           <div class="footer-brand">
             <div class="footer-logo">
-              <img src={base + 'images/logo.png'} alt="TurinTech Solutions" class="footer-logo-img" width="120" height="80" />
+              <img src={base + 'images/logo-small.png'} alt="TurinTech Solutions" class="footer-logo-img" width="auto" height="60" />
             </div>
             <p class="footer-tagline">
               AI and technical operations consulting. We design, build, and scale intelligent systems.
@@ -384,16 +384,28 @@ const base = _b.endsWith('/') ? _b : _b + '/';
     border: none;
   }
 
-  /* --- Site Header --- */
-  .site-header {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(255, 255, 255, 0.92);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--color-border);
-  }
+   /* --- Site Header --- */
+   .site-header {
+     position: sticky;
+     top: 0;
+     z-index: 100;
+     background: rgba(255, 255, 255, 0.92);
+     backdrop-filter: blur(12px);
+     -webkit-backdrop-filter: blur(12px);
+     border-bottom: 1px solid var(--color-border);
+   }
+   
+   .header-logo {
+     height: 80px;
+     width: auto;
+     display: block;
+   }
+   
+   @media (max-width: 640px) {
+     .header-logo {
+       height: 60px;
+     }
+   }
 
   .nav-bar {
     display: flex;
@@ -411,10 +423,12 @@ const base = _b.endsWith('/') ? _b : _b + '/';
     line-height: 0;
   }
 
-  .logo-img {
-    height: 52px;
-    width: auto;
-    display: block;
+  .logo-text {
+    font-size: var(--text-xl);
+    font-weight: 800;
+    color: var(--color-text);
+    letter-spacing: var(--tracking-tight);
+    line-height: 1;
   }
 
   .logo:hover {
