@@ -76,10 +76,7 @@ const { webhookUrl = 'http://100.106.72.45:5678/webhook/2026bf60-b2cc-4736-bc34-
 
       fetch(webhookUrl, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-Turnstile-Token': turnstileToken
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
       })
         .then(function (response) {
