@@ -156,33 +156,38 @@ const base = _base.endsWith('/') ? _base : _base + '/';
   .hero-content {
     position: relative;
     max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
   }
-
+  
   .hero-logo {
     display: block;
     height: 400px;
     width: auto;
-    margin-bottom: var(--space-8);
+    margin: 0 auto var(--space-8);
   }
-
+  
   .hero-title {
     font-size: clamp(2.25rem, 5vw, var(--text-6xl));
     font-weight: 800;
     margin-bottom: var(--space-6);
     line-height: var(--leading-tight);
+    text-align: center;
   }
-
+  
   .hero-subtitle {
     font-size: var(--text-lg);
     color: var(--color-text-secondary);
     max-width: 600px;
-    margin-bottom: var(--space-8);
+    margin: 0 auto var(--space-8);
+    text-align: center;
   }
-
+  
   .hero-actions {
     display: flex;
     gap: var(--space-4);
     flex-wrap: wrap;
+    justify-content: center;
   }
 
   /* --- Problem Section --- */
