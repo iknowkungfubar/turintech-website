@@ -1,0 +1,178 @@
+{
+  "name": "TurinTech Lead Capture → Cloudflare Verify → Twenty CRM",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "2026bf60-b2cc-4736-bc34-44895d37076e",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "name": "Webhook: Lead Capture",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [250, 300],
+      "webhookId": "2026bf60-b2cc-4736-bc34-44895d37076e",
+      "id": "webhook-lead-capture"
+    },
+    {
+      "parameters": {
+        "url": "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+        "method": "POST",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"secret\": \"0x4AAAAAADOVEJ5p2h-4cYwZWcpd_2xyD7s\",\n  \"response\": \"{{ $json.body[\\\"cf-turnstile-response\\\"] }}\",\n  \"remoteip\": \"{{ $json.headers[\\\"x-forwarded-for\\\"] || $json.headers[\\\"x-real-ip\\\"] || \\\"\\\" }}\"\n}",
+        "options": {}
+      },
+      "name": "HTTP: Verify Turnstile",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [480, 300],
+      "id": "http-verify-turnstile"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "c8f6a1b2-0000-0000-0000-000000000001",
+              "leftValue": "={{ $json.success }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "name": "If: Turnstile Valid",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [720, 300],
+      "id": "if-turnstile-valid"
+    },
+    {
+      "parameters": {
+        "url": "http://100.106.72.45:3001/rest/people",
+        "method": "POST",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkNmZlM2FjNS00NjVmLTRkNzktODM1Yy04MWU2ZDdiMGNlYTUiLCJ0eXBlIjoiQVBJX0tFWSIsIndvcmtzcGFjZUlkIjoiZDZmZTNhYzUtNDY1Zi00ZDc5LTgzNWMtODFlNmQ3YjBjZWE1IiwiaWF0IjoxNzc4NjU3NjI0LCJleHAiOjQ5MzIyNTc2MjMsImp0aSI6IjBhN2M3MmQ2LWNhZDQtNDQwZi05YmJjLTI0NjM3MzM1NWNhNiJ9.9uVP2WMB0VEDnKzAqlNGi5kPBNPXcgWKdhV_vvs2KTc"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"name\": \"{{ $('Webhook: Lead Capture').item.json.body.name }}\",\n  \"emails\": [\n    {\n      \"email\": \"{{ $('Webhook: Lead Capture').item.json.body.email }}\",\n      \"label\": \"work\"\n    }\n  ],\n  \"type\": \"lead\"\n}",
+        "options": {}
+      },
+      "name": "HTTP: Create Person in Twenty",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [960, 240],
+      "id": "http-create-person"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "name": "Respond: Rejected",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.2,
+      "position": [960, 420],
+      "id": "respond-rejected"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "name": "Respond: Success",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.2,
+      "position": [1200, 240],
+      "id": "respond-success"
+    }
+  ],
+  "connections": {
+    "Webhook: Lead Capture": {
+      "main": [
+        [
+          {
+            "node": "HTTP: Verify Turnstile",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP: Verify Turnstile": {
+      "main": [
+        [
+          {
+            "node": "If: Turnstile Valid",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If: Turnstile Valid": {
+      "main": [
+        [
+          {
+            "node": "HTTP: Create Person in Twenty",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond: Rejected",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP: Create Person in Twenty": {
+      "main": [
+        [
+          {
+            "node": "Respond: Success",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false,
+  "pinData": {}
+}

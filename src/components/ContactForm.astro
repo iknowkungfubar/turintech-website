@@ -3,18 +3,18 @@ export interface Props {
   webhookUrl?: string;
 }
 
-const { webhookUrl = 'http://100.106.72.45:5678/webhook/78cae259-95b8-4586-9033-5de69c53ca3f' } = Astro.props;
+const { webhookUrl = 'http://100.106.72.45:5678/webhook/2026bf60-b2cc-4736-bc34-44895d37076e' } = Astro.props;
 ---
 
-<form class="contact-form" action={webhookUrl} method="POST" target="n8n-response">
+<form class="contact-form" id="contact-form" data-webhook={webhookUrl}>
   <div class="form-field">
     <label for="name" class="form-label">Name</label>
-    <input type="text" id="name" name="name" class="form-input" required placeholder="Your full name" />
+    <input type="text" id="name" name="name" class="form-input" required autocomplete="name" placeholder="Your full name" />
   </div>
 
   <div class="form-field">
     <label for="email" class="form-label">Email</label>
-    <input type="email" id="email" name="email" class="form-input" required placeholder="you@example.com" />
+    <input type="email" id="email" name="email" class="form-input" required autocomplete="email" placeholder="you@company.com" />
   </div>
 
   <div class="form-field">
@@ -22,50 +22,94 @@ const { webhookUrl = 'http://100.106.72.45:5678/webhook/78cae259-95b8-4586-9033-
     <textarea id="message" name="message" class="form-input form-textarea" required placeholder="Tell us about your project..." rows="5"></textarea>
   </div>
 
-  <div class="cf-turnstile" data-sitekey="0x4AAAAAADOVEPPeIm7hkz__"></div>
+  <div class="cf-turnstile" data-sitekey="0x4AAAAAADOVEPPeIm7hkz__" data-callback="onTurnstileLoad"></div>
 
-  <button type="submit" class="btn btn-primary form-submit">Send Message</button>
+  <button type="submit" class="btn btn-primary form-submit" id="form-submit">Send Message</button>
 
-  <p class="form-status" aria-live="polite"></p>
+  <p class="form-status" id="form-status" aria-live="polite"></p>
 </form>
-
-<iframe name="n8n-response" class="n8n-frame" onload="this.style.display='none'"></iframe>
 
 <script>
   (function () {
-    const form = document.querySelector('.contact-form');
+    'use strict';
+
+    const form = document.getElementById('contact-form');
     if (!form) return;
 
-    const status = form.querySelector('.form-status');
-    const submitBtn = form.querySelector('.form-submit');
-    const iframe = document.querySelector('.n8n-frame');
+    const submitBtn = document.getElementById('form-submit');
+    const statusEl = document.getElementById('form-status');
+    const webhookUrl = form.getAttribute('data-webhook');
 
-    form.addEventListener('submit', function () {
+    let turnstileToken = '';
+
+    window.onTurnstileLoad = function (token) {
+      turnstileToken = token;
+    };
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      if (!turnstileToken) {
+        setStatus('Please complete the verification.', 'error');
+        return;
+      }
+
+      const name = form.querySelector('#name').value.trim();
+      const email = form.querySelector('#email').value.trim();
+      const message = form.querySelector('#message').value.trim();
+
+      if (!name || !email || !message) {
+        setStatus('Please fill in all required fields.', 'error');
+        return;
+      }
+
       submitBtn.disabled = true;
       submitBtn.textContent = 'Sending...';
-      status.textContent = '';
-      status.className = 'form-status';
+      setStatus('', '');
+
+      const payload = {
+        name: name,
+        email: email,
+        message: message,
+        'cf-turnstile-response': turnstileToken
+      };
+
+      fetch(webhookUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+        .then(function (response) {
+          if (response.ok) {
+            setStatus('Thanks for reaching out. We will get back to you soon.', 'success');
+            form.reset();
+            turnstileToken = '';
+            if (typeof turnstile !== 'undefined') {
+              turnstile.reset();
+            }
+          } else {
+            return response.text().then(function (text) {
+              throw new Error(text || 'Submission failed. Please try again.');
+            });
+          }
+        })
+        .catch(function (err) {
+          setStatus(err.message || 'An unexpected error occurred. Please try again.', 'error');
+        })
+        .finally(function () {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send Message';
+        });
     });
 
-    iframe.addEventListener('load', function () {
-      if (!submitBtn.disabled) return;
-      submitBtn.disabled = false;
-      submitBtn.textContent = 'Send Message';
-      status.textContent = 'Thanks for reaching out. We\'ll get back to you soon.';
-      status.className = 'form-status form-status--success';
-      form.reset();
-    });
+    function setStatus(message, type) {
+      statusEl.textContent = message;
+      statusEl.className = 'form-status' + (type ? ' form-status--' + type : '');
+    }
   })();
 </script>
 
 <style>
-  .n8n-frame {
-    display: block;
-    width: 0;
-    height: 0;
-    border: none;
-  }
-
   .contact-form {
     max-width: 560px;
   }
