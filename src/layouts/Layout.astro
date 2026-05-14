@@ -42,10 +42,10 @@ const base = _b.endsWith('/') ? _b : _b + '/';
            </a>
          )}
          <div class="nav-links">
-           <a href={base} class:list={{ 'nav-link': true, active: page === 'home' }}>Home</a>
-           <a href={base + 'about/'} class:list={{ 'nav-link': true, active: page === 'about' }}>About</a>
-           <a href={base + 'services/'} class:list={{ 'nav-link': true, active: page === 'services' }}>Services</a>
-           <a href={base + 'contact/'} class:list={{ 'nav-link': true, active: page === 'contact' }}>Contact</a>
+            <a href={base} class:list={{ 'nav-link': true, active: page === 'home' }}>Home</a>
+            <a href={base + 'about'} class:list={{ 'nav-link': true, active: page === 'about' }}>About</a>
+            <a href={base + 'services'} class:list={{ 'nav-link': true, active: page === 'services' }}>Services</a>
+            <a href={base + 'contact'} class:list={{ 'nav-link': true, active: page === 'contact' }}>Contact</a>
          </div>
          <div class="nav-cta-group">
            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
@@ -56,7 +56,7 @@ const base = _b.endsWith('/') ? _b : _b + '/';
              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
              Read My Blog
            </a>
-           <a href={base + 'contact/'} class="btn btn-primary nav-cta">Get in Touch</a>
+            <a href={base + 'contact'} class="btn btn-primary nav-cta">Get in Touch</a>
          </div>
        </nav>
      </header>
@@ -70,26 +70,23 @@ const base = _b.endsWith('/') ? _b : _b + '/';
     <footer class="site-footer">
       <div class="container">
         <div class="footer-grid">
-          <div class="footer-brand">
-            <div class="footer-logo">
-              <img src={base + 'images/logo-small.png'} alt="TurinTech Solutions" class="footer-logo-img" width="auto" height="60" />
-            </div>
-            <p class="footer-tagline">
-              AI and technical operations consulting. We design, build, and scale intelligent systems.
-            </p>
-          </div>
+           <div class="footer-brand">
+             <p class="footer-tagline">
+               AI and technical operations consulting. We design, build, and scale intelligent systems.
+             </p>
+           </div>
           <div class="footer-links">
             <div class="footer-col">
               <h4 class="footer-heading">Pages</h4>
-              <a href={base}>Home</a>
-              <a href={base + 'about/'}>About</a>
-              <a href={base + 'services/'}>Services</a>
-              <a href={base + 'contact/'}>Contact</a>
+               <a href={base}>Home</a>
+               <a href={base + 'about'}>About</a>
+               <a href={base + 'services'}>Services</a>
+               <a href={base + 'contact'}>Contact</a>
               <a href="https://blog.turintechsolutions.com" target="_blank" rel="noopener noreferrer">Blog</a>
             </div>
             <div class="footer-col">
               <h4 class="footer-heading">Contact</h4>
-              <a href={base + 'contact/'}>Contact Form</a>
+               <a href={base + 'contact'}>Contact Form</a>
             </div>
           </div>
         </div>
@@ -461,6 +458,158 @@ const base = _b.endsWith('/') ? _b : _b + '/';
      justify-content: center;
      height: var(--header-height);
      gap: var(--space-8);
+   }
+   
+   .logo {
+     display: flex;
+     align-items: center;
+     gap: var(--space-3);
+     text-decoration: none;
+     line-height: 0;
+   }
+   
+   .logo-text {
+     font-size: var(--text-xl);
+     font-weight: 800;
+     color: var(--color-text);
+     letter-spacing: var(--tracking-tight);
+     line-height: 1;
+   }
+   
+   .logo:hover {
+     opacity: 0.85;
+   }
+   
+   /* Logo size varies by page */
+   .header-logo {
+     height: 80px;
+     width: auto;
+     display: block;
+   }
+   
+   /* On non-home pages, make logo 5x bigger (approx 400px) and increase header height */
+   body:not(.home-page) {
+     --header-height: 420px;
+   }
+   
+   body:not(.home-page) .header-logo {
+     height: 400px;
+     width: auto;
+   }
+   
+   @media (max-width: 640px) {
+     .header-logo {
+       height: 60px;
+     }
+     
+     body:not(.home-page) .header-logo {
+       height: 200px;
+     }
+     
+     .nav-bar {
+       height: auto;
+       flex-direction: column;
+       padding: var(--space-4) 0;
+     }
+   }
+   
+   .nav-links {
+     display: flex;
+     align-items: center;
+     gap: var(--space-1);
+   }
+   
+   .nav-link {
+     padding: var(--space-2) var(--space-4);
+     font-size: var(--text-sm);
+     font-weight: 500;
+     color: var(--color-text-secondary);
+     border-radius: 6px;
+     transition: color var(--transition-fast), background var(--transition-fast);
+     text-decoration: none;
+   }
+   
+   .nav-link:hover {
+     color: var(--color-text);
+     background: var(--color-surface);
+   }
+   
+   .nav-link.active {
+     color: var(--color-text);
+     background: var(--color-surface);
+     font-weight: 600;
+   }
+   
+   .nav-cta-group {
+     display: flex;
+     align-items: center;
+     gap: var(--space-3);
+   }
+   
+   .nav-cta {
+     display: none;
+   }
+   
+   .btn-blog {
+     display: inline-flex;
+     align-items: center;
+     gap: var(--space-2);
+     padding: var(--space-2) var(--space-4);
+     font-family: var(--font-sans);
+     font-size: var(--text-sm);
+     font-weight: 600;
+     line-height: 1;
+     border: 2px solid var(--color-text);
+     border-radius: 8px;
+     cursor: pointer;
+     transition: all var(--transition-base);
+     text-decoration: none;
+     background: transparent;
+     color: var(--color-text);
+   }
+   
+   .btn-blog:hover {
+     background: var(--color-text);
+     color: var(--color-bg);
+   }
+   
+   .theme-toggle {
+     background: none;
+     border: none;
+     cursor: pointer;
+     color: var(--color-text);
+     padding: var(--space-2);
+     border-radius: 50%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     transition: background var(--transition-fast);
+   }
+   
+   .theme-toggle:hover {
+     background: var(--color-surface-hover);
+   }
+   
+   .theme-toggle .sun { display: block; }
+   .theme-toggle .moon { display: none; }
+   
+   body.dark .theme-toggle .sun { display: none; }
+   body.dark .theme-toggle .moon { display: block; }
+   
+   @media (min-width: 640px) {
+     .nav-cta {
+       display: inline-flex;
+     }
+     
+     .btn-blog {
+       display: inline-flex;
+     }
+   }
+   
+   @media (max-width: 639px) {
+     .nav-cta-group {
+       display: none;
+     }
    }
    
    .logo {
