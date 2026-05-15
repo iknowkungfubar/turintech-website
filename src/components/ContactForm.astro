@@ -22,7 +22,7 @@ const { webhookUrl = 'http://100.106.72.45:5678/webhook/2026bf60-b2cc-4736-bc34-
     <textarea id="message" name="message" class="form-input form-textarea" required placeholder="Tell us about your project..." rows="5"></textarea>
   </div>
 
-  <div class="cf-turnstile" data-sitekey="0x4AAAAAADPbMUArDsI64JW1" data-callback="onTurnstileLoad"></div>
+  <div class="cf-turnstile" data-sitekey="0x4AAAAAADPbMUArDsI64JW1" data-callback="onTurnstileLoad" data-size="normal"></div>
 
   <button type="submit" class="btn btn-primary form-submit" id="form-submit">Send Message</button>
 
@@ -42,8 +42,11 @@ const { webhookUrl = 'http://100.106.72.45:5678/webhook/2026bf60-b2cc-4736-bc34-
 
     let turnstileToken = '';
 
+    console.log('Turnstile widget loaded, token:', turnstileToken);
+
     window.onTurnstileLoad = function (token) {
       turnstileToken = token;
+      console.log('Turnstile token received:', token ? token.substring(0, 30) + '...' : 'EMPTY');
     };
 
     form.addEventListener('submit', function (e) {
