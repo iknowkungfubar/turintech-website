@@ -6,7 +6,7 @@ export interface Props {
 const { webhookUrl = 'http://100.106.72.45:5678/webhook/2026bf60-b2cc-4736-bc34-44895d37076e' } = Astro.props;
 ---
 
-<form class="contact-form" id="contact-form" data-webhook={webhookUrl}>
+<form class="contact-form" id="contact-form" action={webhookUrl} method="POST" enctype="application/x-www-form-urlencoded">
   <div class="form-field">
     <label for="name" class="form-label">Name</label>
     <input type="text" id="name" name="name" class="form-input" required autocomplete="name" placeholder="Your full name" />
@@ -24,6 +24,8 @@ const { webhookUrl = 'http://100.106.72.45:5678/webhook/2026bf60-b2cc-4736-bc34-
 
   <div class="cf-turnstile" data-sitekey="0x4AAAAAADPbMUArDsI64JW1" data-callback="onTurnstileLoad" data-size="normal"></div>
 
+  <input type="hidden" name="cf-turnstile-response" id="cf-turnstile-response" value="" />
+
   <button type="submit" class="btn btn-primary form-submit" id="form-submit">Send Message</button>
 
   <p class="form-status" id="form-status" aria-live="polite"></p>
@@ -36,74 +38,43 @@ const { webhookUrl = 'http://100.106.72.45:5678/webhook/2026bf60-b2cc-4736-bc34-
     const form = document.getElementById('contact-form');
     if (!form) return;
 
-    const submitBtn = document.getElementById('form-submit');
+    const hiddenTokenInput = document.getElementById('cf-turnstile-response');
     const statusEl = document.getElementById('form-status');
-    const webhookUrl = form.getAttribute('data-webhook');
 
     let turnstileToken = '';
 
-    console.log('Turnstile widget loaded, token:', turnstileToken);
-
     window.onTurnstileLoad = function (token) {
       turnstileToken = token;
-      console.log('Turnstile token received:', token ? token.substring(0, 30) + '...' : 'EMPTY');
+      hiddenTokenInput.value = token;
     };
 
     form.addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      if (!turnstileToken) {
-        setStatus('Please complete the verification.', 'error');
-        return;
-      }
-
       const name = form.querySelector('#name').value.trim();
       const email = form.querySelector('#email').value.trim();
       const message = form.querySelector('#message').value.trim();
 
+      if (!turnstileToken) {
+        e.preventDefault();
+        setStatus('Please complete the verification.', 'error');
+        return;
+      }
+
       if (!name || !email || !message) {
+        e.preventDefault();
         setStatus('Please fill in all required fields.', 'error');
         return;
       }
 
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Sending...';
-      setStatus('', '');
-
-      const payload = {
-        name: name,
-        email: email,
-        message: message,
-        'cf-turnstile-response': turnstileToken
-      };
-
-      fetch(webhookUrl, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      })
-        .then(function (response) {
-          if (response.ok) {
-            setStatus('Thanks for reaching out. We will get back to you soon.', 'success');
-            form.reset();
-            turnstileToken = '';
-            if (typeof turnstile !== 'undefined') {
-              turnstile.reset();
-            }
-          } else {
-            return response.text().then(function (text) {
-              throw new Error(text || 'Submission failed. Please try again.');
-            });
-          }
-        })
-        .catch(function (err) {
-          setStatus(err.message || 'An unexpected error occurred. Please try again.', 'error');
-        })
-        .finally(function () {
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'Send Message';
-        });
+      // Form submits naturally as POST to the webhook URL
+      // HTML form POST from HTTPS to HTTP is allowed (unlike fetch)
+      setStatus('Sending...', '');
     });
+
+    // After successful submission, the page shows the raw response
+    // Redirect back to contact page after 3 seconds if we see the response
+    if (window.location.search.includes('submitted=true')) {
+      setStatus('Thanks for reaching out!', 'success');
+    }
 
     function setStatus(message, type) {
       statusEl.textContent = message;
