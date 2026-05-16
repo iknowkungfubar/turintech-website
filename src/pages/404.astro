@@ -1,0 +1,16 @@
+---
+import Layout from '../layouts/Layout.astro';
+const base = (import.meta.env.BASE_URL || '').endsWith('/') ? import.meta.env.BASE_URL : (import.meta.env.BASE_URL || '') + '/';
+---
+
+<Layout title="Page Not Found">
+  <section class="section">
+    <div class="container" style="text-align:center;padding:var(--space-24) 0;">
+      <h1 style="font-size:clamp(3rem,8vw,var(--text-6xl));margin-bottom:var(--space-4);">404</h1>
+      <p style="font-size:var(--text-lg);color:var(--color-text-secondary);margin-bottom:var(--space-8);">
+        The page you are looking for does not exist or has been moved.
+      </p>
+      <a href={base} class="btn btn-primary">Return Home</a>
+    </div>
+  </section>
+</Layout>

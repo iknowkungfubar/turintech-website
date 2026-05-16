@@ -5,7 +5,8 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
   site: 'https://turintechsolutions.com',
   build: {
-    format: 'directory',
+    format: "directory",
+    inlineStylesheets: "always",
     inlineStylesheets: 'always',
   },
 });

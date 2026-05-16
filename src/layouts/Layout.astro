@@ -23,6 +23,8 @@ const base = _b.endsWith('/') ? _b : _b + '/';
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TurinTech Solutions" />
     <meta name="twitter:card" content="summary_large_image" />
+    <!-- Google Search Console -->
+    <meta name="google-site-verification" content="REPLACE_WITH_GOOGLE_SEARCH_CONSOLE_VERIFICATION_CODE" />
     <link rel="icon" type="image/png" href={base + 'favicon.png'} />
     <link rel="canonical" href={`https://turintechsolutions.com${base}`} />
     <meta name="robots" content="index, follow" />
@@ -45,11 +47,11 @@ const base = _b.endsWith('/') ? _b : _b + '/';
         }
       `}
     </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" /></noscript>
+    <!-- DNS prefetch for external domains -->
+    <link rel="dns-prefetch" href="https://blog.turintechsolutions.com" />
+    <!-- Self-hosted Inter variable font -->
+    <link rel="preload" href={base + 'fonts/inter-var-latin.woff2'} as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href={base + 'fonts/inter.css'} />
     <link rel="preload" href={base + 'images/logo.webp'} as="image" fetchpriority="high" type="image/webp" />
     <title>{title} &mdash; TurinTech Solutions</title>
   </head>
