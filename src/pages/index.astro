@@ -276,14 +276,14 @@ const base = _base.endsWith('/') ? _base : _base + '/';
 </Layout>
 
 <style is:global>
-  .hero { padding: var(--space-10) 0 var(--space-12); overflow: hidden; }
+  .hero { padding: var(--space-4) 0 var(--space-8); overflow: hidden; }
   .hero-content { max-width: 720px; margin: 0 auto; text-align: center; }
-  .hero-logo { display: block; width: 100%; max-width: 600px; height: auto; margin: 0 auto var(--space-4); }
-  @media (max-width: 640px) { .hero-logo { max-width: 90%; } .hero { padding: var(--space-6) 0 var(--space-8); } }
+  .hero-logo { display: block; width: 100%; max-width: 600px; height: auto; margin: 0 auto var(--space-2); }
+  @media (max-width: 640px) { .hero-logo { max-width: 90%; } .hero { padding: var(--space-2) 0 var(--space-4); } }
   .hero-label { font-size: var(--text-base); }
   @media (min-width: 768px) { .hero-label { font-size: var(--text-lg); } }
-  .hero-title { font-size: clamp(1.75rem, 4vw, var(--text-4xl)); font-weight: 800; margin-bottom: var(--space-6); line-height: var(--leading-tight); }
-  .hero-subtitle { font-size: var(--text-lg); color: var(--color-text-secondary); max-width: 600px; margin: 0 auto var(--space-6); }
+  .hero-title { font-size: clamp(1.75rem, 4vw, var(--text-4xl)); font-weight: 800; margin-bottom: var(--space-4); line-height: var(--leading-tight); }
+  .hero-subtitle { font-size: var(--text-lg); color: var(--color-text-secondary); max-width: 600px; margin: 0 auto var(--space-4); }
   .hero-actions { display: flex; gap: var(--space-4); flex-wrap: wrap; justify-content: center; }
 
   .problem-content { max-width: 720px; margin-bottom: var(--space-12); }
