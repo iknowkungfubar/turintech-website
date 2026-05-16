@@ -6,7 +6,7 @@ export interface Props {
 const { webhookUrl = 'http://100.106.72.45:3456/lead' } = Astro.props;
 ---
 
-<form class="contact-form" id="contact-form" action={webhookUrl} method="POST" enctype="application/x-www-form-urlencoded">
+<form class="contact-form" id="contact-form">
   <div class="form-field">
     <label for="name" class="form-label">Name</label>
     <input type="text" id="name" name="name" class="form-input" required autocomplete="name" placeholder="Your full name" />
@@ -22,10 +22,6 @@ const { webhookUrl = 'http://100.106.72.45:3456/lead' } = Astro.props;
     <textarea id="message" name="message" class="form-input form-textarea" required placeholder="Tell us about your project..." rows="5"></textarea>
   </div>
 
-  <div class="cf-turnstile" data-sitekey="0x4AAAAAADPbMUArDsI64JW1" data-callback="onTurnstileLoad" data-size="normal"></div>
-
-  <input type="hidden" name="cf-turnstile-response" id="cf-turnstile-response" value="" />
-
   <button type="submit" class="btn btn-primary form-submit" id="form-submit">Send Message</button>
 
   <p class="form-status" id="form-status" aria-live="polite"></p>
@@ -38,43 +34,50 @@ const { webhookUrl = 'http://100.106.72.45:3456/lead' } = Astro.props;
     const form = document.getElementById('contact-form');
     if (!form) return;
 
-    const hiddenTokenInput = document.getElementById('cf-turnstile-response');
+    const submitBtn = document.getElementById('form-submit');
     const statusEl = document.getElementById('form-status');
-
-    let turnstileToken = '';
-
-    window.onTurnstileLoad = function (token) {
-      turnstileToken = token;
-      hiddenTokenInput.value = token;
-    };
+    const apiUrl = {$webhookUrl};
 
     form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
       const name = form.querySelector('#name').value.trim();
       const email = form.querySelector('#email').value.trim();
       const message = form.querySelector('#message').value.trim();
 
-      if (!turnstileToken) {
-        e.preventDefault();
-        setStatus('Please complete the verification.', 'error');
-        return;
-      }
-
       if (!name || !email || !message) {
-        e.preventDefault();
         setStatus('Please fill in all required fields.', 'error');
         return;
       }
 
-      // Form submits naturally as POST to the webhook URL
-      // HTML form POST from HTTPS to HTTP is allowed (unlike fetch)
-      setStatus('Sending...', '');
-    });
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+      setStatus('', '');
 
-    // After successful submission, the page shows the raw response
-    // Redirect back to contact page after 3 seconds if we see the response
-    if (window.location.search.includes('submitted=true')) {
-      setStatus('Thanks for reaching out!', 'success');
-    }
+      fetch(apiUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, message })
+      })
+        .then(function (r) {
+          if (r.ok) {
+            setStatus(
+              'Thank you for reaching out. A member of our team will review your message and respond promptly. We look forward to connecting with you.',
+              'success'
+            );
+            form.reset();
+          } else {
+            return r.text().then(function (t) { throw new Error(t || 'Submission failed'); });
+          }
+        })
+        .catch(function (err) {
+          setStatus('We encountered an issue processing your request. Please try again or contact us directly.', 'error');
+        })
+        .finally(function () {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send Message';
+        });
+    });
 
     function setStatus(message, type) {
       statusEl.textContent = message;
