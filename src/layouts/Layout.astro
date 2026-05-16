@@ -33,17 +33,15 @@ const base = _b.endsWith('/') ? _b : _b + '/';
     <!-- Header -->
     <header class="site-header">
       <nav class="container nav-bar">
-        <a href={base} class="logo" aria-label="TurinTech Solutions home">
-          <img src={base + 'images/logo.png'} alt="TurinTech Solutions" class="header-logo" />
-        </a>
+        <a href={base} class="logo-text">TurinTech Solutions &mdash; AI and Technical Operations Consulting</a>
         <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
           <span></span><span></span><span></span>
         </button>
         <div class="nav-right" id="nav-right">
           <div class="nav-links">
+            <a href={base} class="nav-link">Home</a>
             <a href={base + '#services'} class="nav-link">Services</a>
             <a href={base + '#about'} class="nav-link">About</a>
-            <a href={base + '#contact-form-section'} class="nav-link">Contact</a>
             <a href="https://blog.turintechsolutions.com" class="btn btn-blog nav-cta" target="_blank" rel="noopener noreferrer">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
               Blog
@@ -66,9 +64,9 @@ const base = _b.endsWith('/') ? _b : _b + '/';
             AI and technical operations consulting. We design, build, and scale intelligent systems.
           </p>
           <div class="footer-links">
+            <a href={base}>Home</a>
             <a href={base + '#services'}>Services</a>
             <a href={base + '#about'}>About</a>
-            <a href={base + '#contact-form-section'}>Contact</a>
             <a href="https://blog.turintechsolutions.com" target="_blank" rel="noopener noreferrer">Blog</a>
           </div>
         </div>
@@ -280,19 +278,23 @@ const base = _b.endsWith('/') ? _b : _b + '/';
     height: var(--header-height);
   }
 
-  .logo {
-    display: flex;
-    align-items: center;
+  .logo-text {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-text);
     text-decoration: none;
-    line-height: 0;
+    letter-spacing: var(--tracking-tight);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     flex-shrink: 0;
   }
 
-  .header-logo {
-    height: 48px;
-    width: auto;
-    max-width: 100%;
-    display: block;
+  @media (max-width: 640px) {
+    .logo-text {
+      font-size: var(--text-xs);
+      max-width: 160px;
+    }
   }
 
   .nav-right {
