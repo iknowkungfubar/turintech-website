@@ -6,5 +6,6 @@ export default defineConfig({
   site: 'https://turintechsolutions.com',
   build: {
     format: 'directory',
+    inlineStylesheets: 'always',
   },
 });
