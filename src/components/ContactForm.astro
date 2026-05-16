@@ -6,7 +6,7 @@ export interface Props {
 const { webhookUrl = 'http://100.106.72.45:3456/lead' } = Astro.props;
 ---
 
-<form class="contact-form" id="contact-form">
+<form class="contact-form" id="contact-form" data-webhook={webhookUrl}>
   <div class="form-field">
     <label for="name" class="form-label">Name</label>
     <input type="text" id="name" name="name" class="form-input" required autocomplete="name" placeholder="Your full name" />
@@ -36,7 +36,7 @@ const { webhookUrl = 'http://100.106.72.45:3456/lead' } = Astro.props;
 
     const submitBtn = document.getElementById('form-submit');
     const statusEl = document.getElementById('form-status');
-    const apiUrl = {$webhookUrl};
+    const apiUrl = form.getAttribute('data-webhook');
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
