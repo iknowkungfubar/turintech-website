@@ -1,4 +1,6 @@
 ---
+import ContactForm from '../components/ContactForm.astro';
+
 export interface Props {
   title: string;
   description?: string;
@@ -14,7 +16,7 @@ const base = _b.endsWith('/') ? _b : _b + '/';
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
 
@@ -29,29 +31,25 @@ const base = _b.endsWith('/') ? _b : _b + '/';
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-    <title>{title} — TurinTech Solutions</title>
+    <title>{title} &mdash; TurinTech Solutions</title>
   </head>
   <body class={(page === 'home' ? 'home-page ' : '') + 'dark'}>
     <!-- Header -->
      <header class="site-header">
        <nav class="container nav-bar">
-         {page !== 'home' && (
-           <a href={base} class="logo" aria-label="TurinTech Solutions home">
-             <img src={base + 'images/logo.png'} alt="TurinTech Solutions" class="header-logo" />
-           </a>
-         )}
-         <div class="nav-links">
-            <a href={base} class:list={{ 'nav-link': true, active: page === 'home' }}>Home</a>
-            <a href={base + 'about'} class:list={{ 'nav-link': true, active: page === 'about' }}>About</a>
-            <a href={base + 'services'} class:list={{ 'nav-link': true, active: page === 'services' }}>Services</a>
-            <a href={base + 'contact'} class:list={{ 'nav-link': true, active: page === 'contact' }}>Contact</a>
-         </div>
-<div class="nav-cta-group">
-            <a href="https://blog.turintechsolutions.com" class="btn btn-blog nav-cta" target="_blank" rel="noopener noreferrer">
-             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-             Read My Blog
-           </a>
-            <a href={base + 'contact'} class="btn btn-primary nav-cta">Get in Touch</a>
+         <a href={base} class="logo" aria-label="TurinTech Solutions home">
+           <img src={base + 'images/logo.png'} alt="TurinTech Solutions" class="header-logo" />
+         </a>
+         <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
+           <span></span><span></span><span></span>
+         </button>
+         <div class="nav-right" id="nav-right">
+           <div class="nav-links">
+             <a href={base} class:list={{ 'nav-link': true, active: page === 'home' }}>Home</a>
+             <a href={base + 'about'} class:list={{ 'nav-link': true, active: page === 'about' }}>About</a>
+             <a href={base + 'services'} class:list={{ 'nav-link': true, active: page === 'services' }}>Services</a>
+             <a href={base + '#contact-form-section'} class="btn btn-primary nav-cta">Get in Touch</a>
+           </div>
          </div>
        </nav>
      </header>
@@ -60,6 +58,20 @@ const base = _b.endsWith('/') ? _b : _b + '/';
     <main>
       <slot />
     </main>
+
+    <!-- Contact Form Section (before footer) -->
+    <section class="section contact-section" id="contact-form-section">
+      <div class="container">
+        <div class="contact-section-layout">
+          <span class="section-label">Contact</span>
+          <h2 class="section-title contact-section-title">Let's <span class="text-accent">talk</span></h2>
+          <p class="contact-section-subtitle">
+            Tell us about your project and we will figure out the best way forward. No pressure, no jargon.
+          </p>
+          <ContactForm />
+        </div>
+      </div>
+    </section>
 
     <!-- Footer -->
     <footer class="site-footer">
@@ -76,21 +88,32 @@ const base = _b.endsWith('/') ? _b : _b + '/';
                <a href={base}>Home</a>
                <a href={base + 'about'}>About</a>
                <a href={base + 'services'}>Services</a>
-               <a href={base + 'contact'}>Contact</a>
               <a href="https://blog.turintechsolutions.com" target="_blank" rel="noopener noreferrer">Blog</a>
             </div>
             <div class="footer-col">
               <h4 class="footer-heading">Contact</h4>
-               <a href={base + 'contact'}>Contact Form</a>
+               <a href={base + '#contact-form-section'}>Get in Touch</a>
             </div>
           </div>
         </div>
         <hr class="divider" />
         <p class="footer-copy">&copy; {new Date().getFullYear()} TurinTech Solutions. All rights reserved.</p>
       </div>
-</footer>
+    </footer>
   </body>
 </html>
+
+<script>
+  // Mobile menu toggle
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const navRight = document.getElementById('nav-right');
+  if (menuBtn && navRight) {
+    menuBtn.addEventListener('click', () => {
+      navRight.classList.toggle('open');
+      menuBtn.classList.toggle('open');
+    });
+  }
+</script>
 
 <style is:inline>
   /* ============ DESIGN SYSTEM ============ */
@@ -172,7 +195,6 @@ const base = _b.endsWith('/') ? _b : _b + '/';
     --header-bg: rgba(15, 23, 42, 0.92);
   }
 
-  /* --- Base --- */
   html {
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
@@ -210,7 +232,6 @@ const base = _b.endsWith('/') ? _b : _b + '/';
     color: var(--color-white);
   }
 
-  /* --- Typography --- */
   h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
     line-height: var(--leading-tight);
@@ -234,7 +255,6 @@ const base = _b.endsWith('/') ? _b : _b + '/';
     margin-bottom: var(--space-4);
   }
 
-  /* --- Container --- */
   .container {
     width: 100%;
     max-width: var(--max-width);
@@ -242,7 +262,6 @@ const base = _b.endsWith('/') ? _b : _b + '/';
     padding: 0 var(--space-6);
   }
 
-  /* --- Section --- */
   .section {
     padding: var(--space-24) 0;
   }
@@ -273,7 +292,6 @@ const base = _b.endsWith('/') ? _b : _b + '/';
     margin-bottom: var(--space-12);
   }
 
-  /* --- Grids --- */
   .grid-2, .grid-3 {
     display: grid;
     gap: var(--space-8);
@@ -286,7 +304,6 @@ const base = _b.endsWith('/') ? _b : _b + '/';
     .grid-2, .grid-3 { grid-template-columns: 1fr; }
   }
 
-  /* --- Buttons --- */
   .btn {
     display: inline-flex;
     align-items: center;
@@ -326,7 +343,6 @@ const base = _b.endsWith('/') ? _b : _b + '/';
     color: var(--color-text);
   }
 
-  /* --- Cards --- */
   .card {
     background: var(--color-surface);
     border: 1px solid var(--color-border);
@@ -365,7 +381,6 @@ const base = _b.endsWith('/') ? _b : _b + '/';
     line-height: var(--leading-relaxed);
   }
 
-  /* --- Divider --- */
   .divider {
     width: 100%;
     height: 1px;
@@ -374,7 +389,6 @@ const base = _b.endsWith('/') ? _b : _b + '/';
     margin: 0;
   }
 
-  /* --- Utilities --- */
   .text-center { text-align: center; }
   .text-accent { color: var(--color-accent); }
   .text-sm { font-size: var(--text-sm); }
@@ -398,7 +412,7 @@ const base = _b.endsWith('/') ? _b : _b + '/';
     border: none;
   }
 
-   /* --- Site Header --- */
+  /* --- Site Header --- */
   .site-header {
     position: sticky;
     top: 0;
@@ -408,170 +422,159 @@ const base = _b.endsWith('/') ? _b : _b + '/';
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--color-border);
   }
-   
-    /* Logo size varies by page */
-    .header-logo {
-      height: 80px;  /* Default size */
-      width: auto;
-      display: block;
-    }
-    
-    /* On non-home pages, make logo 5x bigger (400px) */
-    body:not(.home-page) .header-logo {
-      height: 400px;
-      width: auto;
-    }
-    
-    @media (max-width: 640px) {
-      .header-logo {
-        height: 60px;
-      }
-      
-      body:not(.home-page) .header-logo {
-        height: 200px;  /* Smaller on mobile */
-      }
+
+  .nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--header-height);
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    line-height: 0;
+    flex-shrink: 0;
+  }
+
+  .header-logo {
+    height: 48px;
+    width: auto;
+    max-width: 100%;
+    display: block;
+  }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+  }
+
+  .nav-link {
+    padding: var(--space-2) var(--space-4);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    border-radius: 6px;
+    transition: color var(--transition-fast), background var(--transition-fast);
+    text-decoration: none;
+  }
+
+  .nav-link:hover {
+    color: var(--color-text);
+    background: var(--color-surface);
+  }
+
+  .nav-link.active {
+    color: var(--color-text);
+    background: var(--color-surface);
+    font-weight: 600;
+  }
+
+  .nav-cta {
+    padding: var(--space-2) var(--space-5);
+  }
+
+  /* Mobile menu */
+  .mobile-menu-btn {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    z-index: 101;
+  }
+
+  .mobile-menu-btn span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--color-text);
+    border-radius: 2px;
+    transition: all var(--transition-fast);
+  }
+
+  .mobile-menu-btn.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .mobile-menu-btn.open span:nth-child(2) {
+    opacity: 0;
+  }
+  .mobile-menu-btn.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  @media (max-width: 768px) {
+    .mobile-menu-btn {
+      display: flex;
     }
 
-   .nav-bar {
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     height: var(--header-height);
-     gap: var(--space-8);
-   }
-   
-   .logo {
-     display: flex;
-     align-items: center;
-     gap: var(--space-3);
-     text-decoration: none;
-     line-height: 0;
-   }
-   
-   .logo-text {
-     font-size: var(--text-xl);
-     font-weight: 800;
-     color: var(--color-text);
-     letter-spacing: var(--tracking-tight);
-     line-height: 1;
-   }
-   
-   .logo:hover {
-     opacity: 0.85;
-   }
-   
-   /* Logo size varies by page */
-   .header-logo {
-     height: 80px;
-     width: auto;
-     display: block;
-   }
-   
-   /* On non-home pages, make logo 5x bigger (approx 400px) and increase header height */
-   body:not(.home-page) {
-     --header-height: 420px;
-   }
-   
-   body:not(.home-page) .header-logo {
-     height: 400px;
-     width: auto;
-   }
-   
-   @media (max-width: 640px) {
-     .header-logo {
-       height: 60px;
-     }
-     
-     body:not(.home-page) .header-logo {
-       height: 200px;
-     }
-     
-     .nav-bar {
-       height: auto;
-       flex-direction: column;
-       padding: var(--space-4) 0;
-     }
-   }
-   
-   .nav-links {
-     display: flex;
-     align-items: center;
-     gap: var(--space-1);
-   }
-   
-   .nav-link {
-     padding: var(--space-2) var(--space-4);
-     font-size: var(--text-sm);
-     font-weight: 500;
-     color: var(--color-text-secondary);
-     border-radius: 6px;
-     transition: color var(--transition-fast), background var(--transition-fast);
-     text-decoration: none;
-   }
-   
-   .nav-link:hover {
-     color: var(--color-text);
-     background: var(--color-surface);
-   }
-   
-   .nav-link.active {
-     color: var(--color-text);
-     background: var(--color-surface);
-     font-weight: 600;
-   }
-   
-   .nav-cta-group {
-     display: flex;
-     align-items: center;
-     gap: var(--space-3);
-   }
-   
-   .nav-cta {
-     display: none;
-   }
-   
-   .btn-blog {
-     display: inline-flex;
-     align-items: center;
-     gap: var(--space-2);
-     padding: var(--space-2) var(--space-4);
-     font-family: var(--font-sans);
-     font-size: var(--text-sm);
-     font-weight: 600;
-     line-height: 1;
-     border: 2px solid var(--color-text);
-     border-radius: 8px;
-     cursor: pointer;
-     transition: all var(--transition-base);
-     text-decoration: none;
-     background: transparent;
-     color: var(--color-text);
-   }
-   
-   .btn-blog:hover {
-     background: var(--color-text);
-     color: var(--color-bg);
-   }
-   
-.theme-toggle { display: none; }
-
-    @media (min-width: 640px) {
-      .nav-cta {
-        display: inline-flex;
-      }
-
-      .btn-blog {
-        display: inline-flex;
-      }
+    .nav-right {
+      display: none;
+      position: fixed;
+      top: var(--header-height);
+      left: 0;
+      right: 0;
+      background: var(--header-bg);
+      backdrop-filter: blur(12px);
+      flex-direction: column;
+      padding: var(--space-8);
+      border-bottom: 1px solid var(--color-border);
+      z-index: 100;
     }
 
-    @media (max-width: 639px) {
-      .nav-cta-group {
-        display: none;
-      }
+    .nav-right.open {
+      display: flex;
     }
- 
-    .site-footer {
+
+    .nav-links {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .nav-link {
+      width: 100%;
+      text-align: center;
+      padding: var(--space-3) var(--space-4);
+    }
+
+    .nav-cta {
+      width: 100%;
+      text-align: center;
+      margin-top: var(--space-4);
+    }
+  }
+
+  /* --- Contact Section (pre-footer) --- */
+  .contact-section {
+    border-top: 1px solid var(--color-border);
+  }
+
+  .contact-section-layout {
+    max-width: 640px;
+  }
+
+  .contact-section-title {
+    font-size: var(--text-4xl);
+  }
+
+  .contact-section-subtitle {
+    font-size: var(--text-lg);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-10);
+  }
+
+  /* --- Footer --- */
+  .site-footer {
     border-top: 1px solid var(--color-border);
     padding: var(--space-16) 0 var(--space-8);
     background: var(--color-surface);
@@ -584,25 +587,12 @@ const base = _b.endsWith('/') ? _b : _b + '/';
     margin-bottom: var(--space-12);
   }
 
-  .footer-logo {
-    display: flex;
-    align-items: center;
-    gap: var(--space-2);
-    margin-bottom: var(--space-3);
-    line-height: 0;
-  }
-
-  .footer-logo-img {
-    height: 48px;
-    width: auto;
-    display: block;
-  }
-
   .footer-tagline {
-    font-size: var(--text-sm);
+    font-size: var(--text-base);
     color: var(--color-text-tertiary);
-    max-width: 320px;
+    max-width: 400px;
     margin-bottom: 0;
+    line-height: var(--leading-relaxed);
   }
 
   .footer-links {
@@ -643,7 +633,7 @@ const base = _b.endsWith('/') ? _b : _b + '/';
     margin: 0;
   }
 
-  @media (max-width: 640px) {
+  @media (max-width: 768px) {
     .footer-grid {
       grid-template-columns: 1fr;
       gap: var(--space-8);

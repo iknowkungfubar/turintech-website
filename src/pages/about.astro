@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="About — Elite Technical Architecture Without the Agency Bloat" description="Expert Technical Architecture. No Agency Bloat." page="about">
+<Layout title="About &mdash; Expert Technical Architecture Without the Agency Bloat" description="Expert Technical Architecture. No Agency Bloat." page="about">
   <!-- Page Header -->
   <section class="page-header">
     <div class="container">
@@ -14,20 +14,52 @@ import Layout from '../layouts/Layout.astro';
   <!-- Body -->
   <section class="section">
     <div class="container">
-<div class="about-content">
-         <p>
-           I am a solo technical architect who builds secure, privately hosted setups. I don't run a huge
-           agency, and I don't hand your project off to junior developers.
-         </p>
-         <p>
-           When you hire TurinTech Solutions, you work directly with a senior systems engineer who takes
-           your data security seriously. I build private systems so your team can use powerful AI without
-           ever handing your data over to a shared public platform.
-         </p>
-       </div>
+      <div class="about-layout">
+        <div class="about-content">
+          <p>
+            I am a solo technical architect who builds secure, privately hosted setups. I don't run a huge
+            agency, and I don't hand your project off to junior developers.
+          </p>
+          <p>
+            When you hire TurinTech Solutions, you work directly with a senior systems engineer who takes
+            your data security seriously. I build private systems so your team can use powerful AI without
+            ever handing your data over to a shared public platform.
+          </p>
+        </div>
+        <div class="about-photo">
+          <img src="/images/gnome-pup5.png" alt="Josh TurinTech" class="about-photo-img" />
+        </div>
+      </div>
     </div>
   </section>
 </Layout>
+
+<style is:global>
+  .about-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+    align-items: start;
+  }
+
+  .about-photo-img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 12px;
+    border: 1px solid var(--color-border);
+  }
+
+  @media (max-width: 768px) {
+    .about-layout {
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+    }
+
+    .about-photo {
+      order: -1;
+    }
+  }
+</style>
 
 <style is:global>
   /* --- Page Header --- */
