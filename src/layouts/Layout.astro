@@ -48,6 +48,7 @@ const base = _b.endsWith('/') ? _b : _b + '/';
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="preload" href={base + 'images/logo.png'} as="image" fetchpriority="high" />
     <title>{title} &mdash; TurinTech Solutions</title>
   </head>
   <body class="dark">
@@ -190,6 +191,7 @@ const base = _b.endsWith('/') ? _b : _b + '/';
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-display: swap;
   }
 
   img { max-width: 100%; height: auto; display: block; }
@@ -217,6 +219,7 @@ const base = _b.endsWith('/') ? _b : _b + '/';
   p { color: var(--color-text-secondary); margin-bottom: var(--space-4); }
   .container { width: 100%; max-width: var(--max-width); margin: 0 auto; padding: 0 var(--space-6); }
   .section { padding: var(--space-20) 0; }
+  .section-auto { content-visibility: auto; contain-intrinsic-size: 600px; }
   @media (max-width: 768px) { .section { padding: var(--space-12) 0; } }
 
   .section-label {
