@@ -80,7 +80,9 @@ const base = _b.endsWith('/') ? _b : _b + '/';
     <!-- Header -->
     <header class="site-header">
       <nav class="container nav-bar">
-        <a href={base} class="logo-text">TurinTech Solutions &mdash; AI and Technical Operations Consulting</a>
+        <a href={base} class="logo-text">
+          <img src={base + 'images/logo-text.webp'} alt="TurinTech Solutions — AI and Technical Operations Consulting" class="header-logo" width="226" height="40" />
+        </a>
         <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
           <span></span><span></span><span></span>
         </button>
@@ -328,24 +330,19 @@ const base = _b.endsWith('/') ? _b : _b + '/';
   }
 
   .logo-text {
-    font-size: var(--text-sm);
-    font-weight: 600;
-    color: var(--color-text);
+    display: flex;
+    align-items: center;
     text-decoration: none;
-    letter-spacing: var(--tracking-tight);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
     flex-shrink: 0;
   }
-
+  .header-logo {
+    height: 40px;
+    width: auto;
+    max-width: 100%;
+    display: block;
+  }
   @media (max-width: 640px) {
-    .logo-text {
-      font-size: 0.6rem;
-      max-width: 140px;
-      white-space: normal;
-      line-height: 1.3;
-    }
+    .header-logo { height: 28px; }
   }
 
   .nav-right {
