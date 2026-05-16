@@ -1,59 +1,60 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import ContactForm from '../components/ContactForm.astro';
 const _base = import.meta.env.BASE_URL;
 const base = _base.endsWith('/') ? _base : _base + '/';
 ---
 
-<Layout title="Sovereign AI Infrastructure — Private, Secure, Local-First" page="home">
-  <!-- Hero -->
+<Layout title="Sovereign AI Infrastructure &mdash; Private, Secure, Local-First">
+  <!-- ===== HERO ===== -->
   <section class="hero">
     <div class="container">
       <div class="hero-content">
-         <img src={base + 'images/logo.png'} alt="TurinTech Solutions" class="hero-logo" />
+        <img src={base + 'images/logo.png'} alt="TurinTech Solutions" class="hero-logo" />
         <span class="section-label hero-label">Sovereign AI Infrastructure</span>
-<h1 class="hero-title">
-           Your AI. Your Environment. Total Data Control.<br />
-           <span class="text-accent">No Trade Secret Leaks.</span>
-         </h1>
-         <p class="hero-subtitle">
-           When your employees use consumer AI chatbots, your intellectual property is at risk. We build private AI setups that run entirely within your own controlled environment, whether that is local hardware or a dedicated private cloud. You get the benefits of AI without the privacy headaches.
-         </p>
+        <h1 class="hero-title">
+          Your AI. Your Environment. Total Data Control.<br />
+          <span class="text-accent">No Trade Secret Leaks.</span>
+        </h1>
+        <p class="hero-subtitle">
+          When your employees use consumer AI chatbots, your intellectual property is at risk. We build private AI setups that run entirely within your own controlled environment, whether that is local hardware or a dedicated private cloud. You get the benefits of AI without the privacy headaches.
+        </p>
         <div class="hero-actions">
-           <a href={base + 'services'} class="btn btn-primary">Explore Services</a>
-           <a href={base + 'about'} class="btn btn-secondary">About Us</a>
+          <a href="#services" class="btn btn-primary">Explore Services</a>
+          <a href="#about" class="btn btn-secondary">About Us</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- The Problem -->
+  <!-- ===== THE PROBLEM ===== -->
   <section class="section section-alt">
     <div class="container">
       <span class="section-label">The Problem</span>
-<h2 class="section-title">Public AI is an operational liability</h2>
-       <div class="problem-content">
-         <p>
-           Securing corporate data on public platforms means dealing with complicated enterprise contracts,
-           long legal addendums, and changing state privacy laws. Worse, employees often use unapproved AI
-           tools just to get their work done. This can accidentally expose your proprietary data and ruin
-           your trade secret protections. Privately hosted AI solves this by keeping your data exactly
-           where it belongs: inside a network you completely control.
-         </p>
-       </div>
+      <h2 class="section-title">Public AI is an operational liability</h2>
+      <div class="problem-content">
+        <p>
+          Securing corporate data on public platforms means dealing with complicated enterprise contracts,
+          long legal addendums, and changing state privacy laws. Worse, employees often use unapproved AI
+          tools just to get their work done. This can accidentally expose your proprietary data and ruin
+          your trade secret protections. Privately hosted AI solves this by keeping your data exactly
+          where it belongs: inside a network you completely control.
+        </p>
+      </div>
       <div class="grid-3 problem-grid">
         <article class="card">
           <div class="card-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
           <h3 class="card-title">Legal Exposure</h3>
-          <p class="card-text">DTSA protections evaporate the moment your data touches a third-party server. Public AI chatbots are a legal liability your counsel hasn't flagged.</p>
+          <p class="card-text">DTSA protections evaporate the moment your data touches a third-party server. Public AI chatbots are a legal liability your counsel has not flagged.</p>
         </article>
         <article class="card">
           <div class="card-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
           </div>
           <h3 class="card-title">Regulatory Risk</h3>
-          <p class="card-text">20 states now enforce strict data privacy laws. Sending internal data through public AI pipelines violates compliance frameworks you're already subject to.</p>
+          <p class="card-text">20 states now enforce strict data privacy laws. Sending internal data through public AI pipelines violates compliance frameworks you are already subject to.</p>
         </article>
         <article class="card">
           <div class="card-icon">
@@ -66,7 +67,7 @@ const base = _base.endsWith('/') ? _base : _base + '/';
     </div>
   </section>
 
-  <!-- How We Fix It -->
+  <!-- ===== HOW WE FIX IT ===== -->
   <section class="section">
     <div class="container">
       <div class="diff-grid">
@@ -74,7 +75,7 @@ const base = _base.endsWith('/') ? _base : _base + '/';
           <span class="section-label">How We Fix It</span>
           <h2 class="section-title">Sovereign AI. Your hardware. Your data.</h2>
           <p class="section-subtitle">
-            We install private AI infrastructure on your own servers — no cloud dependencies, no data leaving your network, no third parties reading your prompts.
+            We install private AI infrastructure on your own servers. No cloud dependencies, no data leaving your network, no third parties reading your prompts.
           </p>
           <ul class="diff-list">
             <li class="diff-item">
@@ -119,17 +120,159 @@ const base = _base.endsWith('/') ? _base : _base + '/';
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="section section-alt">
+  <!-- ===== CTA ===== -->
+  <section class="section section-alt" id="services">
     <div class="container">
       <div class="cta-block">
         <span class="section-label">Get Started</span>
         <h2 class="cta-title">Is your data leaking into public AI?</h2>
         <p class="cta-text">
-          Find out with a Sovereign AI & Data Audit. I'll show you exactly where your exposure is and how to fix it.
+          Find out with a Sovereign AI and Data Audit. I will show you exactly where your exposure is and how to fix it.
         </p>
-          <a href={base + 'services'} class="btn btn-primary">Explore Services</a>
-          <a href={base + '#contact-form-section'} class="btn btn-secondary">Get in Touch</a>
+        <div class="cta-actions">
+          <a href="#services-detail" class="btn btn-primary">Explore Services</a>
+          <a href="#contact-form-section" class="btn btn-secondary">Get in Touch</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES SECTION ===== -->
+  <section class="section" id="services-detail">
+    <div class="container">
+      <span class="section-label">Services</span>
+      <h2 class="section-title">Three ways to <span class="text-accent">secure your data</span></h2>
+      <p class="section-subtitle">
+        Whether you need a full audit, ongoing technical leadership, or private AI installed on your own servers, there is a path that fits.
+      </p>
+
+      <!-- Service 1 -->
+      <div class="service-detail">
+        <div class="service-detail-header">
+          <div class="service-detail-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          </div>
+          <div>
+            <h3>Sovereign AI and Data Audits</h3>
+            <p class="service-detail-summary"><strong>$10,000 to $25,000 Fixed Sprint</strong></p>
+          </div>
+        </div>
+        <hr class="divider" />
+        <div class="service-detail-desc">
+          <p>A top-to-bottom look at your systems. I find out where your team is secretly using public AI, map out your data risks, and give you a clear plan to set up secure, private AI tools your employees will actually want to use.</p>
+        </div>
+        <div class="service-cards-row">
+          <div class="service-card"><h4>Pricing</h4><p>$10,000 to $25,000 fixed sprint. You know the cost upfront.</p></div>
+          <div class="service-card"><h4>What You Get</h4><p>Complete exposure map, remediation blueprint, and a clear path to Sovereign AI infrastructure your team will actually use.</p></div>
+        </div>
+        <div class="service-cta"><a href="#contact-form-section" class="btn btn-primary">Get in Touch</a></div>
+      </div>
+
+      <hr class="section-separator" />
+
+      <!-- Service 2 -->
+      <div class="service-detail">
+        <div class="service-detail-header">
+          <div class="service-detail-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <div>
+            <h3>Fractional CTO Retainer</h3>
+            <p class="service-detail-summary"><strong>Starting at $3,000/mo</strong></p>
+          </div>
+        </div>
+        <hr class="divider" />
+        <div class="service-detail-desc">
+          <p>I manage your tech stack, enforce data rules, and make sure your systems grow safely alongside your business.</p>
+        </div>
+        <div class="service-cards-row">
+          <div class="service-card"><h4>Pricing</h4><p>Starting at $3,000/month. Month-to-month. No long-term commitment.</p></div>
+          <div class="service-card"><h4>Ideal For</h4><p>Seed to Series A companies that need senior technical leadership without a full-time executive salary.</p></div>
+        </div>
+        <div class="service-cta"><a href="#contact-form-section" class="btn btn-primary">Get in Touch</a></div>
+      </div>
+
+      <hr class="section-separator" />
+
+      <!-- Service 3 -->
+      <div class="service-detail">
+        <div class="service-detail-header">
+          <div class="service-detail-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          </div>
+          <div>
+            <h3>Local AI Infrastructure</h3>
+            <p class="service-detail-summary"><strong>Custom Quote</strong></p>
+          </div>
+        </div>
+        <hr class="divider" />
+        <div class="service-detail-desc">
+          <p>I install open-weight AI models right onto your local workstations, private servers, or dedicated cloud GPU clusters. You get powerful AI tools with zero per-seat SaaS fees, no complicated data agreements, and a guarantee that no outside vendor is reading your prompts.</p>
+        </div>
+        <div class="service-cards-row">
+          <div class="service-card"><h4>Pricing</h4><p>Custom quote based on infrastructure requirements and scope.</p></div>
+          <div class="service-card"><h4>Key Benefit</h4><p>One-time setup. Your AI runs on your hardware. No ongoing SaaS fees. Zero data leakage.</p></div>
+        </div>
+        <div class="service-cta"><a href="#contact-form-section" class="btn btn-primary">Get in Touch</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LET'S TALK ===== -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="cta-block">
+        <span class="section-label">Let's Talk</span>
+        <h2 class="cta-title">Not sure which fit is right for you?</h2>
+        <p class="cta-text">
+          Send me a message and I will help you figure it out. No sales pitch, just a conversation about what you need.
+        </p>
+        <a href="#contact-form-section" class="btn btn-primary">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT FORM ===== -->
+  <section class="section" id="contact-form-section">
+    <div class="container">
+      <div class="contact-section-layout">
+        <span class="section-label">Contact</span>
+        <h2 class="section-title contact-section-title">Let's <span class="text-accent">talk</span></h2>
+        <p class="contact-section-subtitle">
+          Tell us about your project and we will figure out the best way forward. No pressure, no jargon.
+        </p>
+        <ContactForm />
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT SECTION ===== -->
+  <section class="section section-alt" id="about">
+    <div class="container">
+      <div class="about-layout">
+        <div class="about-content">
+          <span class="section-label">About</span>
+          <h2 class="section-title">Expert Technical Architecture.<br /><span class="text-accent">No Agency Bloat.</span></h2>
+          <p>
+            I am a solo technical architect who builds secure, privately hosted setups. I don't run a huge
+            agency, and I don't hand your project off to junior developers.
+          </p>
+          <p>
+            When you hire TurinTech Solutions, you work directly with a senior systems engineer who takes
+            your data security seriously. I build private systems so your team can use powerful AI without
+            ever handing your data over to a shared public platform.
+          </p>
+          <div class="about-actions">
+            <a href="https://blog.turintechsolutions.com" class="btn btn-blog" target="_blank" rel="noopener noreferrer">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Read My Blog
+            </a>
+            <a href="#contact-form-section" class="btn btn-primary">Get in Touch</a>
+          </div>
+        </div>
+        <div class="about-photo">
+          <img src={base + 'images/gnome-pup5.png'} alt="Josh TurinTech" class="about-photo-img" />
+        </div>
       </div>
     </div>
   </section>
@@ -137,219 +280,99 @@ const base = _base.endsWith('/') ? _base : _base + '/';
 
 <style is:global>
   /* --- Hero --- */
-  .hero {
-    padding: var(--space-24) 0 var(--space-16);
-    position: relative;
-    overflow: hidden;
-  }
+  .hero { padding: var(--space-20) 0 var(--space-16); overflow: hidden; }
+  .hero-content { max-width: 720px; margin: 0 auto; text-align: center; }
+  .hero-logo { display: block; height: 350px; width: auto; margin: 0 auto var(--space-6); }
+  @media (max-width: 640px) { .hero-logo { height: 200px; } }
+  .hero-label { font-size: var(--text-base); }
+  @media (min-width: 768px) { .hero-label { font-size: var(--text-lg); } }
+  .hero-title { font-size: clamp(2.25rem, 5vw, var(--text-6xl)); font-weight: 800; margin-bottom: var(--space-6); line-height: var(--leading-tight); }
+  .hero-subtitle { font-size: var(--text-lg); color: var(--color-text-secondary); max-width: 600px; margin: 0 auto var(--space-8); }
+  .hero-actions { display: flex; gap: var(--space-4); flex-wrap: wrap; justify-content: center; }
 
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: -40%;
-    right: -15%;
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, rgba(37, 99, 235, 0.05) 0%, transparent 70%);
-    pointer-events: none;
-  }
+  /* --- Problem --- */
+  .problem-content { max-width: 720px; margin-bottom: var(--space-12); }
+  .problem-content p { font-size: var(--text-lg); color: var(--color-text-secondary); }
+  .problem-grid { margin-top: var(--space-8); }
 
-  .hero-content {
-    position: relative;
-    max-width: 720px;
-    margin: 0 auto;
-    text-align: center;
-  }
-  
-  .hero-logo {
-    display: block;
-    height: 400px;
-    width: auto;
-    margin: 0 auto var(--space-8);
-  }
-  
-  .hero-label {
-    font-size: var(--text-base);
-  }
-  
-  @media (min-width: 768px) {
-    .hero-label {
-      font-size: var(--text-lg);
-    }
-  }
-  
-  .hero-title {
-    font-size: clamp(2.25rem, 5vw, var(--text-6xl));
-    font-weight: 800;
-    margin-bottom: var(--space-6);
-    line-height: var(--leading-tight);
-    text-align: center;
-  }
-  
-  .hero-subtitle {
-    font-size: var(--text-lg);
-    color: var(--color-text-secondary);
-    max-width: 600px;
-    margin: 0 auto var(--space-8);
-    text-align: center;
-  }
-  
-  .hero-actions {
-    display: flex;
-    gap: var(--space-4);
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  /* --- Problem Section --- */
-  .section-alt {
-    background: var(--color-surface);
-    border-top: 1px solid var(--color-border);
-    border-bottom: 1px solid var(--color-border);
-  }
-
-  .problem-content {
-    max-width: 720px;
-    margin-bottom: var(--space-12);
-  }
-
-  .problem-content p {
-    font-size: var(--text-lg);
-    color: var(--color-text-secondary);
-    line-height: var(--leading-relaxed);
-  }
-
-  .problem-grid {
-    margin-top: var(--space-8);
-  }
-
-  /* --- Diff / Solution --- */
-  .diff-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-16);
-    align-items: center;
-  }
-
-  .diff-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-6);
-  }
-
-  .diff-item {
-    display: flex;
-    gap: var(--space-4);
-    align-items: flex-start;
-  }
-
-  .diff-check {
-    color: var(--color-accent);
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-
-  .diff-item strong {
-    display: block;
-    font-size: var(--text-base);
-    font-weight: 600;
-    color: var(--color-text);
-    margin-bottom: var(--space-1);
-  }
-
-  .diff-item span {
-    font-size: var(--text-sm);
-    color: var(--color-text-secondary);
-  }
-
-  .diff-visual {
-    display: flex;
-    justify-content: center;
-  }
-
-  .diff-graphic {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-4);
-    padding: var(--space-6) var(--space-8);
-    background: var(--color-bg);
-    border: 1px solid var(--color-border);
-    border-radius: 16px;
-  }
-
-  .diff-row {
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
-  }
-
-  .diff-row-divider {
-    width: 80%;
-    height: 1px;
-    background: var(--color-border);
-  }
-
-  .diff-label {
-    font-size: var(--text-sm);
-    font-weight: 600;
-    padding: var(--space-2) var(--space-4);
-    border-radius: 8px;
-    white-space: nowrap;
-  }
-
-  .diff-label--bad {
-    color: #dc2626;
-    background: #fef2f2;
-    border: 1px solid #fecaca;
-  }
-
-  .diff-label--good {
-    color: #16a34a;
-    background: #f0fdf4;
-    border: 1px solid #bbf7d0;
-  }
-
-  .diff-arrow {
-    font-size: var(--text-xl);
-    font-weight: 300;
-  }
-
-  .diff-arrow--bad {
-    color: #dc2626;
-  }
-
-  .diff-arrow--good {
-    color: #16a34a;
-  }
-
+  /* --- Diff --- */
+  .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-16); align-items: center; }
+  .diff-list { list-style: none; display: flex; flex-direction: column; gap: var(--space-6); }
+  .diff-item { display: flex; gap: var(--space-4); align-items: flex-start; }
+  .diff-check { color: var(--color-accent); flex-shrink: 0; margin-top: 2px; }
+  .diff-item strong { display: block; font-size: var(--text-base); font-weight: 600; color: var(--color-text); margin-bottom: var(--space-1); }
+  .diff-item span { font-size: var(--text-sm); color: var(--color-text-secondary); }
+  .diff-visual { display: flex; justify-content: center; }
+  .diff-graphic { display: flex; flex-direction: column; align-items: center; gap: var(--space-4); padding: var(--space-6) var(--space-8); background: var(--color-bg); border: 1px solid var(--color-border); border-radius: 16px; }
+  .diff-row { display: flex; align-items: center; gap: var(--space-3); }
+  .diff-row-divider { width: 80%; height: 1px; background: var(--color-border); }
+  .diff-label { font-size: var(--text-sm); font-weight: 600; padding: var(--space-2) var(--space-4); border-radius: 8px; white-space: nowrap; }
+  .diff-label--bad { color: #dc2626; background: #fef2f2; border: 1px solid #fecaca; }
+  .diff-label--good { color: #16a34a; background: #f0fdf4; border: 1px solid #bbf7d0; }
+  .diff-arrow { font-size: var(--text-xl); font-weight: 300; }
+  .diff-arrow--bad { color: #dc2626; }
+  .diff-arrow--good { color: #16a34a; }
   @media (max-width: 768px) {
-    .diff-grid {
-      grid-template-columns: 1fr;
-      gap: var(--space-8);
-    }
-
-    .diff-visual {
-      display: none;
-    }
+    .diff-grid { grid-template-columns: 1fr; gap: var(--space-8); }
+    .diff-visual { display: none; }
   }
 
   /* --- CTA --- */
-  .cta-block {
-    text-align: center;
-    padding: var(--space-8) 0;
+  .cta-block { text-align: center; padding: var(--space-4) 0; }
+  .cta-title { font-size: var(--text-3xl); font-weight: 700; margin-bottom: var(--space-4); }
+  .cta-text { max-width: 480px; margin: 0 auto var(--space-8); color: var(--color-text-secondary); }
+  .cta-actions { display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap; }
+
+  /* --- Services --- */
+  .service-detail { max-width: 960px; margin-top: var(--space-8); }
+  .service-detail-header { display: flex; gap: var(--space-6); align-items: flex-start; margin-bottom: var(--space-8); }
+  .service-detail-header h3 { font-size: var(--text-2xl); font-weight: 700; margin-bottom: var(--space-3); }
+  .service-detail-summary { font-size: var(--text-base); color: var(--color-text-secondary); margin: 0; }
+  .service-detail-summary strong { font-size: var(--text-lg); color: var(--color-accent); }
+  .service-detail-icon { display: flex; align-items: center; justify-content: center; width: 56px; height: 56px; border-radius: 14px; background: var(--color-accent-ghost); color: var(--color-accent); flex-shrink: 0; }
+  .service-detail-desc { max-width: 720px; margin-top: var(--space-6); }
+  .service-detail-desc p { font-size: var(--text-base); }
+  .service-cards-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6); margin-top: var(--space-6); }
+  .service-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 12px; padding: var(--space-6); }
+  .service-card h4 { font-size: var(--text-sm); font-weight: 600; text-transform: uppercase; letter-spacing: var(--tracking-wide); color: var(--color-text-tertiary); margin-bottom: var(--space-2); }
+  .service-card p { font-size: var(--text-sm); color: var(--color-text-secondary); margin: 0; }
+  .service-cta { margin-top: var(--space-6); }
+  @media (max-width: 768px) {
+    .service-detail-header { flex-direction: column; }
+    .service-cards-row { grid-template-columns: 1fr; gap: var(--space-4); }
   }
 
-  .cta-title {
-    font-size: var(--text-3xl);
-    font-weight: 700;
-    margin-bottom: var(--space-4);
-  }
+  /* --- Contact Section --- */
+  .contact-section-layout { max-width: 640px; }
+  .contact-section-title { font-size: var(--text-4xl); }
+  .contact-section-subtitle { font-size: var(--text-lg); color: var(--color-text-secondary); margin-bottom: var(--space-10); }
 
-  .cta-text {
-    max-width: 480px;
-    margin: 0 auto var(--space-8);
-    color: var(--color-text-secondary);
+  /* --- About --- */
+  .about-layout { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-12); align-items: start; }
+  .about-content p { font-size: var(--text-lg); color: var(--color-text-secondary); line-height: var(--leading-relaxed); margin-bottom: var(--space-6); }
+  .about-photo-img { width: 100%; max-width: 400px; border-radius: 12px; border: 1px solid var(--color-border); }
+  .about-actions { display: flex; gap: var(--space-4); margin-top: var(--space-6); flex-wrap: wrap; }
+
+  .about-actions .btn-blog {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-6);
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    line-height: 1;
+    border: 2px solid var(--color-text);
+    border-radius: 8px;
+    transition: all var(--transition-base);
+    background: transparent;
+    color: var(--color-text);
+    text-decoration: none;
+  }
+  .about-actions .btn-blog:hover { background: var(--color-text); color: var(--color-bg); }
+
+  @media (max-width: 768px) {
+    .about-layout { grid-template-columns: 1fr; gap: var(--space-8); }
+    .about-photo { order: -1; }
   }
 </style>
