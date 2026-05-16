@@ -167,7 +167,7 @@ const base = _base.endsWith('/') ? _base : _base + '/';
         </div>
       </div>
 
-      <hr class="section-separator" />
+      <hr class="section-separator service-separator" />
 
       <!-- Service 2 -->
       <div class="service-detail">
@@ -190,7 +190,7 @@ const base = _base.endsWith('/') ? _base : _base + '/';
         </div>
       </div>
 
-      <hr class="section-separator" />
+      <hr class="section-separator service-separator" />
 
       <!-- Service 3 -->
       <div class="service-detail">
@@ -278,13 +278,15 @@ const base = _base.endsWith('/') ? _base : _base + '/';
 
 <style is:global>
   /* --- Hero --- */
-  .hero { padding: var(--space-20) 0 var(--space-16); overflow: hidden; }
+  .hero { padding: var(--space-10) 0 var(--space-12); overflow: hidden; }
   .hero-content { max-width: 720px; margin: 0 auto; text-align: center; }
-  .hero-logo { display: block; height: 500px; width: auto; margin: 0 auto var(--space-6); }
-  @media (max-width: 640px) { .hero-logo { height: 250px; } }
-  .hero-title { font-size: clamp(1.75rem, 4vw, var(--text-4xl)); font-weight: 800; margin-bottom: var(--space-6); line-height: var(--leading-tight); }
+  .hero-logo { display: block; height: 500px; width: auto; margin: 0 auto var(--space-4); }
+  @media (max-width: 640px) { .hero-logo { height: 250px; } .hero { padding: var(--space-6) 0 var(--space-8); } }
+  .hero-label { font-size: var(--text-base); }
+  @media (min-width: 768px) { .hero-label { font-size: var(--text-lg); } }
+  .hero-title { font-size: clamp(1.75rem, 4vw, var(--text-4xl)); font-weight: 800; margin-bottom: var(--space-4); line-height: var(--leading-tight); }
   
-  .hero-subtitle { font-size: var(--text-lg); color: var(--color-text-secondary); max-width: 600px; margin: 0 auto var(--space-8); }
+  .hero-subtitle { font-size: var(--text-lg); color: var(--color-text-secondary); max-width: 600px; margin: 0 auto var(--space-6); }
   .hero-actions { display: flex; gap: var(--space-4); flex-wrap: wrap; justify-content: center; }
 
   /* --- Problem --- */
@@ -334,40 +336,9 @@ const base = _base.endsWith('/') ? _base : _base + '/';
   .service-card h4 { font-size: var(--text-sm); font-weight: 600; text-transform: uppercase; letter-spacing: var(--tracking-wide); color: var(--color-text-tertiary); margin-bottom: var(--space-2); }
   .service-card p { font-size: var(--text-sm); color: var(--color-text-secondary); margin: 0; }
   .service-cta { margin-top: var(--space-6); }
-  @media (max-width: 768px) {
-    .service-detail-header { flex-direction: column; }
-    .service-cards-row { grid-template-columns: 1fr; gap: var(--space-4); }
+  .service-separator {
+    margin: var(--space-12) 0;
   }
-
-  /* --- Contact Section --- */
-  .contact-section-layout { max-width: 640px; }
-  .contact-section-title { font-size: var(--text-4xl); }
-  .contact-section-subtitle { font-size: var(--text-lg); color: var(--color-text-secondary); margin-bottom: var(--space-10); }
-
-  /* --- About --- */
-  .about-layout { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-12); align-items: start; }
-  .about-content p { font-size: var(--text-lg); color: var(--color-text-secondary); line-height: var(--leading-relaxed); margin-bottom: var(--space-6); }
-  .about-photo-img { width: 100%; max-width: 400px; border-radius: 12px; border: 1px solid var(--color-border); }
-  .about-photo-caption { font-size: var(--text-xs); color: var(--color-text-tertiary); margin-top: var(--space-3); max-width: 400px; font-style: italic; }
-  .about-actions { display: flex; gap: var(--space-4); margin-top: var(--space-6); flex-wrap: wrap; }
-
-  .about-actions .btn-blog {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-2);
-    padding: var(--space-3) var(--space-6);
-    font-family: var(--font-sans);
-    font-size: var(--text-sm);
-    font-weight: 600;
-    line-height: 1;
-    border: 2px solid var(--color-text);
-    border-radius: 8px;
-    transition: all var(--transition-base);
-    background: transparent;
-    color: var(--color-text);
-    text-decoration: none;
-  }
-  .about-actions .btn-blog:hover { background: var(--color-text); color: var(--color-bg); }
 
   @media (max-width: 768px) {
     .about-layout { grid-template-columns: 1fr; gap: var(--space-8); }
