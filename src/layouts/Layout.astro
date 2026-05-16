@@ -6,7 +6,7 @@ export interface Props {
   description?: string;
 }
 
-const { title, description = 'AI and technical operations consulting for modern businesses.' } = Astro.props;
+const { title, description = 'Sovereign AI Infrastructure — private AI hosted on your hardware. Prevent trade secret leaks, stay DTSA-compliant, and own your AI outright. No cloud dependencies, no per-user fees.' } = Astro.props;
 const _b = import.meta.env.BASE_URL;
 const base = _b.endsWith('/') ? _b : _b + '/';
 ---
@@ -24,8 +24,6 @@ const base = _b.endsWith('/') ? _b : _b + '/';
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TurinTech Solutions" />
     <meta name="twitter:card" content="summary_large_image" />
-    <!-- Google Search Console -->
-    <meta name="google-site-verification" content="REPLACE_WITH_GOOGLE_SEARCH_CONSOLE_VERIFICATION_CODE" />
     <link rel="icon" type="image/png" href={base + 'favicon.png'} />
     <link rel="canonical" href={`https://turintechsolutions.com${base}`} />
     <meta name="robots" content="index, follow" />
@@ -39,11 +37,33 @@ const base = _b.endsWith('/') ? _b : _b + '/';
           "@type": "Organization",
           "name": "TurinTech Solutions",
           "url": "https://turintechsolutions.com",
-          "description": "AI and technical operations consulting. We design, build, and scale intelligent systems.",
+          "description": "TurinTech Solutions provides private AI infrastructure hosted on your own hardware. Prevent trade secret leaks, maintain DTSA compliance, and own your AI stack outright. Sovereign AI audits, fractional CTO retainers, and local AI installations.",
           "contactPoint": {
             "@type": "ContactPoint",
             "contactType": "sales",
             "email": "josh@turintechsolutions.com"
+          }
+        }
+      `}
+    </script>
+    <script type="application/ld+json">
+      {`
+        {
+          "@context": "https://schema.org",
+          "@type": "ProfessionalService",
+          "name": "TurinTech Solutions",
+          "url": "https://turintechsolutions.com",
+          "description": "Private AI infrastructure installed on your own servers. Sovereign AI audits, fractional CTO, local AI deployments.",
+          "priceRange": "$$$",
+          "areaServed": "United States",
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Services",
+            "itemListElement": [
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Sovereign AI and Data Audits" }, "price": "10000" },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fractional CTO Retainer" }, "price": "3000" },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Local AI Infrastructure" } }
+            ]
           }
         }
       `}
