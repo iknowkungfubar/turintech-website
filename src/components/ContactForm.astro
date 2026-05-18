@@ -23,6 +23,11 @@ const { webhookUrl = 'http://100.106.72.45:3456/lead' } = Astro.props;
     <span class="form-hint" id="message-count">2,000 characters remaining</span>
   </div>
 
+  <div style="position:absolute;left:-9999px" aria-hidden="true">
+    <label for="website">Website</label>
+    <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+  </div>
+
   <button type="submit" class="btn btn-primary form-submit" id="form-submit">Send Message</button>
 
   <p class="form-status" id="form-status" aria-live="polite"></p>
@@ -58,8 +63,10 @@ const { webhookUrl = 'http://100.106.72.45:3456/lead' } = Astro.props;
       var name = form.querySelector('#name').value.trim();
       var email = form.querySelector('#email').value.trim();
       var message = messageEl.value.trim();
+      var honey = form.querySelector('#website').value;
       var errors = [];
 
+      if (honey) return; // Bot detected — silently reject
       if (!name) errors.push('Please enter your name.');
       if (!email) errors.push('Please enter your email address.');
       else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errors.push('Please enter a valid email address.');
