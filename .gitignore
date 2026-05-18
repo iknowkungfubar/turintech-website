@@ -26,3 +26,6 @@ pnpm-debug.log*
 #n8n workflow folder
 n8n/
 lead-server.mjs
+
+#vscode
+.vscode/
