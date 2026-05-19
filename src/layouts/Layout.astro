@@ -69,11 +69,15 @@ const base = _b.endsWith('/') ? _b : _b + '/';
   </head>
   <body class="dark">
     <!-- Header -->
-    <header class="site-header">
-      <nav class="container nav-bar">
-        <a href={base} class="logo-text">
-          <img src={base + 'images/logo-text-custom.webp'} alt="TurinTech Solutions — AI and Technical Operations Consulting" class="header-logo" width="250" height="45" />
-        </a>
+     <header class="site-header">
+       <nav class="container nav-bar">
+         <a href={base} class="logo-text">
+           <img src={base + 'images/logo-text-custom.webp'} alt="TurinTech Solutions — AI and Technical Operations Consulting" class="header-logo" width="250" height="45" />
+         </a>
+         <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme" title="Toggle light/dark mode">
+           <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+           <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+         </button>
         <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
           <span></span><span></span><span></span>
         </button>
@@ -118,12 +122,23 @@ const base = _b.endsWith('/') ? _b : _b + '/';
 </html>
 
 <script>
+  // Mobile menu
   const menuBtn = document.getElementById('mobile-menu-btn');
   const navRight = document.getElementById('nav-right');
   if (menuBtn && navRight) {
     menuBtn.addEventListener('click', () => {
       navRight.classList.toggle('open');
       menuBtn.classList.toggle('open');
+    });
+  }
+  // Theme toggle
+  const themeBtn = document.getElementById('theme-toggle');
+  if (themeBtn) {
+    const saved = localStorage.getItem('theme');
+    if (saved === 'light') document.body.classList.remove('dark');
+    themeBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
     });
   }
 </script>
@@ -387,6 +402,28 @@ const base = _b.endsWith('/') ? _b : _b + '/';
     margin-left: var(--space-2);
   }
   .btn-blog:hover { background: var(--color-text); color: var(--color-bg); }
+
+  /* Theme toggle */
+  .theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    border: 1px solid var(--color-border-strong);
+    background: transparent;
+    cursor: pointer;
+    color: var(--color-text-secondary);
+    transition: all var(--transition-fast);
+    margin-left: var(--space-3);
+    flex-shrink: 0;
+  }
+  .theme-toggle:hover { border-color: var(--color-text-secondary); color: var(--color-text); }
+  .theme-toggle .sun-icon { display: none; }
+  .theme-toggle .moon-icon { display: block; }
+  body:not(.dark) .theme-toggle .sun-icon { display: block; }
+  body:not(.dark) .theme-toggle .moon-icon { display: none; }
 
   .mobile-menu-btn {
     display: none; flex-direction: column; gap: 5px;
