@@ -3,7 +3,9 @@ export interface Props {
   webhookUrl?: string;
 }
 
-const { webhookUrl = 'http://100.106.72.45:3456/lead' } = Astro.props;
+// IMPORTANT: webhookUrl must be set via env var WEBHOOK_URL at build time
+// or passed as a prop. The default empty string prevents leaking internal network topology.
+const { webhookUrl = '' } = Astro.props;
 ---
 
 <form class="contact-form" id="contact-form" data-webhook={webhookUrl}>
