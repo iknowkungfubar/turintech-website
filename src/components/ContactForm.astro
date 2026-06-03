@@ -3,9 +3,10 @@ export interface Props {
   webhookUrl?: string;
 }
 
-// IMPORTANT: webhookUrl must be set via env var WEBHOOK_URL at build time
-// or passed as a prop. The default empty string prevents leaking internal network topology.
-const { webhookUrl = '' } = Astro.props;
+// IMPORTANT: webhookUrl must be set via env var PUBLIC_WEBHOOK_URL at build time
+// or passed as a prop. Falls back to the env var if prop is empty.
+// The empty string default prevents leaking internal network topology.
+const { webhookUrl = import.meta.env.PUBLIC_WEBHOOK_URL || '' } = Astro.props;
 ---
 
 <form class="contact-form" id="contact-form" data-webhook={webhookUrl}>
@@ -67,6 +68,12 @@ const { webhookUrl = '' } = Astro.props;
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       if (submitting) return;
+
+      // Guard: webhook URL must be configured
+      if (!apiUrl) {
+        setStatus('Contact form is not yet configured. Please reach out via email instead.', 'error');
+        return;
+      }
 
       var name = form.querySelector('#name').value.trim();
       var email = form.querySelector('#email').value.trim();
