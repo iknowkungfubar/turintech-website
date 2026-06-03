@@ -3,9 +3,33 @@ import Layout from '../layouts/Layout.astro';
 ---
 <Layout title="Services — Technology Consulting, System Cleanup, AI Integration" description="Technology consulting services: readiness assessments, infrastructure restructuring, part-time CTO, enterprise AI integration, and private AI systems.">
   <section class="section" style="text-align:center;padding:var(--space-16) 0;">
-    <h1>Our Services</h1>
-    <p style="margin:var(--space-8) 0">Learn about our three service tiers for sovereign AI, fractional CTO leadership, and local AI infrastructure installation.</p>
-    <a href="/#services-detail" class="btn btn-primary">View All Services</a>
+    <div class="container">
+      <h1>Our Services</h1>
+      <p style="margin:var(--space-8) 0; font-size: var(--text-lg); color: var(--color-text-secondary);">
+        We provide three service tiers for sovereign AI, fractional CTO leadership, and local AI infrastructure installation.
+        Our core consulting services are detailed on the <a href="/#services-detail">homepage</a>.
+      </p>
+      <div class="service-list" style="text-align: left; max-width: 720px; margin: 0 auto;">
+        <div class="card" style="margin-bottom: var(--space-6);">
+          <h3>Infrastructure Audit & Security Baseline</h3>
+          <p>A rigorous review of your current cloud tenants, identity architectures, and endpoint compliance.</p>
+        </div>
+        <div class="card" style="margin-bottom: var(--space-6);">
+          <h3>Systemic Cleanup & Cloud Migrations</h3>
+          <p>Zero-downtime cloud migrations, conditional access enforcement, and legacy system restructuring.</p>
+        </div>
+        <div class="card" style="margin-bottom: var(--space-6);">
+          <h3>API Integrations & Automated Data Pipelines</h3>
+          <p>Secure REST API-driven workflows connecting disparate enterprise platforms.</p>
+        </div>
+        <div class="card">
+          <h3>Private AI & Knowledge Architecture</h3>
+          <p>Ring-fenced RAG applications and internal knowledge copilots with full data sovereignty.</p>
+        </div>
+      </div>
+      <p style="margin-top: var(--space-10);">
+        <a href="/#contact-form-section" class="btn btn-primary">Get in Touch</a>
+      </p>
+    </div>
   </section>
-  <script>location.href = '/#services-detail';</script>
 </Layout>

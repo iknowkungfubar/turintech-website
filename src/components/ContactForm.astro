@@ -49,6 +49,12 @@ const { webhookUrl = '' } = Astro.props;
     const apiUrl = form.getAttribute('data-webhook');
     let submitting = false;
 
+    // Validate webhook URL is configured
+    if (!apiUrl) {
+      setStatus('Contact form is not yet configured. Please reach out via email instead.', 'error');
+      if (submitBtn) submitBtn.disabled = true;
+    }
+
     // Character counter
     if (messageEl && countEl) {
       messageEl.addEventListener('input', function () {
