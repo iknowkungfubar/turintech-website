@@ -3,9 +3,10 @@ export interface Props {
   webhookUrl?: string;
 }
 
-// IMPORTANT: webhookUrl must be set via env var WEBHOOK_URL at build time
-// or passed as a prop. The default empty string prevents leaking internal network topology.
-const { webhookUrl = '' } = Astro.props;
+// IMPORTANT: webhookUrl must be set via env var PUBLIC_WEBHOOK_URL at build time
+// or passed as a prop. Falls back to the env var if prop is empty.
+// The empty string default prevents leaking internal network topology.
+const { webhookUrl = import.meta.env.PUBLIC_WEBHOOK_URL || '' } = Astro.props;
 ---
 
 <form class="contact-form" id="contact-form" data-webhook={webhookUrl}>
