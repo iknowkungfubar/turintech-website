@@ -29,3 +29,6 @@ lead-server.mjs
 
 #vscode
 .vscode/
+
+# Hermes agent artifacts
+.hermes/
