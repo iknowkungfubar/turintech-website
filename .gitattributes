@@ -1,0 +1,25 @@
+* text=auto eol=lf
+
+# Source files
+*.astro text diff=html
+*.css text diff=css
+*.js text diff=js
+*.ts text diff=ts
+*.mjs text diff=js
+*.json text diff=json
+*.yml text diff=yaml
+*.yaml text diff=yaml
+*.md text diff=markdown
+
+# Binary files
+*.png binary
+*.webp binary
+*.woff2 binary
+*.ico binary
+
+# Lockfiles
+bun.lock binary
+
+# Git files
+.gitignore text
+.gitattributes text
