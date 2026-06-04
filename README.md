@@ -45,6 +45,10 @@ The site is built and deployed to GitHub Pages automatically via `.github/workfl
 - **Hosting**: GitHub Pages (static export)
 - **Styling**: Inline stylesheets (all CSS inlined at build time for performance)
 
+## Contributing
+
+Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines on our development process, coding standards, PR workflow, and code of conduct.
+
 ## License
 
 MIT
