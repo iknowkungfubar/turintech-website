@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- Test infrastructure: vitest + @vitest/ui, 8 build-output tests checking HTML structure, a11y, and sitemap
+- GitHub Actions: type checking (`astro check`) and test step (`vitest run`) added before build in deploy.yml
+- Test scripts: `bun run test`, `bun run test:watch`, `bun run test:coverage`, `bun run check`
 - `.gitattributes` with language-specific text/binary classification
 - Dependabot configuration for npm dependency updates
 - SECURITY.md with vulnerability disclosure policy
