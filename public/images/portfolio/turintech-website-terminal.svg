@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="384" height="266" viewBox="0 0 384 266">
+<defs><style>@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&amp;display=swap");.t{font-family:"JetBrains Mono","Fira Code",monospace;font-size:13px;fill:#cdd6f4;white-space:pre}</style></defs>
+<rect width="100%" height="100%" rx="10" fill="#1a1b26"/>
+<rect x="0" y="0" width="100%" height="34" rx="10" fill="#1e1e2e"/>
+<rect x="0" y="30" width="100%" height="4" fill="#1e1e2e"/>
+<circle cx="21" cy="17.0" r="5" fill="#ff5f56"/>
+<circle cx="39" cy="17.0" r="5" fill="#ffbd2e"/>
+<circle cx="57" cy="17.0" r="5" fill="#27c93f"/>
+<text x="192.0" y="21.0" text-anchor="middle" font-size="11" fill="#6c7086" font-family="Inter,system-ui,sans-serif">turintech-website — Terminal</text>
+<text x="16" y="63" class="t" fill="#a6e3a1">$ </text>
+<text x="31.6" y="63" class="t">bun run build</text>
+<text x="16" y="83" class="t" fill="#cdd6f4">  astro build v6.3.1</text>
+<text x="16" y="103" class="t" fill="#cdd6f4">  ▶  src/pages/index.astro       ✓  12ms</text>
+<text x="16" y="123" class="t" fill="#cdd6f4">  ▶  src/pages/about.astro       ✓  8ms</text>
+<text x="16" y="143" class="t" fill="#cdd6f4">  ▶  src/pages/services.astro    ✓  11ms</text>
+<text x="16" y="163" class="t" fill="#cdd6f4">  ▶  src/pages/portfolio.astro   ✓  14ms</text>
+<text x="16" y="183" class="t" fill="#cdd6f4">  ▶  src/pages/404.astro         ✓  6ms</text>
+<text x="16" y="203" class="t" fill="#cdd6f4">  ✓  5 pages built in 493ms</text>
+<text x="16" y="223" class="t" fill="#cdd6f4">  ✓  Static export → ./dist/</text>
+</svg>

@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `.gitattributes` with language-specific text/binary classification
 - Dependabot configuration for npm dependency updates
 - SECURITY.md with vulnerability disclosure policy
+- Portfolio showcase page (`/portfolio`) — cards for all 9 repos with descriptions, badges, key features, and terminal-style CLI previews
 
 ## [1.0.0] — 2026-06-03
 

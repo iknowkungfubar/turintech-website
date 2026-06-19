@@ -1,0 +1,140 @@
+2026-06-19 13:54:24.503 | INFO     | swe_swarm.cli:run_swarm:64 - Starting SWE Swarm for goal: Build a simple calculator web application with Python Flask backend and React frontend.
+2026-06-19 13:54:24.503 | INFO     | swe_swarm.agents.base_agent:__init__:41 - Agent initialized: pm-agent (product_manager)
+2026-06-19 13:54:24.503 | INFO     | swe_swarm.runtime.agent_registry:register:26 - Registered agent: pm-agent (product_manager)
+2026-06-19 13:54:24.503 | INFO     | swe_swarm.agents.base_agent:__init__:41 - Agent initialized: architect-agent (principal_engineer)
+2026-06-19 13:54:24.503 | INFO     | swe_swarm.runtime.agent_registry:register:26 - Registered agent: architect-agent (principal_engineer)
+2026-06-19 13:54:24.503 | INFO     | swe_swarm.agents.base_agent:__init__:41 - Agent initialized: qa-agent (qa)
+2026-06-19 13:54:24.503 | INFO     | swe_swarm.runtime.agent_registry:register:26 - Registered agent: qa-agent (qa)
+2026-06-19 13:54:24.503 | INFO     | swe_swarm.agents.base_agent:__init__:41 - Agent initialized: sre-agent (sre)
+2026-06-19 13:54:24.503 | INFO     | swe_swarm.runtime.agent_registry:register:26 - Registered agent: sre-agent (sre)
+2026-06-19 13:54:24.504 | INFO     | swe_swarm.agents.base_agent:__init__:41 - Agent initialized: ux-agent (ux)
+2026-06-19 13:54:24.504 | INFO     | swe_swarm.runtime.agent_registry:register:26 - Registered agent: ux-agent (ux)
+2026-06-19 13:54:24.504 | INFO     | swe_swarm.agents.base_agent:__init__:41 - Agent initialized: security-agent (security)
+2026-06-19 13:54:24.504 | INFO     | swe_swarm.runtime.agent_registry:register:26 - Registered agent: security-agent (security)
+2026-06-19 13:54:24.504 | INFO     | swe_swarm.agents.base_agent:__init__:41 - Agent initialized: tpm-agent (tpm)
+2026-06-19 13:54:24.504 | INFO     | swe_swarm.runtime.agent_registry:register:26 - Registered agent: tpm-agent (tpm)
+2026-06-19 13:54:24.504 | INFO     | swe_swarm.agents.base_agent:__init__:41 - Agent initialized: engineer-0 (senior_engineer)
+2026-06-19 13:54:24.504 | INFO     | swe_swarm.runtime.agent_registry:register:26 - Registered agent: engineer-0 (senior_engineer)
+2026-06-19 13:54:24.504 | INFO     | swe_swarm.agents.base_agent:__init__:41 - Agent initialized: engineer-1 (senior_engineer)
+2026-06-19 13:54:24.504 | INFO     | swe_swarm.runtime.agent_registry:register:26 - Registered agent: engineer-1 (senior_engineer)
+2026-06-19 13:54:24.504 | INFO     | swe_swarm.agents.base_agent:__init__:41 - Agent initialized: engineer-2 (senior_engineer)
+2026-06-19 13:54:24.504 | INFO     | swe_swarm.runtime.agent_registry:register:26 - Registered agent: engineer-2 (senior_engineer)
+2026-06-19 13:54:24.504 | INFO     | swe_swarm.cli:create_mock_agents:59 - Created 10 mock agents
+2026-06-19 13:54:24.504 | INFO     | swe_swarm.runtime.message_bus:start:28 - Message bus started
+2026-06-19 13:54:24.504 | DEBUG    | swe_swarm.agents.base_agent:activate:56 - Agent pm-agent activated
+2026-06-19 13:54:24.504 | DEBUG    | swe_swarm.agents.base_agent:activate:56 - Agent architect-agent activated
+2026-06-19 13:54:24.504 | DEBUG    | swe_swarm.agents.base_agent:activate:56 - Agent qa-agent activated
+2026-06-19 13:54:24.504 | DEBUG    | swe_swarm.agents.base_agent:activate:56 - Agent sre-agent activated
+2026-06-19 13:54:24.504 | DEBUG    | swe_swarm.agents.base_agent:activate:56 - Agent ux-agent activated
+2026-06-19 13:54:24.504 | DEBUG    | swe_swarm.agents.base_agent:activate:56 - Agent security-agent activated
+2026-06-19 13:54:24.504 | DEBUG    | swe_swarm.agents.base_agent:activate:56 - Agent tpm-agent activated
+2026-06-19 13:54:24.504 | DEBUG    | swe_swarm.agents.base_agent:activate:56 - Agent engineer-0 activated
+2026-06-19 13:54:24.504 | DEBUG    | swe_swarm.agents.base_agent:activate:56 - Agent engineer-1 activated
+2026-06-19 13:54:24.504 | DEBUG    | swe_swarm.agents.base_agent:activate:56 - Agent engineer-2 activated
+2026-06-19 13:54:24.504 | DEBUG    | swe_swarm.runtime.message_bus:subscribe:51 - Subscribed pm-agent to message bus
+2026-06-19 13:54:24.504 | DEBUG    | swe_swarm.runtime.message_bus:subscribe:51 - Subscribed architect-agent to message bus
+2026-06-19 13:54:24.504 | DEBUG    | swe_swarm.runtime.message_bus:subscribe:51 - Subscribed qa-agent to message bus
+2026-06-19 13:54:24.504 | DEBUG    | swe_swarm.runtime.message_bus:subscribe:51 - Subscribed sre-agent to message bus
+2026-06-19 13:54:24.504 | DEBUG    | swe_swarm.runtime.message_bus:subscribe:51 - Subscribed ux-agent to message bus
+2026-06-19 13:54:24.504 | DEBUG    | swe_swarm.runtime.message_bus:subscribe:51 - Subscribed security-agent to message bus
+2026-06-19 13:54:24.504 | DEBUG    | swe_swarm.runtime.message_bus:subscribe:51 - Subscribed tpm-agent to message bus
+2026-06-19 13:54:24.504 | DEBUG    | swe_swarm.runtime.message_bus:subscribe:51 - Subscribed engineer-0 to message bus
+2026-06-19 13:54:24.504 | DEBUG    | swe_swarm.runtime.message_bus:subscribe:51 - Subscribed engineer-1 to message bus
+2026-06-19 13:54:24.504 | DEBUG    | swe_swarm.runtime.message_bus:subscribe:51 - Subscribed engineer-2 to message bus
+2026-06-19 13:54:24.504 | INFO     | swe_swarm.orchestrator.swarm_orchestrator:initialize_agents:57 - Agents initialized and subscribed
+2026-06-19 13:54:24.504 | INFO     | swe_swarm.orchestrator.rwl_engine:run:53 - Starting RWL for goal: Build a simple calculator web application with Python Flask backend and React frontend.
+2026-06-19 13:54:24.504 | INFO     | swe_swarm.orchestrator.rwl_engine:run:57 - === Iteration 1 ===
+2026-06-19 13:54:24.504 | INFO     | swe_swarm.orchestrator.swarm_orchestrator:_handle_interpret:71 - Phase: Interpret (with PM agent)
+2026-06-19 13:54:24.504 | DEBUG    | swe_swarm.runtime.message_bus:publish:44 - Message published: interpret-1 (interpret)
+2026-06-19 13:54:24.504 | DEBUG    | swe_swarm.agents.role_agent:process_message:34 - pm-agent (product_manager) received message: interpret-1
+2026-06-19 13:54:24.605 | DEBUG    | swe_swarm.orchestrator.swarm_orchestrator:callback:64 - Agent pm-agent responded: True
+2026-06-19 13:54:25.007 | INFO     | swe_swarm.orchestrator.rwl_engine:run:57 - === Iteration 2 ===
+2026-06-19 13:54:25.007 | INFO     | swe_swarm.orchestrator.swarm_orchestrator:_handle_plan:101 - Phase: Plan (with PM + Architect)
+2026-06-19 13:54:25.007 | INFO     | swe_swarm.orchestrator.rwl_engine:run:57 - === Iteration 3 ===
+2026-06-19 13:54:25.007 | INFO     | swe_swarm.orchestrator.swarm_orchestrator:_handle_build:113 - Phase: Build (with engineers)
+2026-06-19 13:54:25.007 | DEBUG    | swe_swarm.agents.role_agent:perform_task:63 - engineer-0 (senior_engineer) performing task build-0: Implement part 0
+2026-06-19 13:54:25.208 | DEBUG    | swe_swarm.orchestrator.swarm_orchestrator:_handle_build:122 - Engineer engineer-0 task result: True
+2026-06-19 13:54:25.208 | DEBUG    | swe_swarm.agents.role_agent:perform_task:63 - engineer-1 (senior_engineer) performing task build-1: Implement part 1
+2026-06-19 13:54:25.409 | DEBUG    | swe_swarm.orchestrator.swarm_orchestrator:_handle_build:122 - Engineer engineer-1 task result: True
+2026-06-19 13:54:25.409 | INFO     | swe_swarm.orchestrator.rwl_engine:run:57 - === Iteration 4 ===
+2026-06-19 13:54:25.409 | INFO     | swe_swarm.orchestrator.swarm_orchestrator:_handle_verify:133 - Phase: Verify (with QA + SRE)
+2026-06-19 13:54:25.609 | INFO     | swe_swarm.orchestrator.rwl_engine:run:57 - === Iteration 5 ===
+2026-06-19 13:54:25.609 | INFO     | swe_swarm.orchestrator.swarm_orchestrator:_handle_release:151 - Phase: Release (with SRE)
+2026-06-19 13:54:25.911 | WARNING  | swe_swarm.orchestrator.rwl_engine:run:92 - Max iterations (5) reached without completion.
+2026-06-19 13:54:25.911 | INFO     | swe_swarm.runtime.message_bus:stop:39 - Message bus stopped
+2026-06-19 13:54:25.911 | INFO     | swe_swarm.cli:run_swarm:96 - === Swarm Execution Summary ===
+2026-06-19 13:54:25.911 | INFO     | swe_swarm.cli:run_swarm:97 - Goal: Build a simple calculator web application with Python Flask backend and React frontend.
+2026-06-19 13:54:25.911 | INFO     | swe_swarm.cli:run_swarm:98 - Success: False
+2026-06-19 13:54:25.911 | INFO     | swe_swarm.cli:run_swarm:99 - Iterations: 5
+2026-06-19 13:54:25.911 | INFO     | swe_swarm.cli:run_swarm:100 - Final phase: observe
+2026-06-19 13:54:25.911 | INFO     | swe_swarm.cli:run_swarm:101 - Artifacts: ['interpretation', 'plan', 'build', 'verify', 'release']
+2026-06-19 13:54:26.209 | INFO     | swe_swarm.cli:run_swarm:64 - Starting SWE Swarm for goal: Build a simple calculator web application with Python Flask backend and React frontend.
+2026-06-19 13:54:26.209 | INFO     | swe_swarm.agents.base_agent:__init__:41 - Agent initialized: pm-agent (product_manager)
+2026-06-19 13:54:26.209 | INFO     | swe_swarm.runtime.agent_registry:register:26 - Registered agent: pm-agent (product_manager)
+2026-06-19 13:54:26.209 | INFO     | swe_swarm.agents.base_agent:__init__:41 - Agent initialized: architect-agent (principal_engineer)
+2026-06-19 13:54:26.209 | INFO     | swe_swarm.runtime.agent_registry:register:26 - Registered agent: architect-agent (principal_engineer)
+2026-06-19 13:54:26.209 | INFO     | swe_swarm.agents.base_agent:__init__:41 - Agent initialized: qa-agent (qa)
+2026-06-19 13:54:26.209 | INFO     | swe_swarm.runtime.agent_registry:register:26 - Registered agent: qa-agent (qa)
+2026-06-19 13:54:26.209 | INFO     | swe_swarm.agents.base_agent:__init__:41 - Agent initialized: sre-agent (sre)
+2026-06-19 13:54:26.209 | INFO     | swe_swarm.runtime.agent_registry:register:26 - Registered agent: sre-agent (sre)
+2026-06-19 13:54:26.210 | INFO     | swe_swarm.agents.base_agent:__init__:41 - Agent initialized: ux-agent (ux)
+2026-06-19 13:54:26.210 | INFO     | swe_swarm.runtime.agent_registry:register:26 - Registered agent: ux-agent (ux)
+2026-06-19 13:54:26.210 | INFO     | swe_swarm.agents.base_agent:__init__:41 - Agent initialized: security-agent (security)
+2026-06-19 13:54:26.210 | INFO     | swe_swarm.runtime.agent_registry:register:26 - Registered agent: security-agent (security)
+2026-06-19 13:54:26.210 | INFO     | swe_swarm.agents.base_agent:__init__:41 - Agent initialized: tpm-agent (tpm)
+2026-06-19 13:54:26.210 | INFO     | swe_swarm.runtime.agent_registry:register:26 - Registered agent: tpm-agent (tpm)
+2026-06-19 13:54:26.210 | INFO     | swe_swarm.agents.base_agent:__init__:41 - Agent initialized: engineer-0 (senior_engineer)
+2026-06-19 13:54:26.210 | INFO     | swe_swarm.runtime.agent_registry:register:26 - Registered agent: engineer-0 (senior_engineer)
+2026-06-19 13:54:26.210 | INFO     | swe_swarm.agents.base_agent:__init__:41 - Agent initialized: engineer-1 (senior_engineer)
+2026-06-19 13:54:26.210 | INFO     | swe_swarm.runtime.agent_registry:register:26 - Registered agent: engineer-1 (senior_engineer)
+2026-06-19 13:54:26.210 | INFO     | swe_swarm.agents.base_agent:__init__:41 - Agent initialized: engineer-2 (senior_engineer)
+2026-06-19 13:54:26.210 | INFO     | swe_swarm.runtime.agent_registry:register:26 - Registered agent: engineer-2 (senior_engineer)
+2026-06-19 13:54:26.210 | INFO     | swe_swarm.cli:create_mock_agents:59 - Created 10 mock agents
+2026-06-19 13:54:26.210 | INFO     | swe_swarm.runtime.message_bus:start:28 - Message bus started
+2026-06-19 13:54:26.210 | DEBUG    | swe_swarm.agents.base_agent:activate:56 - Agent pm-agent activated
+2026-06-19 13:54:26.210 | DEBUG    | swe_swarm.agents.base_agent:activate:56 - Agent architect-agent activated
+2026-06-19 13:54:26.210 | DEBUG    | swe_swarm.agents.base_agent:activate:56 - Agent qa-agent activated
+2026-06-19 13:54:26.210 | DEBUG    | swe_swarm.agents.base_agent:activate:56 - Agent sre-agent activated
+2026-06-19 13:54:26.210 | DEBUG    | swe_swarm.agents.base_agent:activate:56 - Agent ux-agent activated
+2026-06-19 13:54:26.210 | DEBUG    | swe_swarm.agents.base_agent:activate:56 - Agent security-agent activated
+2026-06-19 13:54:26.210 | DEBUG    | swe_swarm.agents.base_agent:activate:56 - Agent tpm-agent activated
+2026-06-19 13:54:26.210 | DEBUG    | swe_swarm.agents.base_agent:activate:56 - Agent engineer-0 activated
+2026-06-19 13:54:26.210 | DEBUG    | swe_swarm.agents.base_agent:activate:56 - Agent engineer-1 activated
+2026-06-19 13:54:26.210 | DEBUG    | swe_swarm.agents.base_agent:activate:56 - Agent engineer-2 activated
+2026-06-19 13:54:26.210 | DEBUG    | swe_swarm.runtime.message_bus:subscribe:51 - Subscribed pm-agent to message bus
+2026-06-19 13:54:26.210 | DEBUG    | swe_swarm.runtime.message_bus:subscribe:51 - Subscribed architect-agent to message bus
+2026-06-19 13:54:26.210 | DEBUG    | swe_swarm.runtime.message_bus:subscribe:51 - Subscribed qa-agent to message bus
+2026-06-19 13:54:26.210 | DEBUG    | swe_swarm.runtime.message_bus:subscribe:51 - Subscribed sre-agent to message bus
+2026-06-19 13:54:26.210 | DEBUG    | swe_swarm.runtime.message_bus:subscribe:51 - Subscribed ux-agent to message bus
+2026-06-19 13:54:26.210 | DEBUG    | swe_swarm.runtime.message_bus:subscribe:51 - Subscribed security-agent to message bus
+2026-06-19 13:54:26.210 | DEBUG    | swe_swarm.runtime.message_bus:subscribe:51 - Subscribed tpm-agent to message bus
+2026-06-19 13:54:26.210 | DEBUG    | swe_swarm.runtime.message_bus:subscribe:51 - Subscribed engineer-0 to message bus
+2026-06-19 13:54:26.210 | DEBUG    | swe_swarm.runtime.message_bus:subscribe:51 - Subscribed engineer-1 to message bus
+2026-06-19 13:54:26.210 | DEBUG    | swe_swarm.runtime.message_bus:subscribe:51 - Subscribed engineer-2 to message bus
+2026-06-19 13:54:26.210 | INFO     | swe_swarm.orchestrator.swarm_orchestrator:initialize_agents:57 - Agents initialized and subscribed
+2026-06-19 13:54:26.210 | INFO     | swe_swarm.orchestrator.rwl_engine:run:53 - Starting RWL for goal: Build a simple calculator web application with Python Flask backend and React frontend.
+2026-06-19 13:54:26.210 | INFO     | swe_swarm.orchestrator.rwl_engine:run:57 - === Iteration 1 ===
+2026-06-19 13:54:26.210 | INFO     | swe_swarm.orchestrator.swarm_orchestrator:_handle_interpret:71 - Phase: Interpret (with PM agent)
+2026-06-19 13:54:26.210 | DEBUG    | swe_swarm.runtime.message_bus:publish:44 - Message published: interpret-1 (interpret)
+2026-06-19 13:54:26.210 | DEBUG    | swe_swarm.agents.role_agent:process_message:34 - pm-agent (product_manager) received message: interpret-1
+2026-06-19 13:54:26.310 | DEBUG    | swe_swarm.orchestrator.swarm_orchestrator:callback:64 - Agent pm-agent responded: True
+2026-06-19 13:54:26.711 | INFO     | swe_swarm.orchestrator.rwl_engine:run:57 - === Iteration 2 ===
+2026-06-19 13:54:26.711 | INFO     | swe_swarm.orchestrator.swarm_orchestrator:_handle_plan:101 - Phase: Plan (with PM + Architect)
+2026-06-19 13:54:26.711 | INFO     | swe_swarm.orchestrator.rwl_engine:run:57 - === Iteration 3 ===
+2026-06-19 13:54:26.711 | INFO     | swe_swarm.orchestrator.swarm_orchestrator:_handle_build:113 - Phase: Build (with engineers)
+2026-06-19 13:54:26.711 | DEBUG    | swe_swarm.agents.role_agent:perform_task:63 - engineer-0 (senior_engineer) performing task build-0: Implement part 0
+2026-06-19 13:54:26.912 | DEBUG    | swe_swarm.orchestrator.swarm_orchestrator:_handle_build:122 - Engineer engineer-0 task result: True
+2026-06-19 13:54:26.912 | DEBUG    | swe_swarm.agents.role_agent:perform_task:63 - engineer-1 (senior_engineer) performing task build-1: Implement part 1
+2026-06-19 13:54:27.112 | DEBUG    | swe_swarm.orchestrator.swarm_orchestrator:_handle_build:122 - Engineer engineer-1 task result: True
+2026-06-19 13:54:27.112 | INFO     | swe_swarm.orchestrator.rwl_engine:run:57 - === Iteration 4 ===
+2026-06-19 13:54:27.112 | INFO     | swe_swarm.orchestrator.swarm_orchestrator:_handle_verify:133 - Phase: Verify (with QA + SRE)
+2026-06-19 13:54:27.313 | INFO     | swe_swarm.orchestrator.rwl_engine:run:57 - === Iteration 5 ===
+2026-06-19 13:54:27.313 | INFO     | swe_swarm.orchestrator.swarm_orchestrator:_handle_release:151 - Phase: Release (with SRE)
+2026-06-19 13:54:27.613 | WARNING  | swe_swarm.orchestrator.rwl_engine:run:92 - Max iterations (5) reached without completion.
+2026-06-19 13:54:27.614 | INFO     | swe_swarm.runtime.message_bus:stop:39 - Message bus stopped
+2026-06-19 13:54:27.614 | INFO     | swe_swarm.cli:run_swarm:96 - === Swarm Execution Summary ===
+2026-06-19 13:54:27.614 | INFO     | swe_swarm.cli:run_swarm:97 - Goal: Build a simple calculator web application with Python Flask backend and React frontend.
+2026-06-19 13:54:27.614 | INFO     | swe_swarm.cli:run_swarm:98 - Success: False
+2026-06-19 13:54:27.614 | INFO     | swe_swarm.cli:run_swarm:99 - Iterations: 5
+2026-06-19 13:54:27.614 | INFO     | swe_swarm.cli:run_swarm:100 - Final phase: observe
+2026-06-19 13:54:27.614 | INFO     | swe_swarm.cli:run_swarm:101 - Artifacts: ['interpretation', 'plan', 'build', 'verify', 'release']

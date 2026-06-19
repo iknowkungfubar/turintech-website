@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="478" height="286" viewBox="0 0 478 286">
+<defs><style>@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&amp;display=swap");.t{font-family:"JetBrains Mono","Fira Code",monospace;font-size:13px;fill:#cdd6f4;white-space:pre}</style></defs>
+<rect width="100%" height="100%" rx="10" fill="#1a1b26"/>
+<rect x="0" y="0" width="100%" height="34" rx="10" fill="#1e1e2e"/>
+<rect x="0" y="30" width="100%" height="4" fill="#1e1e2e"/>
+<circle cx="21" cy="17.0" r="5" fill="#ff5f56"/>
+<circle cx="39" cy="17.0" r="5" fill="#ffbd2e"/>
+<circle cx="57" cy="17.0" r="5" fill="#27c93f"/>
+<text x="238.79999999999998" y="21.0" text-anchor="middle" font-size="11" fill="#6c7086" font-family="Inter,system-ui,sans-serif">swe-swarm — Terminal</text>
+<text x="16" y="63" class="t" fill="#a6e3a1">$ </text>
+<text x="31.6" y="63" class="t">swe-swarm "Add login feature" --agents dev,tester</text>
+<text x="16" y="83" class="t" fill="#89b4fa">╔══════════════════════════════════════════════════╗</text>
+<text x="16" y="103" class="t" fill="#cdd6f4">║  SWE Swarm — Ralph Wiggum Loop v0.1.0           ║</text>
+<text x="16" y="123" class="t" fill="#6c7086">╠══════════════════════════════════════════════════╣</text>
+<text x="16" y="143" class="t" fill="#cdd6f4">║  ● Planning    ── 4 subtasks identified         ║</text>
+<text x="16" y="163" class="t" fill="#cdd6f4">║  ○ Coding      ── Waiting for plan finalization  ║</text>
+<text x="16" y="183" class="t" fill="#cdd6f4">║  ○ Testing     ── Queued                         ║</text>
+<text x="16" y="203" class="t" fill="#cdd6f4">║  ○ Deploying   ── Not started                    ║</text>
+<text x="16" y="223" class="t" fill="#89b4fa">╚══════════════════════════════════════════════════╝</text>
+<text x="16" y="243" class="t" fill="#cdd6f4">Web dashboard: http://localhost:8080</text>
+</svg>
