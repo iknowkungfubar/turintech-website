@@ -2,60 +2,57 @@
 
 ## Overview
 
-**TurinTech Solutions Website** is the corporate website for TurinTech Solutions, a strategic technology consulting firm. Built with Astro, deployed via GitHub Pages at `turintechsolutions.com`. Presents consulting services: infrastructure audits, cloud migrations, API integrations, and private AI/RAG systems.
+**TurinTech Solutions Website** is the corporate website for TurinTech Solutions, a strategic technology consulting firm. Built with Astro, deployed via GitHub Pages at `turintechsolutions.com`. Presents consulting services: infrastructure audits, cloud migrations, API integrations, and private AI/RAG systems. Features dark/light mode, SEO optimization, and a contact form with spam protection.
 
 ## Tech Stack
 
 - **Framework:** Astro v6 (static site generator)
 - **Package Manager:** bun
 - **Language:** JavaScript/TypeScript (`.astro`, `.ts`, `.js`)
+- **Styling:** Inline CSS (all inlined at build), CSS custom properties for theming
 - **Hosting:** GitHub Pages (static export)
-- **Styling:** Inline CSS (all inlined at build)
 - **Domain:** turintechsolutions.com (CNAME + DNS A records)
+- **CI:** GitHub Actions (deploy.yml)
+
+## Architecture
+
+```
+Static site built by Astro
+├── Public pages: index, about, services
+├── Components: ContactForm, SEO head, ThemeToggle
+├── Assets: images, icons, CNAME
+└── Deployed to GitHub Pages (static hosting)
+```
+
+## Key Features
+
+- **Dark/Light Mode**: Theme toggle with CSS custom properties
+- **SEO**: Meta titles, descriptions, OG images, 404 page
+- **Contact Form**: Client-side submission with honeypot bot detection
+- **Responsive**: Mobile-first design
+- **No tracking**: Zero analytics or third-party scripts
 
 ## Repository Structure
 
 ```
-src/
-├── pages/                 # Astro page routes
-│   ├── index.astro        # Landing page
-│   ├── about.astro        # About page
-│   ├── services.astro     # Services page
-│   └── 404.astro          # Custom error page
-├── components/            # Reusable Astro components
-├── layouts/               # Page layouts
-├── styles/                # Global styles
-└── assets/                # Static assets
-public/                    # Public static files
-dist/                      # Build output (generated)
+turintech-website/
+├── src/
+│   ├── pages/           # Astro pages (index, about, services)
+│   ├── components/      # Astro/JSX components
+│   └── layouts/         # Page layouts
+├── public/              # Static assets
+├── astro.config.mjs     # Astro configuration
+└── package.json         # Dependencies
 ```
 
-## Key Commands
+## Conventions
 
-- `bun install` — Install dependencies
-- `bun run dev` — Start dev server at localhost:4321
-- `bun run build` — Build for production (outputs to `dist/`)
-- `bun run preview` — Preview production build locally
-
-## Architecture
-
-- **Static Site Generation**: All pages pre-rendered at build time via Astro
-- **GitHub Pages Deploy**: Automatic on push to `main` via `.github/workflows/deploy.yml`
-- **Contact Form**: Optional webhook integration via `PUBLIC_WEBHOOK_URL` env var
-- **SEO**: JSON-LD schema, Open Graph, sitemap
-- **Analytics**: Privacy-focused page view tracking
-
-## Pages
-
-| Route | Content |
-|-------|---------|
-| `/` | Landing — hero, services overview, CTA |
-| `/about` | Company methodology, philosophy |
-| `/services` | 4 core service offerings |
-| `/404` | Custom not-found page |
+- Astro islands architecture
+- CSS custom properties for theming
+- Progressive enhancement (JS not required for core content)
 
 ## Quality Gates
 
-- `bun run build` — Must exit 0 (no build errors)
-- `bun run astro check` — Type checking
-- `bun run lint` — Linting
+- `bun run build` — builds without errors (4 pages, ~500ms)
+- No analytics or external tracking
+- Static deployment (no backend required)
