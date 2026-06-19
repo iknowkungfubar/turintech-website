@@ -1,35 +1,205 @@
 ---
 import Layout from '../layouts/Layout.astro';
+const _b = import.meta.env.BASE_URL;
+const base = _b.endsWith('/') ? _b : _b + '/';
 ---
 <Layout title="Services — Technology Consulting, System Cleanup, AI Integration" description="Technology consulting services: readiness assessments, infrastructure restructuring, part-time CTO, enterprise AI integration, and private AI systems.">
   <section class="section" style="text-align:center;padding:var(--space-16) 0;">
     <div class="container">
-      <h1>Our Services</h1>
-      <p style="margin:var(--space-8) 0; font-size: var(--text-lg); color: var(--color-text-secondary);">
-        We provide three service tiers for sovereign AI, fractional CTO leadership, and local AI infrastructure installation.
-        Our core consulting services are detailed on the <a href="/#services-detail">homepage</a>.
+      <span class="section-label">Our Services</span>
+      <h1 class="section-title" style="margin: 0 auto var(--space-6); font-size: var(--text-4xl);">Practical, high-leverage systems engineering <span class="text-accent">for modern organizations.</span></h1>
+      <p style="max-width: 640px; margin: 0 auto var(--space-8); font-size: var(--text-lg); color: var(--color-text-secondary);">
+        Contact us for pricing tailored to your requirements.
       </p>
-      <div class="service-list" style="text-align: left; max-width: 720px; margin: 0 auto;">
-        <div class="card" style="margin-bottom: var(--space-6);">
-          <h3>Infrastructure Audit & Security Baseline</h3>
-          <p>A rigorous review of your current cloud tenants, identity architectures, and endpoint compliance.</p>
+    </div>
+  </section>
+
+  <!-- Service 1 -->
+  <section class="section section-alt">
+    <div class="container" style="max-width: 800px;">
+      <div class="service-header">
+        <div class="service-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
         </div>
-        <div class="card" style="margin-bottom: var(--space-6);">
-          <h3>Systemic Cleanup & Cloud Migrations</h3>
-          <p>Zero-downtime cloud migrations, conditional access enforcement, and legacy system restructuring.</p>
-        </div>
-        <div class="card" style="margin-bottom: var(--space-6);">
-          <h3>API Integrations & Automated Data Pipelines</h3>
-          <p>Secure REST API-driven workflows connecting disparate enterprise platforms.</p>
-        </div>
-        <div class="card">
-          <h3>Private AI & Knowledge Architecture</h3>
-          <p>Ring-fenced RAG applications and internal knowledge copilots with full data sovereignty.</p>
-        </div>
+        <h2>Infrastructure Audit & Security Baseline</h2>
       </div>
-      <p style="margin-top: var(--space-10);">
-        <a href="/#contact-form-section" class="btn btn-primary">Get in Touch</a>
+      <p>
+        A rigorous review of your current cloud tenants (Microsoft 365, Azure), identity architectures, and endpoint compliance. We identify critical vulnerabilities and provide a roadmap to secure scale.
+      </p>
+      <h3>What We Review</h3>
+      <ul>
+        <li>Cloud tenant configuration (M365, Azure, AWS, GCP)</li>
+        <li>Identity and access management (SSO, MFA, conditional access)</li>
+        <li>Endpoint compliance and patch posture</li>
+        <li>Network segmentation and firewall rules</li>
+        <li>Backup and disaster recovery readiness</li>
+      </ul>
+      <h3>Deliverables</h3>
+      <ul>
+        <li>Written audit report with prioritized findings</li>
+        <li>Remediation roadmap with effort estimates</li>
+        <li>Security baseline configuration templates</li>
+        <li>Executive summary for stakeholders</li>
+      </ul>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- Service 2 -->
+  <section class="section">
+    <div class="container" style="max-width: 800px;">
+      <div class="service-header">
+        <div class="service-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h2>Systemic Cleanup & Cloud Migrations</h2>
+      </div>
+      <p>
+        We manage the complex restructuring of legacy systems. From zero-downtime cloud migrations to enforcing strict conditional access protocols, we ensure your infrastructure is stable and compliant.
+      </p>
+      <h3>What We Do</h3>
+      <ul>
+        <li>Zero-downtime migration from on-premise to cloud</li>
+        <li>Conditional access policy enforcement</li>
+        <li>Legacy system decommissioning and data migration</li>
+        <li>Directory consolidation (multi-domain to single tenant)</li>
+        <li>Automated provisioning and deprecation workflows</li>
+      </ul>
+      <h3>Deliverables</h3>
+      <ul>
+        <li>Migration plan with rollback procedures</li>
+        <li>Automated deployment scripts (Infrastructure as Code)</li>
+        <li>Post-migration validation and testing report</li>
+        <li>Operations runbook for ongoing management</li>
+      </ul>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- Service 3 -->
+  <section class="section section-alt">
+    <div class="container" style="max-width: 800px;">
+      <div class="service-header">
+        <div class="service-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+        </div>
+        <h2>API Integrations & Automated Data Pipelines</h2>
+      </div>
+      <p>
+        We engineer secure, REST API-driven workflows connecting your disparate enterprise platforms (e.g., Salesforce, Jira, CRM). We eliminate manual data entry through resilient, error-handled automation.
+      </p>
+      <h3>Common Integrations</h3>
+      <ul>
+        <li>CRM ↔ ERP data synchronization</li>
+        <li>Project management ↔ billing workflows</li>
+        <li>HRIS ↔ identity provider (automated onboarding/offboarding)</li>
+        <li>Customer support ↔ CRM ticket sync</li>
+        <li>E-commerce ↔ inventory management</li>
+      </ul>
+      <h3>Deliverables</h3>
+      <ul>
+        <li>Architecture diagram and integration specification</li>
+        <li>Deployed, tested API bridge with error handling</li>
+        <li>Monitoring dashboard and alert configuration</li>
+        <li>Integration runbook with troubleshooting guide</li>
+      </ul>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- Service 4 -->
+  <section class="section">
+    <div class="container" style="max-width: 800px;">
+      <div class="service-header">
+        <div class="service-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </div>
+        <h2>Private AI & Knowledge Architecture</h2>
+      </div>
+      <p>
+        We deploy secure, ring-fenced Retrieval-Augmented Generation (RAG) applications and internal knowledge copilots. We allow your team to leverage LLM capabilities without compromising data sovereignty or compliance.
+      </p>
+      <h3>What We Build</h3>
+      <ul>
+        <li>Internal knowledge copilots trained on your documentation</li>
+        <li>Ring-fenced RAG applications on your own infrastructure</li>
+        <li>Secure LLM gateway with access controls and audit logging</li>
+        <li>Document processing pipelines (PDF, email, wikis → vector store)</li>
+        <li>Custom agent workflows for operations, support, and research</li>
+      </ul>
+      <h3>Deliverables</h3>
+      <ul>
+        <li>Deployed AI system on your hardware or cloud tenant</li>
+        <li>Data ingestion pipeline with refresh schedule</li>
+        <li>User documentation and training materials</li>
+        <li>Cost analysis and scaling projections</li>
+      </ul>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <section class="section section-alt" style="text-align: center;">
+    <div class="container" style="max-width: 600px;">
+      <h2>Not Sure Where to Start?</h2>
+      <p style="font-size: var(--text-lg);">
+        We offer a free 30-minute discovery call to assess your current situation and recommend the right next step. No pressure, no pitch — just honest technical advice.
+      </p>
+      <p style="margin-top: var(--space-8);">
+        <a href="/#contact-form-section" class="btn btn-primary">Schedule a Discovery Call</a>
       </p>
     </div>
   </section>
 </Layout>
+
+<style>
+  .service-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    margin-bottom: var(--space-6);
+  }
+  .service-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: var(--color-accent-ghost);
+    color: var(--color-accent);
+    flex-shrink: 0;
+  }
+  h3 {
+    margin-top: var(--space-6);
+    margin-bottom: var(--space-3);
+    font-size: var(--text-lg);
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2) var(--space-4);
+    margin-bottom: var(--space-8);
+  }
+  ul li {
+    padding: var(--space-2) var(--space-3);
+    background: var(--color-surface);
+    border-radius: 6px;
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+  }
+  ul li::before {
+    content: "→ ";
+    color: var(--color-accent);
+  }
+  @media (max-width: 640px) {
+    ul {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
