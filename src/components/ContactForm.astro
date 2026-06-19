@@ -190,11 +190,11 @@ const { webhookUrl = import.meta.env.PUBLIC_WEBHOOK_URL || '' } = Astro.props;
   }
 
   .form-status--success {
-    color: #16a34a;
+    color: var(--color-success);
   }
 
   .form-status--error {
-    color: #dc2626;
+    color: var(--color-error);
   }
   .form-hint {
     display: block;
@@ -205,6 +205,6 @@ const { webhookUrl = import.meta.env.PUBLIC_WEBHOOK_URL || '' } = Astro.props;
     transition: color var(--transition-fast);
   }
   .form-hint--warning {
-    color: #f59e0b;
+    color: var(--color-warning);
   }
 </style>

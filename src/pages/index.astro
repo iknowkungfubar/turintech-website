@@ -319,11 +319,11 @@ const base = _base.endsWith('/') ? _base : _base + '/';
   .diff-row { display: flex; align-items: center; gap: var(--space-3); }
   .diff-row-divider { width: 80%; height: 1px; background: var(--color-border); }
   .diff-label { font-size: var(--text-sm); font-weight: 600; padding: var(--space-2) var(--space-4); border-radius: 8px; white-space: nowrap; }
-  .diff-label--bad { color: #dc2626; background: #fef2f2; border: 1px solid #fecaca; }
-  .diff-label--good { color: #16a34a; background: #f0fdf4; border: 1px solid #bbf7d0; }
+  .diff-label--bad { color: var(--color-error); background: var(--color-error-bg); border: 1px solid var(--color-error-border); }
+  .diff-label--good { color: var(--color-success); background: var(--color-success-bg); border: 1px solid var(--color-success-border); }
   .diff-arrow { font-size: var(--text-xl); font-weight: 300; }
-  .diff-arrow--bad { color: #dc2626; }
-  .diff-arrow--good { color: #16a34a; }
+  .diff-arrow--bad { color: var(--color-error); }
+  .diff-arrow--good { color: var(--color-success); }
   @media (max-width: 768px) { .diff-grid { grid-template-columns: 1fr; gap: var(--space-8); } .diff-visual { display: none; } }
 
   .cta-block { text-align: center; padding: var(--space-4) 0; }
