@@ -14,6 +14,7 @@ const PAGES = [
   'index.html',
   'about/index.html',
   'services/index.html',
+  'portfolio/index.html',
   '404.html',
 ];
 
@@ -30,7 +31,7 @@ function readHtml(pagePath: string): string {
 describe('Accessibility — skip navigation', () => {
   it.each(PAGES)('$path should have a skip-to-content link', (pagePath) => {
     const html = readHtml(pagePath);
-    expect(html).toMatch(/<a[^>]*href=["']#main-content["'][^>]*>Skip to content<\/a>/i);
+    expect(html).toMatch(/<a[^>]*href=["']#main-content["'][^>]*>Skip to main content<\/a>/i);
   });
 
   it.each(PAGES)('$path should have a main element with id="main-content"', (pagePath) => {

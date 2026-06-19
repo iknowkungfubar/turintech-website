@@ -14,6 +14,7 @@ const PAGE_PATHS = [
   'index.html',
   'about/index.html',
   'services/index.html',
+  'portfolio/index.html',
   '404.html',
 ];
 

@@ -62,6 +62,16 @@ const PAGES: PageSEO[] = [
     hasCanonical: true,
     hasRobots: false,
   },
+  {
+    path: 'portfolio/index.html',
+    title: 'Portfolio',
+    description: 'Explore our portfolio of open-source AI infrastructure tools',
+    hasOG: true,
+    hasTwitter: true,
+    hasJSONLD: true,
+    hasCanonical: true,
+    hasRobots: true,
+  },
 ];
 
 beforeAll(() => {

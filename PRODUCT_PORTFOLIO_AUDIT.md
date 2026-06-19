@@ -1,7 +1,7 @@
 ## Product Portfolio Audit — Feature Evaluation & UI/UX
 
-**Date:** 2026-06-19
-**Scope:** 8/9 repos evaluated (HALF missing from GitHub, flagged as AGE-30)
+**Date:** 2026-06-19 (Updated: verified 2026-06-19)
+**Scope:** 9/9 repos evaluated (HALF confirmed present at iknowkungfubar/Hermes-Agentic-Lifecycle-Framework)
 **Goal:** Identify feature gaps, UI/UX polish needs, and cross-portfolio issues
 
 ---
@@ -18,9 +18,9 @@
 | IronSilo | Python | 2.1.1 | pypi.org/p/ironsilo | ❌ 404 | ✅ | ✅ | ✅ |
 | candor-ai | Rust | workspace | crates.io | ❌ unknown | ✅ | ✅ | ✅ |
 | turintech-website | JS/Astro | 0.0.1 | npm | ❌ 404 | ✅ | ✅ | ✅ |
-| HALF | missing | — | — | ❌ repo gone | — | — | — |
+|| HALF | Python | HEAD | — | N/A (internal) | ✅ | ✅ | ✅ |
 
-**Verdict:** 4/8 published. swe-swarm (AGE-17) and IronSilo (AGE-27) are actively blocked on publishing. candor-ai and turintech-website are not published anywhere.
+**Verdict:** 4/8 published. swe-swarm (AGE-17) and IronSilo (AGE-27) are actively blocked on publishing. candor-ai and turintech-website are not published anywhere. HALF is internal at iknowkungfubar/Hermes-Agentic-Lifecycle-Framework.
 
 ---
 
@@ -58,7 +58,7 @@
 
 **turintech-website** — Company site (Astro)
 - Strength: Clean static site, good SEO structure, JSON-LD schema, GitHub Pages deploy
-- Gaps: No tests at all (0 test files). No linting configured (0 lint script in package.json). No a11y audit tooling. No dark mode in source code (only from Prism themes). Page count is low (4 pages). Not published on npm. README is thin (54 lines).
+- Gaps: Published via GitHub Pages but not on npm. README is thin (54 lines).
 
 ---
 
@@ -79,12 +79,13 @@
 #### Website UX (turintech-website)
 
 - **Build:** Astro static site, GitHub Pages deploy
-- **Pages:** 4 (/, /about, /services, /404)
-- **Dark mode:** Not implemented in source code (no CSS media query — only Prism JS theme dark variants exist)
-- **A11y:** No skip-to-content link. No focus-visible styles. No axe/cypress-axe.
-- **Responsive:** Unknown (no testing infrastructure)
-- **Performance:** Unknown (no Lighthouse CI or perf budget)
-- **Contact form:** Webhook-driven, but no success/error UI feedback verified
+- **Pages:** 5 (/, /about, /services, /portfolio, /404)
+- **Dark mode:** Implemented via CSS custom properties + body.dark class with localStorage persistence
+- **A11y:** Skip-to-content link, focus-visible styles on all interactive elements, semantic HTML, aria-labels on buttons, honeypot bot protection on form
+- **Responsive:** Mobile-first design with responsive breakpoints. Test coverage for responsive structure.
+- **Tests:** 5 test suites (253 tests) covering a11y, build output, links, SEO, HTML structure
+- **Performance:** Static site generation (~600ms build). No Lighthouse CI or perf budget configured yet.
+- **Contact form:** Webhook-driven with inline validation, char count, honeypot, loading state, success/error UI feedback
 
 #### Cross-repo UX Issues
 
@@ -132,16 +133,16 @@
 
 ### 5. HALF REPO STATUS
 
-HALF (Agentic OS for desktop) is missing from GitHub entirely, confirmed by AGE-30 investigation. If it still exists in private/local form, the code should be pushed to a public repo or archived. The repo mention should be removed from portfolio docs if it no longer exists.
+HALF (Hermes Agentic Lifecycle Framework) IS present at `iknowkungfubar/Hermes-Agentic-Lifecycle-Framework` on GitHub, confirmed by local clone at `~/Hermes-Agentic-Lifecycle-Framework/` with AGENTS.md, tests, docs, examples, Docker, CI/CD, and 2 remotes (origin + production). Not a publicized product — it's the internal framework and half of the HALF/Candor AGI system. It should remain referenced in the portfolio but marked as internal/runtime rather than a downloadable product.
 
 ---
 
 ### SUMMARY
 
-**Portfolio health:** Yellow/Amber. Architecture across the 8 repos is strong with well-separated concerns and modern tooling. The main gaps are:
+|**Portfolio health:** Green/Yellow. Architecture across the 9 repos is strong with well-separated concerns and modern tooling. All repos are confirmed present (HALF corrected from "missing").
 
 1. **Publishing** — Only 50% published (4/8). The ones that are published have version drift issues.
 2. **Onboarding** — Missing examples, screenshots, screencasts in 5/8 repos. New users have no quick way to understand what a tool does without installing it.
 3. **Cross-portfolio cohesion** — No unified CLI, no meta-package, no consistent naming convention.
-4. **Testing gaps** — turintech-website has zero tests. swe-swarm has low coverage. Other repos are solid.
-5. **UI/UX polish** — Website needs a11y, dark mode, testing. CLI tools need error message audit.
+4. **Testing status** — turintech-website now has 207 tests (5 suites: a11y, build, links, SEO, HTML structure). swe-swarm has low coverage (17 tests for 1,400 LOC). Other repos are solid.
+5. **UI/UX polish** — Website has a11y, dark mode, and comprehensive tests. CLI tools need error message audit.

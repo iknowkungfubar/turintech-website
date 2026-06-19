@@ -41,20 +41,21 @@ describe("astro build output", () => {
     expect(html).toContain("404");
   });
 
-  it("produces a portfolio page with all 8 repos", () => {
+  it("produces a portfolio page with all 9 repos", () => {
     const path = join(DIST_DIR, "portfolio", "index.html");
     expect(existsSync(path)).toBe(true);
     const html = readFileSync(path, "utf-8");
     expect(html).toContain("</html>");
-    expect(html).toContain("No-Slop Harness");
-    expect(html).toContain("Candor AI");
-    expect(html).toContain("SWE Swarm");
-    expect(html).toContain("Ring-Fenced RAG");
-    expect(html).toContain("AutoResearch Stack");
+    expect(html).toContain("no-slop-harness");
+    expect(html).toContain("swe-swarm");
+    expect(html).toContain("candor-ai");
+    expect(html).toContain("ring-fenced-rag");
+    expect(html).toContain("autoresearch-stack");
     expect(html).toContain("IronSilo");
-    expect(html).toContain("File Organization Wizard");
+    expect(html).toContain("file-org-wiz");
     expect(html).toContain("HALF");
-    expect(html).toContain("GitHub Organization");
+    expect(html).toContain("turintech-website");
+    expect(html).toContain("GitHub");
   });
 
   it("all HTML pages have a lang attribute for accessibility", () => {

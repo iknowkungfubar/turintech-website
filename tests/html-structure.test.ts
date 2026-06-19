@@ -12,10 +12,11 @@ function getHtml(...segments: string[]): string | null {
 
 type PageDef = { name: string; path: string[] };
 const ALL_PAGES: PageDef[] = [
-  { name: "Home",     path: ["index.html"] },
-  { name: "About",    path: ["about", "index.html"] },
-  { name: "Services", path: ["services", "index.html"] },
-  { name: "404",      path: ["404.html"] },
+  { name: "Home",      path: ["index.html"] },
+  { name: "About",     path: ["about", "index.html"] },
+  { name: "Services",  path: ["services", "index.html"] },
+  { name: "Portfolio", path: ["portfolio", "index.html"] },
+  { name: "404",       path: ["404.html"] },
 ];
 const CONTENT_PAGES = ALL_PAGES.filter((p) => p.name !== "404");
 
