@@ -42,10 +42,10 @@ positional arguments:
     crates: 'https://crates.io/crates/candor-ai',
     docs: 'Rust — CLI + Tauri Desktop',
     badges: [
-      'https://img.shields.io/badge/version-0.1.0-blueviolet.svg',
+      'https://img.shields.io/badge/version-1.0.0-blue.svg',
       'https://img.shields.io/badge/rust-1.85+-orange.svg',
-      'https://img.shields.io/badge/license-Apache%202.0-green.svg',
-      'https://img.shields.io/badge/tests-320%2B-brightgreen.svg',
+      'https://img.shields.io/badge/license-MIT-green.svg',
+      'https://img.shields.io/crates/v/candor-ai',
     ],
     screenshot: `candor-ai — Agent Orchestration
 ┌─────────────────────────────────────┐
@@ -90,15 +90,16 @@ options:
   {
     name: 'Ring-Fenced RAG',
     slug: 'ring-fenced-rag',
-    tagline: 'Secure, self-hosted Retrieval-Augmented Generation',
-    description: 'A production-ready RAG system designed for data sovereignty. Deploy private LLM-powered document Q&A behind your own firewall with strict access controls and zero data exfiltration.',
-    differentiator: 'Ring-fenced security model — documents never leave your infrastructure. Built-in access control, audit logging, and support for local LLMs (Ollama, vLLM) and cloud APIs.',
+    tagline: 'Self-hosted, zero-trust RAG with role-based access control at the database level',
+    description: 'A self-hosted document Q&A system where access control is enforced at the database level — not the application layer. Every document chunk is tagged with role metadata at ingestion time. When a user queries the system, the vector database mathematically refuses to return chunks the user isnt authorized to see.',
+    differentiator: 'Ring-fenced security model — role-based retrieval enforced at pgvector query time via PostgreSQL JSONB @> operator. Documents never leave your infrastructure. 100% local: embeddings, storage, and generation all on your hardware.',
     github: 'https://github.com/TurinTech-Solutions/ring-fenced-rag',
-    docs: 'Python — Web UI + API',
+    pypi: 'https://pypi.org/project/ring-fenced-rag/',
+    docs: 'Python — CLI + Web UI + TUI + API',
     badges: [
-      'https://img.shields.io/badge/version-0.3.0-blueviolet.svg',
-      'https://img.shields.io/badge/python-3.11+-blue.svg',
-      'https://img.shields.io/badge/license-Apache%202.0-green.svg',
+      'https://img.shields.io/pypi/v/ring-fenced-rag',
+      'https://img.shields.io/badge/python-3.13+-blue.svg',
+      'https://img.shields.io/badge/license-MIT-green.svg',
     ],
     screenshot: `Ring-Fenced RAG — Secure Document Q&A
 ┌──────────────────────────────────────┐
@@ -113,15 +114,16 @@ Local-first • Zero data exfiltration`,
   {
     name: 'AutoResearch Stack',
     slug: 'autoresearch-stack',
-    tagline: 'Autonomous deep research agent with iterative refinement',
-    description: 'An AI-powered research agent that performs comprehensive multi-source investigation. Iteratively improves its understanding through self-critique, deep web searches, and structured reporting.',
-    differentiator: 'Iterative self-refinement loop — the agent critiques its own findings, identifies knowledge gaps, and performs targeted follow-up research before producing a final report.',
+    tagline: 'Build and ship autonomous LLM training research systems',
+    description: 'An autonomous research stack for continuously improving LLM training through automated experimentation. Features data intelligence pipeline, experiment engine with bandit-based prioritization, and multi-agent architecture — inspired by Karpathy research, designed for single-GPU research labs.',
+    differentiator: 'Complete research automation pipeline — from data cleaning to hypothesis generation to experiment execution. Bandit-based experiment prioritization (UCB1, epsilon-greedy, Thompson) and LLM-driven hypothesis generation with rule-based fallback.',
     github: 'https://github.com/TurinTech-Solutions/autoresearch-stack',
+    pypi: 'https://pypi.org/project/autoresearch-stack/',
     docs: 'Python — CLI',
     badges: [
-      'https://img.shields.io/badge/version-0.2.0-blueviolet.svg',
+      'https://img.shields.io/pypi/v/autoresearch-stack',
       'https://img.shields.io/badge/python-3.11+-blue.svg',
-      'https://img.shields.io/badge/license-Apache%202.0-green.svg',
+      'https://img.shields.io/badge/license-MIT-green.svg',
     ],
     screenshot: `AutoResearch Stack — Deep Research Agent
 ┌──────────────────────────────────────┐
@@ -141,15 +143,16 @@ Iterative self-refinement`,
   {
     name: 'IronSilo',
     slug: 'ironsilo',
-    tagline: 'Security boundary enforcement and file integrity monitoring',
-    description: 'A security tool for monitoring file integrity, detecting unauthorized changes, and enforcing security policies across your infrastructure. Provides tamper-evident audit trails and real-time alerts.',
-    differentiator: 'Hardened security monitoring with cryptographic integrity verification, policy-as-code configuration, and integration with existing SIEM/SOAR systems.',
+    tagline: 'Turn your PC into a private, autonomous AI lab, without melting your GPU',
+    description: 'A completely local, cross-platform AI development sandbox that packages a state-of-the-art coding assistant, a wiki RAG engine, an autonomous browser swarm agent, and a context-compression proxy into a single resource-capped environment powered by a Traefik API Gateway.',
+    differentiator: 'True Silo architecture — single Traefik gateway on port 8080 routes all internal services with zero exposed ports. Resource-capped (~4GB RAM) for low-to-mid spec machines. 100% GPU dedicated to your actual AI model.',
     github: 'https://github.com/TurinTech-Solutions/IronSilo',
-    docs: 'Python — CLI',
+    docs: 'Python — Docker + CLI + TUI',
     badges: [
-      'https://img.shields.io/badge/version-0.1.0-blueviolet.svg',
-      'https://img.shields.io/badge/python-3.11+-blue.svg',
-      'https://img.shields.io/badge/license-Apache%202.0-green.svg',
+      'https://img.shields.io/badge/version-2.1.1-blue.svg',
+      'https://img.shields.io/badge/python-3.10+-blue.svg',
+      'https://img.shields.io/badge/license-MIT-green.svg',
+      'https://github.com/iknowkungfubar/IronSilo/actions/workflows/ci.yml/badge.svg',
     ],
     screenshot: `IronSilo — Security Boundary Enforcement
 ┌──────────────────────────────────────┐
@@ -167,11 +170,12 @@ cryptographic integrity • policy-as-code`,
     description: 'An MCP (Model Context Protocol) server for automated file organization. Define rules to sort, rename, archive, and categorize files based on type, date, pattern matching, and custom classifiers.',
     differentiator: 'AI-native file organization via MCP protocol — works with any MCP-compatible client (Claude Desktop, code editors). Rule engine supports regex, metadata, and content-based classification.',
     github: 'https://github.com/TurinTech-Solutions/file-org-wiz',
+    pypi: 'https://pypi.org/project/file-org-wiz/',
     docs: 'Python — MCP Server',
     badges: [
-      'https://img.shields.io/badge/version-0.1.0-blueviolet.svg',
-      'https://img.shields.io/badge/python-3.11+-blue.svg',
-      'https://img.shields.io/badge/license-Apache%202.0-green.svg',
+      'https://img.shields.io/pypi/v/file-org-wiz',
+      'https://img.shields.io/badge/python-3.8+-green.svg',
+      'https://img.shields.io/badge/license-MIT-green.svg',
     ],
     screenshot: `$ file-org-wiz --help
 usage: file-org-wiz [-h] [--host HOST] [--port PORT]
@@ -196,9 +200,9 @@ options:
     github: 'https://github.com/TurinTech-Solutions/HALF',
     docs: 'Python — CLI + GUI',
     badges: [
-      'https://img.shields.io/badge/version-0.1.0-blueviolet.svg',
+      'https://img.shields.io/badge/version-1.5.0-blue.svg',
       'https://img.shields.io/badge/python-3.11+-blue.svg',
-      'https://img.shields.io/badge/license-Apache%202.0-green.svg',
+      'https://img.shields.io/badge/license-MIT-green.svg',
     ],
     screenshot: `HALF — Hermetic Agentic Lifecycle Framework
 ┌──────────────────────────────────────┐
