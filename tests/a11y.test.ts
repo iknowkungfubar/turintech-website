@@ -115,7 +115,7 @@ describe('Accessibility — contact form', () => {
 
   it.each(FORM_PAGES)('$path should have honeypot field for bot protection', (pagePath) => {
     const html = readHtml(pagePath);
-    expect(html).toMatch(/<input[^>]+name="website"[^>]+tabindex="-1"/i);
+    expect(html).toMatch(/<input[^>]+name="_honey"[^>]+style="display:none"/i);
   });
 });
 

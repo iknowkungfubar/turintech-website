@@ -3,9 +3,10 @@ export interface Props {
   webhookUrl?: string;
 }
 
-// Uses FormSubmit.co (free, no signup) as the default endpoint for static hosting.
-// Falls back to webhookUrl prop or PUBLIC_WEBHOOK_URL env var for self-hosted lead-server.
-const formAction = webhookUrl || import.meta.env.PUBLIC_WEBHOOK_URL || 'https://formsubmit.co/josh@turintechsolutions.com';
+// webhookUrl from Astro.props or PUBLIC_WEBHOOK_URL env var
+// Falls back to FormSubmit.co for static GitHub Pages hosting.
+const { webhookUrl = import.meta.env.PUBLIC_WEBHOOK_URL || '' } = Astro.props;
+const formAction = webhookUrl || 'https://formsubmit.co/josh@turintechsolutions.com';
 ---
 
 <form class="contact-form" id="contact-form" action={formAction} method="POST">

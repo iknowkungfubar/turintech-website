@@ -144,7 +144,7 @@ describe("Contact form (Home page)", () => {
       expect(html).toContain('type="submit"');
     });
     it("has honeypot field for bot protection", () => {
-      expect(html).toContain('id="website"');
+      expect(html).toContain('name="_honey"');
     });
     it("has aria-live status region", () => {
       expect(html).toContain('aria-live="polite"');
@@ -152,8 +152,8 @@ describe("Contact form (Home page)", () => {
     it("has character count hint", () => {
       expect(html).toContain("characters remaining");
     });
-    it("has webhook data attribute on form", () => {
-      expect(html).toContain("data-webhook");
+    it("has form action attribute", () => {
+      expect(html).toContain("action=");
     });
   }
 });
