@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="462" height="346" viewBox="0 0 462 346">
+<defs><style>@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&amp;display=swap");.t{font-family:"JetBrains Mono","Fira Code",monospace;font-size:13px;fill:#cdd6f4;white-space:pre}</style></defs>
+<rect width="100%" height="100%" rx="10" fill="#1a1b26"/>
+<rect x="0" y="0" width="100%" height="34" rx="10" fill="#1e1e2e"/>
+<rect x="0" y="30" width="100%" height="4" fill="#1e1e2e"/>
+<circle cx="21" cy="17.0" r="5" fill="#ff5f56"/>
+<circle cx="39" cy="17.0" r="5" fill="#ffbd2e"/>
+<circle cx="57" cy="17.0" r="5" fill="#27c93f"/>
+<text x="231.0" y="21.0" text-anchor="middle" font-size="11" fill="#6c7086" font-family="Inter,system-ui,sans-serif">file-org-wiz — Terminal</text>
+<text x="16" y="63" class="t" fill="#a6e3a1">$ </text>
+<text x="31.6" y="63" class="t">file-org-wiz scan ~/Downloads --dry-run</text>
+<text x="16" y="83" class="t" fill="#89b4fa">┌─ File Organization Wizard ── Dry Run Mode ─────┐</text>
+<text x="16" y="103" class="t" fill="#cdd6f4">│  Scanned: 1,247 files  •  284 duplicates       │</text>
+<text x="16" y="123" class="t" fill="#6c7086">├────────────────────────────────────────────────┤</text>
+<text x="16" y="143" class="t" fill="#cdd6f4">│  Projects/        →  89 files (12 proposals)   │</text>
+<text x="16" y="163" class="t" fill="#cdd6f4">│  Areas/           →  312 files (4 categories)  │</text>
+<text x="16" y="183" class="t" fill="#cdd6f4">│  Resources/       →  203 files (by topic)      │</text>
+<text x="16" y="203" class="t" fill="#cdd6f4">│  Archives/        →  643 files (by year)       │</text>
+<text x="16" y="223" class="t" fill="#6c7086">├────────────────────────────────────────────────┤</text>
+<text x="16" y="243" class="t" fill="#cdd6f4">│  ✓  Would organize 1,247 files into 18 folders │</text>
+<text x="16" y="263" class="t" fill="#cdd6f4">│  ⚠  47 uncategorized (needs review)            │</text>
+<text x="16" y="283" class="t" fill="#89b4fa">└────────────────────────────────────────────────┘</text>
+<text x="16" y="303" class="t" fill="#cdd6f4">Run without --dry-run to apply changes.</text>
+</svg>

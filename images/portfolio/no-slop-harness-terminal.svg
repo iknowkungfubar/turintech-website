@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="649" height="306" viewBox="0 0 649 306">
+<defs><style>@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&amp;display=swap");.t{font-family:"JetBrains Mono","Fira Code",monospace;font-size:13px;fill:#cdd6f4;white-space:pre}</style></defs>
+<rect width="100%" height="100%" rx="10" fill="#1a1b26"/>
+<rect x="0" y="0" width="100%" height="34" rx="10" fill="#1e1e2e"/>
+<rect x="0" y="30" width="100%" height="4" fill="#1e1e2e"/>
+<circle cx="21" cy="17.0" r="5" fill="#ff5f56"/>
+<circle cx="39" cy="17.0" r="5" fill="#ffbd2e"/>
+<circle cx="57" cy="17.0" r="5" fill="#27c93f"/>
+<text x="324.59999999999997" y="21.0" text-anchor="middle" font-size="11" fill="#6c7086" font-family="Inter,system-ui,sans-serif">no-slop-harness — Terminal</text>
+<text x="16" y="63" class="t" fill="#a6e3a1">$ </text>
+<text x="31.6" y="63" class="t">no-slop list --status pending</text>
+<text x="16" y="83" class="t" fill="#89b4fa">┌──────┬──────────────────────────────────┬──────────┐</text>
+<text x="16" y="103" class="t" fill="#cdd6f4">│  ID  │  Task                            │  Status  │</text>
+<text x="16" y="123" class="t" fill="#6c7086">├──────┼──────────────────────────────────┼──────────┤</text>
+<text x="16" y="143" class="t" fill="#cdd6f4">│ 001  │  Implement query validator        │  READY   │</text>
+<text x="16" y="163" class="t" fill="#cdd6f4">│ 002  │  Review sandbox security policy   │  PENDING │</text>
+<text x="16" y="183" class="t" fill="#cdd6f4">│ 003  │  Add TLA+ formal verification     │  BLOCKED │</text>
+<text x="16" y="203" class="t" fill="#cdd6f4">│ 004  │  Write integration test suite      │  TODO    │</text>
+<text x="16" y="223" class="t" fill="#89b4fa">└──────┴──────────────────────────────────┴──────────┘</text>
+<text x="16" y="243" class="t" fill="#a6e3a1">$ </text>
+<text x="31.6" y="243" class="t">no-slop status --pipeline</text>
+<text x="16" y="263" class="t" fill="#cdd6f4">Coordinator  ✓ Complete   │  Implementor  ● Active  │  Verifier  ○ Waiting</text>
+</svg>
