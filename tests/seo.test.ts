@@ -192,7 +192,9 @@ describe('JSON-LD structured data', () => {
       expect(blocks).not.toBeNull();
 
       for (const block of blocks!) {
-        const content = block.replace(/<\/?script[^>]*>/gi, '').trim();
+        // Extract inner content from <script> JSON-LD blocks instead of stripping tags
+        const innerMatch = block.match(/<script\s+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/i);
+        const content = innerMatch ? innerMatch[1].trim() : '';
         // Should contain JSON structure (even if wrapped in template literal)
         expect(content).toMatch(/"@context"/);
         expect(content).toMatch(/"@type"/);
