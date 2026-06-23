@@ -33,26 +33,6 @@ const PAGES: PageSEO[] = [
     hasRobots: true,
   },
   {
-    path: 'about/index.html',
-    title: 'About',
-    description: 'Solo technology expert helping startups',
-    hasOG: true,
-    hasTwitter: true,
-    hasJSONLD: true,
-    hasCanonical: true,
-    hasRobots: true,
-  },
-  {
-    path: 'services/index.html',
-    title: 'Services',
-    description: 'Technology consulting services',
-    hasOG: true,
-    hasTwitter: true,
-    hasJSONLD: true,
-    hasCanonical: true,
-    hasRobots: true,
-  },
-  {
     path: '404.html',
     title: 'Page Not Found',
     description: 'The page you are looking for does not exist',
@@ -61,16 +41,6 @@ const PAGES: PageSEO[] = [
     hasJSONLD: true,
     hasCanonical: true,
     hasRobots: false,
-  },
-  {
-    path: 'portfolio/index.html',
-    title: 'Portfolio',
-    description: 'Explore our portfolio of open-source AI infrastructure tools',
-    hasOG: true,
-    hasTwitter: true,
-    hasJSONLD: true,
-    hasCanonical: true,
-    hasRobots: true,
   },
 ];
 

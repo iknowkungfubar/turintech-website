@@ -74,8 +74,9 @@ const contactEmail = Astro.props.contactEmail || import.meta.env.PUBLIC_CONTACT_
     <title>{title} &mdash; TurinTech Solutions</title>
   </head>
   <body class="dark">
-    <!-- Skip-to-content link (first focusable element) -->
-    <a href="#main-content" class="skip-link" id="skip-link">Skip to main content</a>
+    <!-- Skip-to-content link for keyboard and screen-reader accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!-- Header -->
      <header class="site-header">
        <nav class="container nav-bar">
@@ -164,17 +165,9 @@ const contactEmail = Astro.props.contactEmail || import.meta.env.PUBLIC_CONTACT_
     --color-accent-hover: #1d4ed8;
     --color-accent-ghost: rgba(37, 99, 235, 0.06);
     --color-accent-light: #dbeafe;
-    --color-accent-shadow: rgba(37, 99, 235, 0.12);
     --color-success: #16a34a;
-    --color-success-bg: #f0fdf4;
-    --color-success-border: #bbf7d0;
     --color-error: #dc2626;
-    --color-error-bg: #fef2f2;
-    --color-error-border: #fecaca;
-    --color-warning: #f59e0b;
-    --color-warning-bg: #fffbeb;
-    --color-warning-border: #fde68a;
-    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    --color-warning: #d97706;
     --header-bg: rgba(255, 255, 255, 0.92);
     --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
@@ -225,17 +218,6 @@ const contactEmail = Astro.props.contactEmail || import.meta.env.PUBLIC_CONTACT_
     --color-accent-hover: #93c5fd;
     --color-accent-ghost: rgba(59, 130, 246, 0.1);
     --color-accent-light: #1e3a8a;
-    --color-accent-shadow: rgba(96, 165, 250, 0.15);
-    --color-success: #4ade80;
-    --color-success-bg: rgba(34, 197, 94, 0.12);
-    --color-success-border: rgba(34, 197, 94, 0.3);
-    --color-error: #f87171;
-    --color-error-bg: rgba(239, 68, 68, 0.12);
-    --color-error-border: rgba(239, 68, 68, 0.3);
-    --color-warning: #fbbf24;
-    --color-warning-bg: rgba(251, 191, 36, 0.10);
-    --color-warning-border: rgba(251, 191, 36, 0.25);
-    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     --header-bg: rgba(15, 23, 42, 0.92);
   }
 
@@ -250,13 +232,11 @@ const contactEmail = Astro.props.contactEmail || import.meta.env.PUBLIC_CONTACT_
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-display: swap;
   }
 
   img { max-width: 100%; height: auto; display: block; }
   a { color: var(--color-accent); text-decoration: none; transition: color var(--transition-fast); }
   a:hover { color: var(--color-accent-hover); }
-  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; border-radius: 2px; }
   ::selection { background: var(--color-accent); color: var(--color-white); }
 
   h1, h2, h3, h4, h5, h6 {
@@ -327,7 +307,6 @@ const contactEmail = Astro.props.contactEmail || import.meta.env.PUBLIC_CONTACT_
     transition: border-color var(--transition-base), box-shadow var(--transition-base);
   }
   .card:hover { border-color: var(--color-border-strong); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04); }
-  body.dark .card:hover { box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); }
   .card-icon { display: flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 12px; background: var(--color-accent-ghost); color: var(--color-accent); margin-bottom: var(--space-6); }
   .card-title { font-size: var(--text-lg); font-weight: 600; margin-bottom: var(--space-3); }
   .card-text { font-size: var(--text-sm); color: var(--color-text-secondary); margin-bottom: 0; line-height: var(--leading-relaxed); }
@@ -338,7 +317,7 @@ const contactEmail = Astro.props.contactEmail || import.meta.env.PUBLIC_CONTACT_
   .text-sm { font-size: var(--text-sm); }
   .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 
-  /* --- Accessibility --- */
+  /* Skip-to-content link — visually hidden until focused via keyboard */
   .skip-link {
     position: absolute;
     top: -100%;
@@ -350,19 +329,20 @@ const contactEmail = Astro.props.contactEmail || import.meta.env.PUBLIC_CONTACT_
     font-size: var(--text-sm);
     font-weight: 600;
     text-decoration: none;
+    border-radius: 0 0 8px 0;
     transition: top var(--transition-fast);
   }
   .skip-link:focus {
     top: 0;
     outline: none;
   }
-
-  :focus-visible {
+  .skip-link:focus-visible {
     outline: 2px solid var(--color-accent);
     outline-offset: 2px;
   }
-  .theme-toggle:focus-visible,
-  .mobile-menu-btn:focus-visible {
+
+  /* Visible focus ring for keyboard navigation */
+  :focus-visible {
     outline: 2px solid var(--color-accent);
     outline-offset: 2px;
   }

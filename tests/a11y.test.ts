@@ -12,9 +12,6 @@ const DIST_DIR = join(REPO_ROOT, 'dist');
 
 const PAGES = [
   'index.html',
-  'about/index.html',
-  'services/index.html',
-  'portfolio/index.html',
   '404.html',
 ];
 
