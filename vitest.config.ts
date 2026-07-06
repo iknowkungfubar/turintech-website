@@ -9,6 +9,12 @@ export default defineConfig({
       provider: "v8",
       reporter: ["text", "lcov", "html"],
       include: ["src/**/*.ts", "src/**/*.astro"],
+      thresholds: {
+        statements: 50,
+        branches: 40,
+        functions: 50,
+        lines: 50,
+      },
     },
     reporters: ["verbose"],
   },
