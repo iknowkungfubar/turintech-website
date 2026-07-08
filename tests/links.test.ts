@@ -31,18 +31,7 @@ function readHtml(pagePath: string): string {
 /** Build a set of all actual page paths in the dist directory */
 function getExistingPages(): Set<string> {
   const pages = new Set<string>();
-  function walk(dir: string, prefix: string): void {
-    const entries = readFileSync === undefined ? [] : (() => {
-      try {
-        return require('node:fs').readdirSync(dir, { withFileTypes: true });
-      } catch {
-        return [];
-      }
-    })();
-    // Simpler: just read dir
-    return pages; // placeholder
-  }
-  // Simpler approach: list known paths
+  // Placeholder — actual directory walking not yet implemented
   return pages;
 }
 
