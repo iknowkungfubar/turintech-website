@@ -52,7 +52,7 @@ const formAction = webhookUrl || 'https://formsubmit.co/josh@turintechsolutions.
     // Character counter
     if (messageEl && countEl) {
       messageEl.addEventListener('input', function () {
-        var remaining = 2000 - this.value.length;
+        const remaining = 2000 - this.value.length;
         countEl.textContent = remaining.toLocaleString() + ' characters remaining';
         countEl.className = 'form-hint' + (remaining < 100 ? ' form-hint--warning' : '');
       });
