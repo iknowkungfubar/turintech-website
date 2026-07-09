@@ -28,24 +28,6 @@ function readHtml(pagePath: string): string {
   return readFileSync(join(DIST_DIR, pagePath), 'utf-8');
 }
 
-/** Build a set of all actual page paths in the dist directory */
-function getExistingPages(): Set<string> {
-  const pages = new Set<string>();
-  function walk(dir: string, prefix: string): void {
-    const entries = readFileSync === undefined ? [] : (() => {
-      try {
-        return require('node:fs').readdirSync(dir, { withFileTypes: true });
-      } catch {
-        return [];
-      }
-    })();
-    // Simpler: just read dir
-    return pages; // placeholder
-  }
-  // Simpler approach: list known paths
-  return pages;
-}
-
 /**
  * Extract unique href values from anchor tags in HTML.
  * Returns non-fragment, non-external hrefs with the leading / and # stripped.
