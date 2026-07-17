@@ -5,6 +5,7 @@
 [![Built with Astro](https://img.shields.io/badge/built%20with-Astro-FF5D01.svg?logo=astro)](https://astro.build)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![CI](https://github.com/iknowkungfubar/turintech-website/actions/workflows/deploy.yml/badge.svg)](https://github.com/iknowkungfubar/turintech-website/actions/workflows/deploy.yml)
+[![CodeQL](https://github.com/iknowkungfubar/turintech-website/actions/workflows/codeql.yml/badge.svg)](https://github.com/iknowkungfubar/turintech-website/actions/workflows/codeql.yml)
 [![Performance](https://img.shields.io/badge/performance-100%25-brightgreen)](https://turintechsolutions.com)
 
 A fast, static corporate site built with [Astro](https://astro.build) and deployed via GitHub Pages. Presents TurinTech Solutions' four core consulting services: infrastructure audits, cloud migrations, API integrations, and private AI / RAG systems.
