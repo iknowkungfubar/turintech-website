@@ -1,14 +1,12 @@
-import { describe, it, expect, beforeAll } from 'vitest';
+import { describe, it, expect } from 'vitest';
 import { existsSync, readFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
-import { execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const REPO_ROOT = join(__dirname, '..');
-const DIST_DIR = join(REPO_ROOT, 'dist');
+const DIST_DIR = join(__dirname, '..', 'dist');
 
 const PAGE_PATHS = [
   'index.html',
@@ -17,12 +15,6 @@ const PAGE_PATHS = [
 
 /** Known external URL patterns to skip */
 const EXTERNAL_PREFIXES = ['https://', 'http://', 'mailto:', 'javascript:', 'tel:', 'data:'];
-
-beforeAll(() => {
-  if (!existsSync(DIST_DIR)) {
-    execSync('bun run build', { cwd: REPO_ROOT, stdio: 'pipe' });
-  }
-});
 
 function readHtml(pagePath: string): string {
   return readFileSync(join(DIST_DIR, pagePath), 'utf-8');

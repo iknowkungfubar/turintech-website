@@ -1,14 +1,12 @@
-import { describe, it, expect, beforeAll } from 'vitest';
+import { describe, it, expect } from 'vitest';
 import { existsSync, readFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
-import { execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const REPO_ROOT = join(__dirname, '..');
-const DIST_DIR = join(REPO_ROOT, 'dist');
+const DIST_DIR = join(__dirname, '..', 'dist');
 
 interface PageSEO {
   path: string;
@@ -43,12 +41,6 @@ const PAGES: PageSEO[] = [
     hasRobots: false,
   },
 ];
-
-beforeAll(() => {
-  if (!existsSync(DIST_DIR)) {
-    execSync('bun run build', { cwd: REPO_ROOT, stdio: 'pipe' });
-  }
-});
 
 function readHtml(pagePath: string): string {
   const filePath = join(DIST_DIR, pagePath);
