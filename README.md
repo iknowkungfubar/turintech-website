@@ -1,6 +1,6 @@
 # TurinTech Solutions Website
 
-> Corporate website for [TurinTech Solutions](https://turintechsolutions.com) — strategic technology consulting, infrastructure restructuring, and private AI architecture.
+> Corporate website for [TurinTech Solutions](https://turintechsolutions.com) — local IT systems consulting for small businesses in Orange County, CA.
 
 [![Built with Astro](https://img.shields.io/badge/built%20with-Astro-FF5D01.svg?logo=astro)](https://astro.build)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
@@ -8,18 +8,16 @@
 [![CodeQL](https://github.com/iknowkungfubar/turintech-website/actions/workflows/dynamic/github-code-scanning/codeql/badge.svg)](https://github.com/iknowkungfubar/turintech-website/security/code-scanning)
 [![Performance](https://img.shields.io/badge/performance-100%25-brightgreen)](https://turintechsolutions.com)
 
-A fast, static corporate site built with [Astro](https://astro.build) and deployed via GitHub Pages. Presents TurinTech Solutions' four core consulting services: infrastructure audits, cloud migrations, API integrations, and private AI / RAG systems.
+A fast, static corporate site built with [Astro](https://astro.build) and deployed via GitHub Pages. Presents TurinTech Solutions' three simple offers: a flat-rate IT Systems Audit ($500), fixed-price Cleanup Sprints ($1,500–$3,000), and a month-to-month Managed Ops Retainer ($1,000–$2,500/mo). Also includes a free lead magnet (Shadow AI Red Flags guide).
 
 ## Pages
 
 | Route | Content |
 |-------|---------|
-| `/` | Landing page — hero section, services overview, call-to-action, trust signals |
-| `/about` | About TurinTech Solutions — methodology, philosophy, team values |
-| `/services` | Detailed breakdown of 4 core service offerings with capability descriptions |
+| `/` | Landing page — local SMB positioning, 3 pricing offers, lead magnet download, about section, contact form |
 | `/404` | Custom error page with navigation fallback |
 
-Each page is a static `.astro` file in `src/pages/`, pre-rendered at build time.
+Each page is a static `.astro` file in `src/pages/`, pre-rendered at build time. Downloadable assets (lead magnet) live under `public/downloads/`.
 
 ## Project Structure
 
@@ -27,9 +25,7 @@ Each page is a static `.astro` file in `src/pages/`, pre-rendered at build time.
 turintech-website/
 ├── src/
 │   ├── pages/
-│   │   ├── index.astro      # Landing page
-│   │   ├── about.astro      # Company about page
-│   │   ├── services.astro   # Service offerings
+│   │   ├── index.astro      # Landing page (SMB positioning, pricing, lead magnet, contact)
 │   │   └── 404.astro        # Custom error page
 │   ├── components/
 │   │   └── ContactForm.astro # Contact form with webhook integration
@@ -38,6 +34,9 @@ turintech-website/
 │   └── env.d.ts             # TypeScript declarations
 ├── public/
 │   ├── CNAME                # Custom domain (turintechsolutions.com)
+│   ├── downloads/           # Lead magnet
+│   │   ├── shadow-ai-red-flags.html
+│   │   └── shadow-ai-red-flags.pdf
 │   └── favicon.ico          # Site favicon
 ├── .github/workflows/
 │   └── deploy.yml           # GitHub Pages auto-deploy on push to main
@@ -88,7 +87,7 @@ Source (.astro) → Astro Build → Static HTML + CSS → GitHub Pages
 |----------|-----------|
 | **Astro SSG** | Zero JS by default, fastest possible load times, markdown-like component syntax |
 | **Inline stylesheets** | All CSS inlined at build time — no render-blocking external CSS requests |
-| **Directory output** | Clean URLs (`/about` not `/about.html`) via `build.format: "directory"` |
+| **Directory output** | Clean URLs (`/` not `/index.html`) via `build.format: "directory"` |
 | **No framework** | Pure Astro + vanilla HTML/CSS — no React/Vue/Svelte overhead for a content site |
 | **Single dependency** | Only `astro` as a dependency — minimal attack surface, fast installs |
 | **bun** | Faster installs and builds than npm, native TypeScript support |
@@ -122,7 +121,7 @@ No data is stored on the site itself — all submissions go directly to the webh
 
 | Variable | Purpose | Required |
 |----------|---------|----------|
-| `PUBLIC_CONTACT_EMAIL` | Email address in JSON-LD schema and contact form | No (falls back to `contact@turintechsolutions.com`) |
+| `PUBLIC_CONTACT_EMAIL` | Email address in JSON-LD schema and contact form | No (falls back to `josh@turintechsolutions.com`) |
 | `PUBLIC_WEBHOOK_URL` | Webhook URL for contact form submissions | No (form gracefully degrades if unset) |
 
 ## Deployment
