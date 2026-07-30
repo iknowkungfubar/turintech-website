@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - **SMB repositioning**: Repositioned website from enterprise consulting to local SMB IT services in Orange County, CA
   - Removed `/about`, `/services`, and `/portfolio` pages — content consolidated into single landing page
-  - Replaced four service offerings with three simple pricing tiers (Audit $500, Cleanup Sprint $1,500–$3,000, Managed Ops $1,000–$2,500/mo)
+  - Added four pricing tiers: Audit ($500), Quick Fix ($750), Cleanup Sprint ($1,500–$3,000), Managed Ops ($1,000–$2,500/mo)
   - Updated all copy, SEO meta, JSON-LD schema, and nav anchors for local SMB focus
   - Changed contact email from `contact@turintechsolutions.com` to `josh@turintechsolutions.com`
 
