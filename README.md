@@ -1,159 +1,19 @@
 # TurinTech Solutions Website
 
-> Corporate website for [TurinTech Solutions](https://turintechsolutions.com) — strategic technology consulting, infrastructure restructuring, and private AI architecture.
+> Corporate website for [TurinTech Solutions](https://turintechsolutions.com) — local IT systems consulting for small businesses in Orange County, CA.
 
 [![Built with Astro](https://img.shields.io/badge/built%20with-Astro-FF5D01.svg?logo=astro)](https://astro.build)
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![License: Proprietary](https://img.shields.io/badge/license-proprietary-red.svg)](LICENSE)
 [![CI](https://github.com/iknowkungfubar/turintech-website/actions/workflows/deploy.yml/badge.svg)](https://github.com/iknowkungfubar/turintech-website/actions/workflows/deploy.yml)
 [![CodeQL](https://github.com/iknowkungfubar/turintech-website/actions/workflows/dynamic/github-code-scanning/codeql/badge.svg)](https://github.com/iknowkungfubar/turintech-website/security/code-scanning)
 [![Performance](https://img.shields.io/badge/performance-100%25-brightgreen)](https://turintechsolutions.com)
 
-A fast, static corporate site built with [Astro](https://astro.build) and deployed via GitHub Pages. Presents TurinTech Solutions' four core consulting services: infrastructure audits, cloud migrations, API integrations, and private AI / RAG systems.
+A fast, static corporate site built with [Astro](https://astro.build) and deployed via GitHub Pages. 
 
-## Pages
+Copyright (c) 2026 TurinTech Solutions. All rights reserved.
 
-| Route | Content |
-|-------|---------|
-| `/` | Landing page — hero section, services overview, call-to-action, trust signals |
-| `/about` | About TurinTech Solutions — methodology, philosophy, team values |
-| `/services` | Detailed breakdown of 4 core service offerings with capability descriptions |
-| `/404` | Custom error page with navigation fallback |
+This source code and all associated assets are proprietary and confidential.
+Unauthorized copying, modification, distribution, or use of this material
+is strictly prohibited without prior written permission from TurinTech Solutions.
 
-Each page is a static `.astro` file in `src/pages/`, pre-rendered at build time.
-
-## Project Structure
-
-```
-turintech-website/
-├── src/
-│   ├── pages/
-│   │   ├── index.astro      # Landing page
-│   │   ├── about.astro      # Company about page
-│   │   ├── services.astro   # Service offerings
-│   │   └── 404.astro        # Custom error page
-│   ├── components/
-│   │   └── ContactForm.astro # Contact form with webhook integration
-│   ├── layouts/
-│   │   └── Layout.astro     # Base HTML layout (SEO meta, viewport, styles)
-│   └── env.d.ts             # TypeScript declarations
-├── public/
-│   ├── CNAME                # Custom domain (turintechsolutions.com)
-│   └── favicon.ico          # Site favicon
-├── .github/workflows/
-│   └── deploy.yml           # GitHub Pages auto-deploy on push to main
-├── astro.config.mjs         # Astro configuration
-├── package.json             # Dependencies and scripts
-├── tsconfig.json            # TypeScript config
-├── AGENTS.md                # AI agent operating context
-├── CHANGELOG.md             # Version history
-├── CONTRIBUTING.md          # Contribution guidelines
-├── LICENSE                  # MIT license
-├── README.md                # This file
-└── SECURITY.md              # Security policy
-```
-
-## Quick Start
-
-### Prerequisites
-- **Node.js >= 22.12.0** — Use [nvm](https://github.com/nvm-sh/nvm) or your system package manager
-- **bun >= 1.2** — Install via `curl -fsSL https://bun.sh/install | bash` or `npm install -g bun`
-
-### Development
-
-```bash
-# Install dependencies
-bun install
-
-# Start dev server at localhost:4321
-bun run dev
-
-# Build for production (outputs to dist/)
-bun run build
-
-# Preview production build locally
-bun run preview
-```
-
-## Architecture
-
-The site uses **static site generation (SSG)** — all pages are pre-rendered to HTML at build time with zero client-side JavaScript overhead.
-
-```
-Source (.astro) → Astro Build → Static HTML + CSS → GitHub Pages
-```
-
-### Design Decisions
-
-| Decision | Rationale |
-|----------|-----------|
-| **Astro SSG** | Zero JS by default, fastest possible load times, markdown-like component syntax |
-| **Inline stylesheets** | All CSS inlined at build time — no render-blocking external CSS requests |
-| **Directory output** | Clean URLs (`/about` not `/about.html`) via `build.format: "directory"` |
-| **No framework** | Pure Astro + vanilla HTML/CSS — no React/Vue/Svelte overhead for a content site |
-| **Single dependency** | Only `astro` as a dependency — minimal attack surface, fast installs |
-| **bun** | Faster installs and builds than npm, native TypeScript support |
-
-### Performance
-
-- **100% Lighthouse score** target — zero client JS, inlined CSS, pre-rendered HTML
-- No analytics scripts or third-party fonts that slow page load
-- Static export deploys to GitHub Pages global CDN
-
-### SEO
-
-- JSON-LD structured data for organization schema
-- Open Graph meta tags for social sharing
-- Semantic HTML structure (`<header>`, `<main>`, `<footer>`, `<nav>`)
-- Custom 404 page with navigation links
-- Sitemap auto-generated by Astro
-
-### Contact Form
-
-The contact form uses a **serverless webhook** pattern:
-
-1. User fills form on the static site
-2. Form submits via `fetch()` to a configurable webhook URL
-3. Webhook processes the lead (no backend server needed)
-4. Form gracefully degrades if `PUBLIC_WEBHOOK_URL` is unset (honeypot + validation still active)
-
-No data is stored on the site itself — all submissions go directly to the webhook endpoint.
-
-## Environment Variables
-
-| Variable | Purpose | Required |
-|----------|---------|----------|
-| `PUBLIC_CONTACT_EMAIL` | Email address in JSON-LD schema and contact form | No (falls back to `contact@turintechsolutions.com`) |
-| `PUBLIC_WEBHOOK_URL` | Webhook URL for contact form submissions | No (form gracefully degrades if unset) |
-
-## Deployment
-
-The site is built and deployed to GitHub Pages automatically via `.github/workflows/deploy.yml` on push to `main`.
-
-**Deployment flow:**
-1. Push to `main` triggers the workflow
-2. `bun install && bun run build` generates `dist/`
-3. `peaceiris/actions-gh-pages` action deploys `dist/` to the `gh-pages` branch
-4. GitHub Pages serves from `gh-pages` at `turintechsolutions.com`
-
-### DNS Configuration
-
-The custom domain `turintechsolutions.com` is configured via:
-- `CNAME` file in the repository root
-- DNS `A` records pointing to GitHub Pages IPs (`185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`)
-
-## Tech Stack
-
-- **Framework**: [Astro](https://astro.build) v6 — static site generator
-- **Package Manager**: [bun](https://bun.sh) — fast JavaScript runtime and package manager
-- **Language**: JavaScript / TypeScript (`.astro`, `.ts`, `.js`)
-- **Hosting**: GitHub Pages — global CDN with custom domain
-- **Styling**: Inline CSS (all stylesheets inlined at build for performance)
-- **CI/CD**: GitHub Actions — auto-deploy on every push to main
-
-## Contributing
-
-Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines on our development process, coding standards, PR workflow, and code of conduct.
-
-## License
-
-MIT
+For licensing inquiries, contact: josh@turintechsolutions.com

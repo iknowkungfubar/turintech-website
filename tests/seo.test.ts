@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { existsSync, readFileSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -22,8 +22,8 @@ interface PageSEO {
 const PAGES: PageSEO[] = [
   {
     path: 'index.html',
-    title: 'Strategic Technology Consulting',
-    description: 'Technology should accelerate business execution',
+    title: 'Local IT Systems',
+    description: 'practical IT systems audits',
     hasOG: true,
     hasTwitter: true,
     hasJSONLD: true,

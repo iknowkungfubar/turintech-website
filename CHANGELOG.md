@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- **SMB repositioning**: Repositioned website from enterprise consulting to local SMB IT services in Orange County, CA
+  - Removed `/about`, `/services`, and `/portfolio` pages — content consolidated into single landing page
+  - Added four pricing tiers: Audit ($500), Quick Fix ($750), Cleanup Sprint ($1,500–$3,000), Managed Ops ($1,000–$2,500/mo)
+  - Updated all copy, SEO meta, JSON-LD schema, and nav anchors for local SMB focus
+  - Changed contact email from `contact@turintechsolutions.com` to `josh@turintechsolutions.com`
+
 ### Added
 - Test infrastructure: vitest + @vitest/ui, 8 build-output tests checking HTML structure, a11y, and sitemap
 - GitHub Actions: type checking (`astro check`) and test step (`vitest run`) added before build in deploy.yml
@@ -14,7 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `.gitattributes` with language-specific text/binary classification
 - Dependabot configuration for npm dependency updates
 - SECURITY.md with vulnerability disclosure policy
-- Portfolio showcase page (`/portfolio`) — cards for all 9 repos with descriptions, badges, key features, and terminal-style CLI previews
+- Free download: Shadow AI Red Flags guide (HTML + PDF) under `public/downloads/`
 
 ## [1.0.0] — 2026-06-03
 

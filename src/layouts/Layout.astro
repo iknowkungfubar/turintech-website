@@ -1,18 +1,40 @@
 ---
-import ContactForm from '../components/ContactForm.astro';
-
 export interface Props {
   title: string;
   description?: string;
   contactEmail?: string;
 }
 
-const { title, description = 'Technology consulting for startups and SMBs. System cleanup, infrastructure restructuring, enterprise integration, and private AI. No jargon, no bloat.' } = Astro.props;
+const { title, description = 'Local IT systems consulting for small businesses in Orange County, CA. IT audits, cleanup, and managed operations. No jargon. No bloat. Just technology that actually works.' } = Astro.props;
 const _b = import.meta.env.BASE_URL;
 const base = _b.endsWith('/') ? _b : _b + '/';
 
 // Email used in JSON-LD schema. Configurable via PUBLIC_CONTACT_EMAIL env var or Astro prop.
-const contactEmail = Astro.props.contactEmail || import.meta.env.PUBLIC_CONTACT_EMAIL || 'contact@turintechsolutions.com';
+const contactEmail = Astro.props.contactEmail || import.meta.env.PUBLIC_CONTACT_EMAIL || 'josh@turintechsolutions.com';
+
+// Build JSON-LD strings in frontmatter so TypeScript can trace variable usage
+const orgSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "TurinTech Solutions",
+  "url": "https://turintechsolutions.com",
+  description: "Local IT systems consulting for small businesses in Orange County, CA. IT audits, cleanup, and managed operations.",
+  contactPoint: {
+    "@type": "ContactPoint",
+    "contactType": "sales",
+    email: contactEmail
+  }
+});
+
+const serviceSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "TurinTech Solutions",
+  "url": "https://turintechsolutions.com",
+  description: "Local IT systems consulting for small businesses in Orange County, CA. IT audits, cleanup, and managed operations.",
+  "priceRange": "$$",
+  "areaServed": "Orange County, CA"
+});
 ---
 
 <!DOCTYPE html>
@@ -38,35 +60,8 @@ const contactEmail = Astro.props.contactEmail || import.meta.env.PUBLIC_CONTACT_
     <meta name="twitter:image" content={base + 'images/logo-optimized.png'} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image:alt" content="TurinTech Solutions — Technology Consulting" />
-    <script type="application/ld+json">
-      {`
-        {
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          "name": "TurinTech Solutions",
-          "url": "https://turintechsolutions.com",
-          "description": "Technology consulting for startups and SMBs. System cleanup, infrastructure restructuring, enterprise AI integration, and private AI systems.",
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "contactType": "sales",
-            "email": "${contactEmail}"
-          }
-        }
-      `}
-    </script>
-    <script type="application/ld+json">
-      {`
-        {
-          "@context": "https://schema.org",
-          "@type": "ProfessionalService",
-          "name": "TurinTech Solutions",
-          "url": "https://turintechsolutions.com",
-          "description": "Technology consulting for startups and SMBs. System cleanup, enterprise integration, infrastructure restructuring, and private AI.",
-          "priceRange": "$$$",
-          "areaServed": "United States"
-        }
-      `}
-    </script>
+    <script type="application/ld+json" is:inline set:html={orgSchema}></script>
+    <script type="application/ld+json" is:inline set:html={serviceSchema}></script>
     <!-- Self-hosted Inter variable font -->
     <link rel="preload" href={base + 'fonts/inter-var-latin.woff2'} as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href={base + 'fonts/inter.css'} />
@@ -94,7 +89,7 @@ const contactEmail = Astro.props.contactEmail || import.meta.env.PUBLIC_CONTACT_
         <div class="nav-right" id="nav-right">
           <div class="nav-links">
             <a href={base} class="nav-link">Home</a>
-            <a href={base + '#services'} class="nav-link">Services</a>
+            <a href={base + '#pricing'} class="nav-link">Services</a>
             <a href={base + '#about'} class="nav-link">About</a>
             <a href={base + '#contact-form-section'} class="btn btn-primary nav-cta">Get in Touch</a>
           </div>
@@ -111,11 +106,11 @@ const contactEmail = Astro.props.contactEmail || import.meta.env.PUBLIC_CONTACT_
       <div class="container">
         <div class="footer-inner">
             <p class="footer-tagline">
-              Comprehensive technology consulting for startups and SMBs.
+              Local IT systems consulting for small businesses in Orange County, CA.
             </p>
           <div class="footer-links">
             <a href={base}>Home</a>
-            <a href={base + '#services'}>Services</a>
+            <a href={base + '#pricing'}>Services</a>
             <a href={base + '#about'}>About</a>
           </div>
         </div>
