@@ -10,4 +10,10 @@
 
 A fast, static corporate site built with [Astro](https://astro.build) and deployed via GitHub Pages. 
 
-TurinTech Solutions all rights reserved, 2026.
+Copyright (c) 2026 TurinTech Solutions. All rights reserved.
+
+This source code and all associated assets are proprietary and confidential.
+Unauthorized copying, modification, distribution, or use of this material
+is strictly prohibited without prior written permission from TurinTech Solutions.
+
+For licensing inquiries, contact: josh@turintechsolutions.com
