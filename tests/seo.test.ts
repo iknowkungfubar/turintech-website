@@ -23,7 +23,7 @@ const PAGES: PageSEO[] = [
   {
     path: 'index.html',
     title: 'Local IT Systems',
-    description: 'practical IT systems audits',
+    description: 'IT systems audits',
     hasOG: true,
     hasTwitter: true,
     hasJSONLD: true,
