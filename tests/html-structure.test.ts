@@ -76,11 +76,11 @@ describe("Schema.org JSON-LD", () => {
     it.skip("(Home page build output not found)", () => {});
   } else {
     it("has Organization schema with company name", () => {
-      expect(html).toContain('"@type": "Organization"');
+      expect(html).toContain('"@type":"Organization"');
       expect(html).toContain("TurinTech Solutions");
     });
     it("has ProfessionalService schema", () => {
-      expect(html).toContain('"@type": "ProfessionalService"');
+      expect(html).toContain('"@type":"ProfessionalService"');
     });
     it("has 2+ application/ld+json script tags", () => {
       const matches = html.match(/<script type="application\/ld\+json">/g);
