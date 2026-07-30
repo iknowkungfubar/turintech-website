@@ -5,7 +5,7 @@ export interface Props {
   contactEmail?: string;
 }
 
-const { title, description = 'Local IT systems consulting for small businesses in Orange County, CA. IT audits, cleanup, and managed operations. No jargon. No bloat. Just technology that actually works.' } = Astro.props;
+const { title, description = 'Local IT systems consulting for small businesses in Orange County, CA. IT audits, cleanup, and managed operations.' } = Astro.props;
 const _b = import.meta.env.BASE_URL;
 const base = _b.endsWith('/') ? _b : _b + '/';
 
@@ -59,7 +59,7 @@ const serviceSchema = JSON.stringify({
     <meta property="og:url" content={`https://turintechsolutions.com${base}`} />
     <meta name="twitter:image" content={base + 'images/logo-optimized.png'} />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image:alt" content="TurinTech Solutions — Technology Consulting" />
+    <meta name="twitter:image:alt" content="TurinTech Solutions - Local IT Consulting for Orange County Businesses" />
     <script type="application/ld+json" is:inline set:html={orgSchema}></script>
     <script type="application/ld+json" is:inline set:html={serviceSchema}></script>
     <!-- Self-hosted Inter variable font -->

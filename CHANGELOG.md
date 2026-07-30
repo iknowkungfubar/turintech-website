@@ -21,7 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `.gitattributes` with language-specific text/binary classification
 - Dependabot configuration for npm dependency updates
 - SECURITY.md with vulnerability disclosure policy
-- Free download: Shadow AI Red Flags guide (HTML + PDF) under `public/downloads/`
+- Free download: Shadow AI Red Flags guide (HTML) under `public/downloads/`
 
 ## [1.0.0] — 2026-06-03
 
