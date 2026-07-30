@@ -8,16 +8,16 @@
 [![CodeQL](https://github.com/iknowkungfubar/turintech-website/actions/workflows/dynamic/github-code-scanning/codeql/badge.svg)](https://github.com/iknowkungfubar/turintech-website/security/code-scanning)
 [![Performance](https://img.shields.io/badge/performance-100%25-brightgreen)](https://turintechsolutions.com)
 
-A fast, static corporate site built with [Astro](https://astro.build) and deployed via GitHub Pages. Presents TurinTech Solutions' three simple offers: a flat-rate IT Systems Audit ($500), fixed-price Cleanup Sprints ($1,500–$3,000), and a month-to-month Managed Ops Retainer ($1,000–$2,500/mo). Also includes a free lead magnet (Shadow AI Red Flags guide).
+A fast, static corporate site built with [Astro](https://astro.build) and deployed via GitHub Pages. Presents TurinTech Solutions' three simple offers: a flat-rate IT Systems Audit ($500), fixed-price Cleanup Sprints ($1,500–$3,000), and a month-to-month Managed Ops Retainer ($1,000–$2,500/mo). Also includes a free Shadow AI red flags checklist download.
 
 ## Pages
 
 | Route | Content |
 |-------|---------|
-| `/` | Landing page — local SMB positioning, 3 pricing offers, lead magnet download, about section, contact form |
+| `/` | Landing page — local SMB positioning, 3 pricing tiers, free download, about section, contact form |
 | `/404` | Custom error page with navigation fallback |
 
-Each page is a static `.astro` file in `src/pages/`, pre-rendered at build time. Downloadable assets (lead magnet) live under `public/downloads/`.
+Each page is a static `.astro` file in `src/pages/`, pre-rendered at build time. Downloadable assets live under `public/downloads/`.
 
 ## Project Structure
 
@@ -25,7 +25,7 @@ Each page is a static `.astro` file in `src/pages/`, pre-rendered at build time.
 turintech-website/
 ├── src/
 │   ├── pages/
-│   │   ├── index.astro      # Landing page (SMB positioning, pricing, lead magnet, contact)
+│   │   ├── index.astro      # Landing page (SMB positioning, pricing tiers, free download, contact)
 │   │   └── 404.astro        # Custom error page
 │   ├── components/
 │   │   └── ContactForm.astro # Contact form with webhook integration
@@ -34,7 +34,7 @@ turintech-website/
 │   └── env.d.ts             # TypeScript declarations
 ├── public/
 │   ├── CNAME                # Custom domain (turintechsolutions.com)
-│   ├── downloads/           # Lead magnet
+│   ├── downloads/           # Free downloadable resources
 │   │   ├── shadow-ai-red-flags.html
 │   │   └── shadow-ai-red-flags.pdf
 │   └── favicon.ico          # Site favicon
