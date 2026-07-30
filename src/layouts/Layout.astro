@@ -10,8 +10,31 @@ const _b = import.meta.env.BASE_URL;
 const base = _b.endsWith('/') ? _b : _b + '/';
 
 // Email used in JSON-LD schema. Configurable via PUBLIC_CONTACT_EMAIL env var or Astro prop.
-// eslint-disable-next-line @typescript-eslint/no-unused-vars -- used in JSON-LD template literals below
 const contactEmail = Astro.props.contactEmail || import.meta.env.PUBLIC_CONTACT_EMAIL || 'josh@turintechsolutions.com';
+
+// Build JSON-LD strings in frontmatter so TypeScript can trace variable usage
+const orgSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "TurinTech Solutions",
+  "url": "https://turintechsolutions.com",
+  description: "Local IT systems consulting for small businesses in Orange County, CA. IT audits, cleanup, and managed operations.",
+  contactPoint: {
+    "@type": "ContactPoint",
+    "contactType": "sales",
+    email: contactEmail
+  }
+});
+
+const serviceSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "TurinTech Solutions",
+  "url": "https://turintechsolutions.com",
+  description: "Local IT systems consulting for small businesses in Orange County, CA. IT audits, cleanup, and managed operations.",
+  "priceRange": "$$",
+  "areaServed": "Orange County, CA"
+});
 ---
 
 <!DOCTYPE html>
@@ -37,35 +60,8 @@ const contactEmail = Astro.props.contactEmail || import.meta.env.PUBLIC_CONTACT_
     <meta name="twitter:image" content={base + 'images/logo-optimized.png'} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image:alt" content="TurinTech Solutions — Technology Consulting" />
-    <script type="application/ld+json" is:inline>
-      {`
-        {
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          "name": "TurinTech Solutions",
-          "url": "https://turintechsolutions.com",
-          "description": "Local IT systems consulting for small businesses in Orange County, CA. IT audits, cleanup, and managed operations.",
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "contactType": "sales",
-            "email": "${contactEmail}"
-          }
-        }
-      `}
-    </script>
-    <script type="application/ld+json" is:inline>
-      {`
-        {
-          "@context": "https://schema.org",
-          "@type": "ProfessionalService",
-          "name": "TurinTech Solutions",
-          "url": "https://turintechsolutions.com",
-          "description": "Local IT systems consulting for small businesses in Orange County, CA. IT audits, cleanup, and managed operations.",
-          "priceRange": "$$$",
-          "areaServed": "United States"
-        }
-      `}
-    </script>
+    <script type="application/ld+json" is:inline set:html={orgSchema}></script>
+    <script type="application/ld+json" is:inline set:html={serviceSchema}></script>
     <!-- Self-hosted Inter variable font -->
     <link rel="preload" href={base + 'fonts/inter-var-latin.woff2'} as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href={base + 'fonts/inter.css'} />

@@ -8,13 +8,13 @@
 [![CodeQL](https://github.com/iknowkungfubar/turintech-website/actions/workflows/dynamic/github-code-scanning/codeql/badge.svg)](https://github.com/iknowkungfubar/turintech-website/security/code-scanning)
 [![Performance](https://img.shields.io/badge/performance-100%25-brightgreen)](https://turintechsolutions.com)
 
-A fast, static corporate site built with [Astro](https://astro.build) and deployed via GitHub Pages. Presents TurinTech Solutions' three simple offers: a flat-rate IT Systems Audit ($500), fixed-price Cleanup Sprints ($1,500–$3,000), and a month-to-month Managed Ops Retainer ($1,000–$2,500/mo). Also includes a free Shadow AI red flags checklist download.
+A fast, static corporate site built with [Astro](https://astro.build) and deployed via GitHub Pages. Presents TurinTech Solutions' offers: IT Systems Audit ($500), Quick Fix ($750), Cleanup Sprints ($1,500–$3,000), and Managed Ops Retainer ($1,000–$2,500/mo). Also includes a free Shadow AI red flags checklist download.
 
 ## Pages
 
 | Route | Content |
 |-------|---------|
-| `/` | Landing page — local SMB positioning, 3 pricing tiers, free download, about section, contact form |
+| `/` | Landing page — local SMB positioning, pricing tiers, free download, about section, contact form |
 | `/404` | Custom error page with navigation fallback |
 
 Each page is a static `.astro` file in `src/pages/`, pre-rendered at build time. Downloadable assets live under `public/downloads/`.

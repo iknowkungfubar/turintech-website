@@ -78,7 +78,7 @@ const base = _base.endsWith('/') ? _base : _base + '/';
       <div class="diff-grid">
         <div class="diff-content">
           <span class="section-label">How I Fix It</span>
-          <h2 class="section-title">Audit. Clean. Maintain. That's It.</h2>
+          <h2 class="section-title">Audit. Fix. Clean. Maintain.</h2>
           <p class="section-subtitle">
             I'm a solo consultant — not an agency. You work directly with me, not a salesperson who hands you off to a junior dev. Here's the process:
           </p>
@@ -93,14 +93,21 @@ const base = _base.endsWith('/') ? _base : _base + '/';
             <li class="diff-item">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="diff-check"><polyline points="20 6 9 17 4 12"/></svg>
               <div>
-                <strong>2. Cleanup Sprint</strong>
+                <strong>2. Quick Fix ($750)</strong>
+                <span>Smaller fixes from the audit — resolved fast. No need for a full sprint if the issues are contained.</span>
+              </div>
+            </li>
+            <li class="diff-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="diff-check"><polyline points="20 6 9 17 4 12"/></svg>
+              <div>
+                <strong>3. Cleanup Sprint</strong>
                 <span>I fix what the audit found — security gaps, misconfigurations, disconnected tools. Fixed-price sprints so you know the cost upfront. No hourly billing surprises.</span>
               </div>
             </li>
             <li class="diff-item">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="diff-check"><polyline points="20 6 9 17 4 12"/></svg>
               <div>
-                <strong>3. Managed Ops Retainer</strong>
+                <strong>4. Managed Ops Retainer</strong>
                 <span>Ongoing monitoring, maintenance, and support. Your systems stay clean, secure, and updated. Month-to-month — cancel anytime.</span>
               </div>
             </li>
@@ -146,7 +153,7 @@ const base = _base.endsWith('/') ? _base : _base + '/';
   <section class="section" id="pricing">
     <div class="container">
       <span class="section-label">Simple Pricing</span>
-      <h2 class="section-title">Three Offers. <span class="text-accent">No Surprises.</span></h2>
+      <h2 class="section-title">Simple Offers. <span class="text-accent">No Surprises.</span></h2>
       <p class="section-subtitle">
         Every engagement starts with an audit. From there, you choose what makes sense for your business.
       </p>
@@ -170,10 +177,25 @@ const base = _base.endsWith('/') ? _base : _base + '/';
 
         <!-- Offer 2 -->
         <article class="card pricing-card">
-          <h3 class="pricing-title">Systems Cleanup Sprint</h3>
+          <h3 class="pricing-title">Quick Fix</h3>
+          <div class="pricing-amount">$750</div>
+          <p class="pricing-duration">flat fee</p>
+          <p class="pricing-desc">I resolve the top issues found in your audit. Small fixes, immediate results — no long engagement needed.</p>
+          <ul class="pricing-features">
+            <li>Remediate the 3 audit findings</li>
+            <li>Security quick-wins implemented</li>
+            <li>Basic documentation delivered</li>
+            <li>Includes the audit if bundled</li>
+          </ul>
+          <a href="#contact-form-section" class="btn btn-secondary pricing-cta">Get a Quote</a>
+        </article>
+
+        <!-- Offer 3 -->
+        <article class="card pricing-card">
+          <h3 class="pricing-title">Cleanup Sprint</h3>
           <div class="pricing-amount">$1,500 – $3,000</div>
           <p class="pricing-duration">fixed price</p>
-          <p class="pricing-desc">I fix what the audit found. Security gaps closed, systems connected, documentation written.</p>
+          <p class="pricing-desc">A full cleanup of what the audit uncovered. Security gaps closed, systems connected, documentation written.</p>
           <ul class="pricing-features">
             <li>Security baseline enforced</li>
             <li>SaaS cleanup & consolidation</li>
@@ -183,7 +205,7 @@ const base = _base.endsWith('/') ? _base : _base + '/';
           <a href="#contact-form-section" class="btn btn-secondary pricing-cta">Get a Quote</a>
         </article>
 
-        <!-- Offer 3 -->
+        <!-- Offer 4 -->
         <article class="card pricing-card">
           <h3 class="pricing-title">Managed IT Ops Retainer</h3>
           <div class="pricing-amount">$1,000 – $2,500</div>
@@ -305,7 +327,7 @@ const base = _base.endsWith('/') ? _base : _base + '/';
   .free-download-note { font-size: var(--text-sm); color: var(--color-text-tertiary); margin: 0; }
 
   /* Pricing */
-  .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); margin-top: var(--space-8); }
+  .pricing-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-6); margin-top: var(--space-8); }
   @media (max-width: 768px) { .pricing-grid { grid-template-columns: 1fr; max-width: 400px; margin-left: auto; margin-right: auto; } }
   .pricing-card { display: flex; flex-direction: column; position: relative; padding: var(--space-8); }
   .pricing-card--featured { border-color: var(--color-accent); border-width: 2px; }
