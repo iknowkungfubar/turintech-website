@@ -23,6 +23,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - SECURITY.md with vulnerability disclosure policy
 - Free download: Shadow AI Red Flags guide (HTML) under `public/downloads/`
 
+### Removed
+- Stale npm lockfile (`package-lock.json`) — bun is the canonical package manager (`bun.lock`)
+
 ## [1.0.0] — 2026-06-03
 
 ### Added
